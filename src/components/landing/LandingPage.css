@@ -1,0 +1,63 @@
+
+
+.landing-page{
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    min-width:100vw;
+    background-image: url('https://camo.githubusercontent.com/0b27b765e1200d4a03cfd40b02c582ff9aa827f88f512888564c88528b1f40ba/68747470733a2f2f692e696d6775722e636f6d2f746a504f72347a2e706e67');
+     background-size: contain;
+      background-position: right;
+      background-repeat: no-repeat;
+
+}
+
+.font{
+        margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text{
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+
+
+.form{
+
+    position: relative;
+}
+
+.fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+.input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.input:focus{
+    box-shadow: 0 0 20px #1E90FF;
+     outline: none;
+     border: #17a2b8 solid 2px;
+}
+
+@media only screen and (max-width: 700px) {
+
+      .input {
+    width: 80vw;
+  }
+
+}

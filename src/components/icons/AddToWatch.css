@@ -1,0 +1,45 @@
+.add-to-watch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: rgb(6, 6, 73);
+  cursor: pointer;
+  position: relative;
+}
+
+
+.add-to-watch:hover::before {
+  margin-top: 0.5em;
+  content: "Login to add this film to your watch list";
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5em;
+  background-color: rgb(6, 6, 73);
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.add-to-watch:hover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent  rgb(6, 6, 73) transparent;
+}
+
+.add-to-watch .fa-bookmark {
+  font-size: 0.75em;
+  /* other styles */
+  color: white;
+}

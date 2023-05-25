@@ -1,0 +1,137 @@
+
+
+.login-form{
+    background-color: #313a41;
+    margin: 0%;
+    padding: 0%;
+    position: relative;
+    height: 100vh;
+}
+
+.login-form-container{
+    position: absolute;
+    height: 80vh;
+    /* border: 2px solid black; */
+    width: 40vw;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 30%;
+/* font-family:Arial, Helvetica, sans-serif; */
+ font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      background-color:white;
+
+}
+
+.fa-user{
+    color: gray;
+}
+.fa-user:hover{
+    color:black;
+   box-shadow: 2px 2px 2px 2px #888888;
+     
+
+}
+
+
+.login-forms{
+
+    margin-top: 10%;
+}
+
+.login-nav-label{
+    border: 1px solid gainsboro;
+}
+
+.user-login-username{
+    position: relative;
+}
+
+.fa-user-user{
+    
+    position: absolute;
+    top:10px;
+    left: 15px;
+    color: gray;
+}
+
+.fa-user-eye{
+    position: absolute;
+    top: 10px;
+    right: 14%;
+    color: gray;
+}
+
+
+
+/* .icon-box{
+    height: 34px;
+    width: 42px;
+    background-color: whitesmoke;
+    position: absolute;
+     border-radius: 3px;
+     top: 1px;
+     left: 2px;
+     margin-left: 40px;
+     
+} */
+
+.fa-user-user:hover{
+    background-color: transparent;
+}
+
+.login-input{
+
+    text-indent: 45px;
+    border-radius: 5px;
+    width: 80%;
+    margin-left: 40px;
+
+}
+
+.user-login-heading{
+    margin-bottom: 5%;
+    text-align: left;
+    margin-left: 9%;
+}
+
+.user-login-password{
+    position: relative;
+}
+
+.fa-user-password{
+     position: absolute;
+    top:10px;
+    left: 15px;
+    color: gray;
+}
+
+.fa-user-eye:hover{
+    cursor: pointer;
+}
+
+
+.fa-user-eye{
+    position: absolute;
+    top: 7.5vh;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .login-form-container{
+        width: 80%;
+        margin-left: 10%;
+    
+    }
+
+    
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    .login-form-container{
+        width: 60%;
+        margin-left: 20%;
+    
+    }
+}

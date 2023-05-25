@@ -1,0 +1,35 @@
+
+
+.film-box{
+    margin: 2vw;
+    height: 23vh;
+    padding-right: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.searchbox-overview {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+  @media only screen and (max-width: 1000px){
+.searchbox-overview {
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+
+  }

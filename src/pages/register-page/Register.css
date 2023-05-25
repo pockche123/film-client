@@ -1,0 +1,105 @@
+
+.register-form{
+position: relative;
+    height: 100%;
+    width:100vw;
+      display: flex; /* Use flexbox */
+}
+
+.register-image{
+    flex:1;
+    background-color: black;
+
+}
+.register-image img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+   transform: translateY(-0px); /* Adjust the value as needed */
+
+}
+
+
+.register-errors{
+    height: 150px;
+}
+.register-form-container{
+    flex:1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    /* font-family:Arial, Helvetica, sansserif; */
+      font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+.register-form-heading{
+    margin-top: 5%;
+}
+
+.invalid-register-input{
+    margin: 2%;
+    text-align: left;
+    margin-left: 8%;
+
+}
+
+.fa-user-ninja, .fa-envelope, .fa-key {
+       
+    position: absolute;
+    top:10px;
+    left: 15px;
+    color: gray;
+}
+
+
+span.alert.alert-danger {
+  padding: 5px; /* Adjust the padding to control the size of the area */
+}
+
+
+
+.icon-box{
+    height: 34px;
+    width: 42px;
+    background-color: whitesmoke;
+    position: relative;
+     border-radius: 3px;
+     top: 36px;
+     left: 2px;
+     margin-left: 40px;
+     
+}
+
+
+
+@media (max-width: 600px) {
+
+.register-image {
+flex:0.1;
+}
+span.alert.alert-danger {
+  padding: 5px; /* Adjust the padding to control the size of the area */
+  font-size: smaller; /* Optionally, you can also adjust the font size */
+}
+
+}
+
+
+@media (min-width: 600px) and (max-width: 800px) {
+
+.register-image {
+flex: 0.4;
+}
+
+/* .invalid-register-input{
+    font-size: 'smaller';
+} */
+
+span.alert.alert-danger {
+  padding: 5px; /* Adjust the padding to control the size of the area */
+  font-size: small; /* Optionally, you can also adjust the font size */
+}
+}
+
+
+
+
+
