@@ -55,7 +55,7 @@ const SearchPage = () => {
   }
 
   return (
-    <div>
+    <div className="search-page">
       {searchedFilms.length > 0 ? (
         searchedFilms.map(film => (
           <div

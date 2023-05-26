@@ -1,17 +1,32 @@
 
-body{
+ body{
   padding:0; 
   margin:0;
   z-index:-1;
   overflow-x:hidden;
+  position:relative;
+  min-height: 100%; 
+  padding-bottom: 6.75rem;
+  box-sizing: inherit;
 }
 
 
+/* body{
+  display: flex; 
+  flex-direction: column;
+  min-height: 100vh; 
+} */
 
 
 
-.App {
+
+.app {
   text-align: center;
-
+  height: 100%; 
+  box-sizing: border-box;
+  /* flex-grow: 1;  */
 }
+
+
+
 

@@ -44,9 +44,10 @@ border-radius: 3px;
 }
 
 .film-card-container{
-    height: 550px;
+    height: 600px;
     background-color: black;
       position: relative;
+
 }
  .film-card{
     background-repeat: no-repeat;

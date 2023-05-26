@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import FilmCard from './FilmCard'
 import { Film } from '../interfaces/IFilm'
 import Carousel from 'react-material-ui-carousel'

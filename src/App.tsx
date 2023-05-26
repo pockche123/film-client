@@ -18,10 +18,11 @@ import AccessNotAllowed from './pages/AccessNotAllowed'
 import RequireAuth from './components/auth/RequireAuth'
 import DemoPage from './pages/user-page/DemoPage'
 import PersistLogin from './components/services/Utils/PersistLogin'
+import Footer from './components/footer/Footer'
 
 function App () {
   return (
-    <div className='App'>
+    <div className='app'>
       <Header />
 
       <Routes>
@@ -49,6 +50,7 @@ function App () {
           </Route>
         </Route>
       </Routes>
+      <Footer/>
     </div>
   )
 }
