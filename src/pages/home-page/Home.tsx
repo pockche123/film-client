@@ -6,10 +6,8 @@ const Home = () => {
   return (
     <div className='home-page' style={{ overflow: 'hidden'}}>
       <LandingPage />
-      <Films />
-      <div style={{marginTop: "6.5rem"}}>
-        
-        </div>
+    
+        <Films />
     </div>
   )
 }

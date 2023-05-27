@@ -13,7 +13,7 @@ const Login = () => {
   const [guestLogin, setGuestLogin] = useState<boolean>(true)
 
   return (
-<div className="login-form">
+<div className="login-form" style={{minHeight: '120vh'}}>
     <div className='login-form-container'>
 
         <div className='login-nav'>
