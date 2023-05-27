@@ -26,6 +26,7 @@ const FilmPage = () => {
         {activeSection === 'overview' && <FilmOverview film={film} />}
         {activeSection === 'images' && <FilmImages film={film} />}
       </div>
+
     </div>
   )
 }

@@ -1,8 +1,8 @@
 
 
 .search-page{
-  height: 100vh; 
-  width: 100vw; 
+  height: 100%; 
+  width: 100%; 
     /* padding:0; 
   margin:0;
   z-index:-1;
@@ -10,6 +10,7 @@
   position:relative;
   min-height: 100%; 
   padding-bottom: 6.75rem; */
+  min-height: 100vh;
 }
 
 .film-box{
