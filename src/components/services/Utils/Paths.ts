@@ -6,6 +6,6 @@ export const Paths = {
     searchQuery: "/searchQuery/",
     login: '/login',
     register: "/register",
-    userPage: '/userPage/',
+    userPage: '/userPage',
     accessNotAllowed : "/accessNotAllowed"
 }
