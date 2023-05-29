@@ -1,6 +1,7 @@
 
 import { login } from '../API/Auth'
-import { getTheCurrentUser } from '../API/Users';
+import { URI } from '../API/Http';
+import { AxiosInstance } from 'axios';
 
 
 export const handleLogin = (
@@ -9,7 +10,8 @@ export const handleLogin = (
   setWrongCred: Function,
   setAuth: Function,
   setErrMessage: Function,
-  from: any
+  from: any,
+  axiosPrivate: AxiosInstance
 ) => {
   login(loginDetails)
     .then(res => {
@@ -25,7 +27,8 @@ export const handleLogin = (
         setWrongCred,
         setAuth,
         refreshToken,
-        from
+        from, 
+        axiosPrivate
       )
     })
     .catch(e => {
@@ -44,18 +47,22 @@ export const handleLogin = (
     })
 }
 
-
-
-
 export const handleCurrentUser = (
   accessToken: string,
   navigate: Function,
   setWrongCred: Function,
   setAuth: Function,
   refreshToken: string,
-  from: any
+  from: any,
+  axiosPrivate: AxiosInstance
 ) => {
-  getTheCurrentUser(accessToken)
+
+  axiosPrivate.get(URI.Auth + '/current-user', {
+  headers: {
+    Authorization: `Bearer ${accessToken}`
+  }
+})
+  // getTheCurrentUser(accessToken)
     .then(response => {
       // Handle the successful response here
       // console.log("handleCurrentUser ,", response.data)
@@ -67,11 +74,11 @@ export const handleCurrentUser = (
       const username = response.data.username
 
       // navigate(Paths.userPage + username)
-      navigate(from, { replace: true })
+      navigate(from, { replace: true, state:{user} })
     })
     .catch(error => {
       // Handle the error here
-      setWrongCred(false)
+      setWrongCred(true)
 
       console.error(error)
     })

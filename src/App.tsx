@@ -10,16 +10,17 @@ import Home from './pages/home-page/Home'
 import SearchPage from './pages/search-page/SearchPage'
 import PageNotFound from './pages/PageNotFound'
 import Login from './pages/login-page/Login'
-import UserPage from './pages/user-page/UserPage'
+import UserPage from './pages/user-pages/UserPage'
 import Register from './pages/register-page/Register'
 import { Paths } from './components/services/Utils/Paths'
 import Layout from './components/layout/Layout'
 import AccessNotAllowed from './pages/AccessNotAllowed'
 import RequireAuth from './components/auth/RequireAuth'
-import DemoPage from './pages/user-page/DemoPage'
+import DemoPage from './pages/user-pages/DemoPage'
 import PersistLogin from './components/services/Utils/PersistLogin'
 import Footer from './components/footer/Footer'
 import React from 'react'
+import UserLandingPage from './pages/user-pages/landing-page/UserLandingPage'
 
 function App () {
   return (
@@ -43,8 +44,8 @@ function App () {
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={['USER']} />}>
               <Route
-                path={Paths.userPage + ':username'}
-                element={<UserPage />}
+                path={Paths.userPage}
+                element={<UserLandingPage />}
               />
               <Route path='/demoPage' element={<DemoPage />} />
             </Route>

@@ -5,6 +5,7 @@ import { handleLogin } from '../services/Utils/LoginUtils'
 import { useEffect, useState } from 'react'
 import useAuth from '../hooks/useAuth'
 import { Paths } from '../services/Utils/Paths'
+import { useAxiosPrivate } from '../hooks/useAxiosPrivate'
 
 const GuestLogin = () => {
   const navigate = useNavigate()
@@ -12,8 +13,10 @@ const GuestLogin = () => {
   const { setAuth, persist, setPersist } = useAuth() as any
   const [errMessage, setErrMessage] = useState('')
   const location = useLocation()
-  const username = 'guest1'
-  const from = location.state?.from?.pathname || Paths.userPage + username
+  // const username = 'guest1'
+  const from = location.state?.from?.pathname || Paths.userPage;
+  const axiosPrivate = useAxiosPrivate()
+
 
   const handleGuestLogin = () => {
     const guestLoginDetails = {
@@ -27,7 +30,8 @@ const GuestLogin = () => {
       setWrongCred,
       setAuth,
       setErrMessage,
-      from
+      from,
+      axiosPrivate
     )
   }
 
