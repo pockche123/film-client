@@ -19,6 +19,7 @@ import RequireAuth from './components/auth/RequireAuth'
 import DemoPage from './pages/user-page/DemoPage'
 import PersistLogin from './components/services/Utils/PersistLogin'
 import Footer from './components/footer/Footer'
+import React from 'react'
 
 function App () {
   return (
