@@ -26,7 +26,6 @@ function App () {
   return (
     <div className='app'>
       <Header />
-
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path={Paths.home} element={<Home />} />
@@ -51,7 +50,7 @@ function App () {
             </Route>
           </Route>
         </Route>
-      </Routes>
+        </Routes>
       <Footer/>
     </div>
 

@@ -4,18 +4,32 @@ import { useState } from 'react'
 import FilmNav from '../../components/films/FilmNav'
 import FilmOverview from '../../components/films/FilmOverview'
 import FilmImages from '../../components/films/FilmImages'
+import Review from '../../components/review/Review'
+import FilmSocialNav from '../../components/films/FilmSocialNav'
+import Discussion from '../../components/discussion/Discussion'
+import FilmPoster from '../../components/films/FilmPoster'
 
 const FilmPage = () => {
   const [activeSection, setActiveSection] = useState('overview')
+  const [socialActiveSection, setSocialActiveSection] = useState('reviews')
   const location = useLocation()
   const film = location.state && location.state.film
 
   const handleSectionChange = (section: string) => {
-    setActiveSection(section)
+    setActiveSection(section);
+  }
+
+  const handleSocialSectionChange = (section: string) => {
+    setSocialActiveSection(section);
   }
 
   return (
     <div className='film-container'>
+  
+      <div className='film-page-poster'>
+        <FilmPoster film={film} />
+      </div>
+      <div className='film-content'>
       <div className='film-navs'>
         <FilmNav
           activeSection={activeSection}
@@ -26,7 +40,21 @@ const FilmPage = () => {
         {activeSection === 'overview' && <FilmOverview film={film} />}
         {activeSection === 'images' && <FilmImages film={film} />}
       </div>
+      <div className="film-socials">
+        <div className="film-social-nav">
+          <FilmSocialNav
+            activeSection={socialActiveSection}
+            onSectionChange={handleSocialSectionChange}
+          />
 
+        </div>
+      <div>
+          {socialActiveSection === 'reviews' && <Review film={film} />}
+          {socialActiveSection === 'discussions' && <Discussion film={film}/>}
+
+        </div>
+      </div>
+</div>
     </div>
   )
 }
