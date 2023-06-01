@@ -5,12 +5,56 @@
     height: 100%; */
     min-height: 100vh;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      display: flex;
+        position: relative; /* Add this line */
+
+ 
+
+}
+
+.film-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+
+}
 
 
+  .film-page-poster {
+      width: 30%; /* Use width instead of flex-basis */
+  /* background-color: black;  */
+  position: sticky;
+  top: 0;
+  height: 100vh; /* Adjust the height as needed */
+  overflow-y: auto;
+} 
+
+.poster {
+  width: 80%; 
+  left: 10%; 
+  max-height: '100vh';
+   /* overflow-y: 'auto'; */
+  top: 5%;
+
+}
+.poster img{
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+
+
+}
+.film-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto; /* Pushes the div to the bottom */
 }
 
 .film-info {
   position: relative;
+  z-index: -1; 
 
 }
 
@@ -121,10 +165,9 @@
   .overview{
     display: column;
     position:relative;
-    width: 67vw;
+    /* width: 67vw; */
     text-align: left;
-    margin-left: 4%;
-    margin-top: 6%;
+    margin-top: 3%;
     margin-right: 3%;
     font-size: 1em;
     padding: 1%;
@@ -133,11 +176,71 @@
   }
 
 
- @media only screen and (max-width: 900px){
+  
+
+  @media only screen  and (max-width: 700px){
+    .film-container{
+      display: inline-block;
+          min-height: 100vh; /* Set the height to 100% of the viewport height */
+
+      margin-top: 0;
+      margin-bottom: 10%; 
+      
+    }
+
+    .film-page-poster{
+      width: 100%;
+      position: relative; 
+
+    }
+    .film-info{
+      width: 90vw; 
+      display: flex; 
+      flex-direction: column;
+    }
+
+    .poster{
+      width: 40%; 
+        top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+
+    }
+
+    .overview{
+      min-height: 100vh;
+    }
+
+     .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+   display: flex; 
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  
+
+}
+  }
+
+
+  @media only screen and (max-width: 500px){
+    .poster{
+      width: 50%; 
+        top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+
+  }
+
+}
+
 /* 
-  .film-container{
-    min-height: 200vh;
-  } */
+ @media only screen and (max-width: 900px){
 
   .film-info{
     min-height: 180vh;
@@ -158,9 +261,7 @@
     }
  
     .icons {
-  /* display: flex; */
-/* flex-wrap:wrap; */
-  /* ustify-content: space-between;  */
+
  align-items: center;
   width:80%;
 } 
@@ -168,11 +269,6 @@
   left: 4vw;
 }
 
-/* .film-info {
-  background-image: linear-gradient(to bottom, rgb(220, 218, 218), rgb(193, 176, 176));
- z-index: -100;
-
-} */
 
 
 .overview{
@@ -191,4 +287,5 @@ left: 2vw;
 }
 
 
-}
+} */
+
