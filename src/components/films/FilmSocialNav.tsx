@@ -15,27 +15,28 @@ const FilmSocialNav = ({
   }
   return (
     <div className='film-social-nav-container'>
+      <h4 style={{marginRight: '15%', textAlign:'left'}} >Social</h4>
       <label
         className='film-social-nav-label'
         style={{
           cursor: 'pointer',
           borderBottom:
-            activeSection === 'reviews' ? '4px solid #00BFFF' : 'none'
+            activeSection === 'reviews' ? '4px solid black' : 'none'
         }}
         onClick={handleReviews}
       >
-        <h6>Reviews</h6>
+        <h5>Reviews</h5>
       </label>
       <label
         className='film-social-nav-label'
         style={{
           cursor: 'pointer',
           borderBottom:
-            activeSection === 'discussions' ? '4px solid #00BFFF' : 'none'
+            activeSection === 'discussions' ? '4px solid black' : 'none'
         }}
         onClick={handleDiscussions}
       >
-        <h6>Discussions</h6>
+        <h5>Discussions</h5>
       </label>
     </div>
   )

@@ -6,13 +6,13 @@
   overflow-x:hidden;
   position:relative;
   min-height: 100%; 
-  /* box-sizing: inherit; */
+  box-sizing: inherit;
 }
 
 
 html {
   height: 100%;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 /* body{

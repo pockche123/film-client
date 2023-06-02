@@ -11,6 +11,8 @@ export const get = async (URI: string, imdbId: string) => await axios.get(URI + 
 
 export const getTitle = async (URI: string, title: string) => await axios.get(URI + "/title/" + title);
 
+export const getReviewsByFilm = async (URI: string, title: string) => await axios.get(URI + "/film/" + title);
+
 
 
 export const getCurrentUser = async (URI: string, token: string) => await axios.get(URI + "/current-user", {

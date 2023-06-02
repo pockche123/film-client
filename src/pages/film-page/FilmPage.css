@@ -46,11 +46,40 @@
 
 }
 .film-socials {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: auto; /* Pushes the div to the bottom */
+   display: flex;
+ flex-direction: column;
+  margin-top:100vh;
+  /* height: 70vh; */
+  border: 1px solid black;
+  width: 60vw;
+
+ 
 }
+.film-social-nav{
+  text-align: left;
+}
+.social{
+  margin-top: 2%; 
+  padding:2%; 
+  /* height:50vh; */
+    /* box-shadow: 0 0 2px 2px gainsboro; */
+ 
+}
+
+.no-reviews{
+  
+}
+
+.reviews-present{
+  height: 50vh; 
+     box-shadow: 0 0 2px 2px gainsboro;
+      border-radius: 5px;
+
+}
+
+
+
+
 
 .film-info {
   position: relative;

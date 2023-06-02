@@ -4,10 +4,11 @@ import { useState } from 'react'
 import FilmNav from '../../components/films/FilmNav'
 import FilmOverview from '../../components/films/FilmOverview'
 import FilmImages from '../../components/films/FilmImages'
-import Review from '../../components/review/Review'
 import FilmSocialNav from '../../components/films/FilmSocialNav'
 import Discussion from '../../components/discussion/Discussion'
 import FilmPoster from '../../components/films/FilmPoster'
+import ReviewBlock from '../../components/review/ReviewBlock'
+
 
 const FilmPage = () => {
   const [activeSection, setActiveSection] = useState('overview')
@@ -48,8 +49,8 @@ const FilmPage = () => {
           />
 
         </div>
-      <div>
-          {socialActiveSection === 'reviews' && <Review film={film} />}
+      <div className="social">
+          {socialActiveSection === 'reviews' && <ReviewBlock film={film} />}
           {socialActiveSection === 'discussions' && <Discussion film={film}/>}
 
         </div>
