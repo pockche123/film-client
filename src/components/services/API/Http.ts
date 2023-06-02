@@ -6,7 +6,9 @@ const site = BASE_URL + version
 export const URI = {
     Films: site + "/films",
     Users: site + "/users",
-    Auth: site + "/auth"
+    Auth: site + "/auth",
+  Review: site + "/review",
+    Discussion: site + "/discussion"
 }
 
 

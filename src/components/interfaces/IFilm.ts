@@ -1,7 +1,4 @@
 
-interface Review{
-    body: string
-}
 
 export interface TrailerButtonProps {
   trailerLink: string
