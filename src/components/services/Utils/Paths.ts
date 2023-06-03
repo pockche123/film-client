@@ -7,5 +7,7 @@ export const Paths = {
     login: '/login',
     register: "/register",
     userPage: '/userPage',
-    accessNotAllowed : "/accessNotAllowed"
+    accessNotAllowed: "/accessNotAllowed",
+    reviewPage: "/reviewPage/",
+    userProfile: "/userProfile/"
 }

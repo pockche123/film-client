@@ -42,7 +42,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <hr />
+          <hr style={{color: 'white', width:'100%'}} />
           <div className='fc_footer-below'>
             <div className='fc_footer-copyright'>
               <p>@{new Date().getFullYear()} Studio. All rights reserved.</p>

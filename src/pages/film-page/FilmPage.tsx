@@ -29,6 +29,7 @@ const FilmPage = () => {
   
       <div className='film-page-poster'>
         <FilmPoster film={film} />
+        
       </div>
       <div className='film-content'>
       <div className='film-navs'>
@@ -53,8 +54,9 @@ const FilmPage = () => {
           {socialActiveSection === 'reviews' && <ReviewBlock film={film} />}
           {socialActiveSection === 'discussions' && <Discussion film={film}/>}
 
+          </div>    
         </div>
-      </div>
+        <hr/>
 </div>
     </div>
   )

@@ -25,6 +25,7 @@
   border-radius: 0.5em;
   font-size: 0.9em;
   white-space: nowrap;
+  z-index: 1000;
 }
 
 .add-to-watch:hover::after {

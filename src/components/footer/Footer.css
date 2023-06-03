@@ -106,10 +106,10 @@ a{
     font-weight: 600;
 } 
 
-hr{
+/* hr{
     color: white !important; 
     width: 100%; 
-}
+} */
 
 .fc_footer-copyright p{
     font-size: 13px; 
