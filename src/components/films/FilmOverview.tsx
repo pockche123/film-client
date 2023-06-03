@@ -30,18 +30,7 @@ const FilmOverview = ({ film }: { film: any }) => {
       
     >
       <div className='detail'>
-        {/* <div className='poster'>
-          <img
-            src={poster}
-            alt='film poster'
-            onClick={() => toggleEnlarged()}
-          />
-          {enlarged && (
-            <div className='overlay' onClick={() => toggleEnlarged()}>
-              <img src={poster} alt='film poster' className='enlarged' />
-            </div>
-          )}
-        </div> */}
+  
         <div className='content'>
           <div className='title'>
             <h2>

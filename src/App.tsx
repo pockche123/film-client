@@ -21,6 +21,8 @@ import PersistLogin from './components/services/Utils/PersistLogin'
 import Footer from './components/footer/Footer'
 import React from 'react'
 import UserLandingPage from './pages/user-pages/landing-page/UserLandingPage'
+import FilmReviews from './pages/review-page/FilmReviews';
+import UserProfile from './pages/user-pages/profile-page/UserProfile'
 
 function App () {
   return (
@@ -39,6 +41,9 @@ function App () {
           <Route path={Paths.register} element={<Register />} />
           <Route path='*' element={<PageNotFound />} />
           <Route path={Paths.accessNotAllowed} element={<AccessNotAllowed />} />
+          <Route path={Paths.reviewPage + ':filmTitle'} element={<FilmReviews />} />
+          <Route path={Paths.userProfile + ':username'} element={<UserProfile/>}/>
+
 
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={['USER']} />}>
