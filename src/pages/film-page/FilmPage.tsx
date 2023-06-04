@@ -46,7 +46,8 @@ const FilmPage = () => {
         <div className="film-social-nav">
           <FilmSocialNav
             activeSection={socialActiveSection}
-            onSectionChange={handleSocialSectionChange}
+              onSectionChange={handleSocialSectionChange}
+              film={film}
           />
 
         </div>
