@@ -1,16 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { getReviewsByFilmTitle } from '../services/API/Reviews'
+import { Film } from '../interfaces/IFilm'
 
 const FilmSocialNav = ({
   activeSection,
-  onSectionChange
+  onSectionChange,
+  film
 }: {
   activeSection: string
-  onSectionChange: Function
+   onSectionChange: Function
+  film: Film
   }) => {
   
+  
+  const [totalReviews, setTotalReviews] = useState(0)
+  const filmTitle = film.title
+  
+  useEffect(() => {
+  getReviewsByFilmTitle(filmTitle).then(res => {
+    const lastReview = res.data[res.data.length - 1]
+    console.log(lastReview)
+    setTotalReviews(res.data.length)
+ 
+  })
+})
 
-  const totalReviews = localStorage.getItem("totalReviews")
+
   const totalDiscussions = localStorage.getItem("totalDiscussions")
 
   useEffect(() => {
