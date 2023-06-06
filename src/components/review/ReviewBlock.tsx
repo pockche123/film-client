@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
+import ReviewContentCard from './ReviewContentCard'
 
 const ReviewBlock = ({ film }: { film: Film }) => {
   const filmTitle = film.title
@@ -16,73 +17,35 @@ const ReviewBlock = ({ film }: { film: Film }) => {
   const navigate = useNavigate()
   const [totalReviews, setTotalReviews] = useState(0)
   const username = data?.userEntity.username
-  const [isOverflowed, setIsOverflowed] = useState(false)
-  const reviewTextRef = useRef<HTMLDivElement>(null)
-
-  const fullStars = Math.floor(rating / 2)
-  const hasHalfStar = rating % 2 !== 0
-
-  const stars = []
-  for (let i = 0; i < fullStars; i++) {
-    stars.push(<FontAwesomeIcon key={i} icon={faStar} />)
-  }
-
-  if (hasHalfStar) {
-    stars.push(<FontAwesomeIcon key='half' icon={faStarHalf} />)
-  }
-
-  const formattedDate = data
-    ? format(new Date(data?.reviewId.date), 'MMMM d, yyyy', { locale: enGB })
-    : ''
+  const profilePic = data?.userEntity.profilePic
+  const review = data?.review
+  const reviewId = data?.reviewId
+  const date = data?.createdDate
+ const formattedDate = data
+  ? format(new Date(data?.createdDate), 'MMMM d, yyyy', { locale: enGB })
+  : ''
 
   useEffect(() => {
     getReviewsByFilmTitle(filmTitle).then(res => {
       const lastReview = res.data[res.data.length - 1]
       console.log(lastReview)
       setTotalReviews(res.data.length)
-      localStorage.setItem('totalReviews', res.data.length)
       setData(lastReview)
     })
   })
 
-  useEffect(() => {
-    const reviewTextElement = reviewTextRef.current
-
-    if (reviewTextElement) {
-      // Check if the content overflows vertically
-      const isContentOverflowed =
-        reviewTextElement.scrollHeight > reviewTextElement.clientHeight ||
-        reviewTextElement.scrollHeight > reviewTextElement.offsetHeight
-      console.log('is true, ', isContentOverflowed)
-
-      setIsOverflowed(isContentOverflowed)
-    }
-  }, [])
-
   const navToReviewPage = () => {
-    navigate(Paths.reviewPage + filmTitle)
+    navigate(Paths.reviews + filmTitle)
   }
 
-  const handleUser = () => {
-    navigate(Paths.userProfile + username)
+  const reviewCardProps = {
+    profilePic,
+    username,
+    rating,
+     date,
+    review,
+    reviewId
   }
-
-  useEffect(() => {
-    if (reviewTextRef.current) {
-      const reviewTextElement = reviewTextRef.current as HTMLElement // Type assertion
-      setIsOverflowed(
-        reviewTextElement.scrollHeight > reviewTextElement.offsetHeight
-      )
-    }
-
-    // if (data?.review && data?.review.length >200) {
-
-    //   setIsOverflowed(true)
-
-    // }
-
-    console.log('overflowed, ', isOverflowed)
-  }, [data])
 
   return (
     <div className='review'>
@@ -94,41 +57,7 @@ const ReviewBlock = ({ film }: { film: Film }) => {
           </>
         </div>
       ) : (
-        <div className='reviews-present'>
-          <div className='profile-pic'>
-            <img
-              src={data?.userEntity.profile_pic}
-              alt='profile-pic'
-              onClick={handleUser}
-            />
-            <div className='profile-pic-user'>
-              <div className='profile-pic-rating'>
-                <h5 style={{ marginBottom: '0', paddingBottom: '0' }}>
-                  <b>A review by {username}</b>
-                </h5>
-                <div style={{ paddingLeft: '10px' }}>
-                  {stars}
-                  {rating}
-                </div>
-              </div>
-              <span style={{ fontSize: '14px' }}>
-                Written by <b>{username}</b> on {formattedDate}
-              </span>
-            </div>
-          </div>
-          <div className='review-content' ref={reviewTextRef}>
-            {data?.review}
-          </div>
-          {isOverflowed && (
-            <a
-              href={`/review/${data?.reviewId}`}
-              className='read-more'
-              style={{ color: 'black' }}
-            >
-              Read the rest
-            </a>
-          )}
-        </div>
+        <ReviewContentCard props={reviewCardProps} />
       )}
 
       {totalReviews > 0 && (

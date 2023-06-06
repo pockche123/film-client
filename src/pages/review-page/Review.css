@@ -1,0 +1,42 @@
+
+
+.review-container{
+    min-height: 100vh;
+    display: flex;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+
+}
+
+.review-poster{
+    width: 30%;
+    position: sticky; 
+      box-shadow: 0 0px 10px gainsboro;
+
+}
+
+.review-poster img{
+    height: 400px;
+    position: absolute;
+  top: 40%;
+  left: 75%;
+  transform: translate(-85%, -50%);
+}
+
+.review-content{
+    flex:1;
+      transform: translate( -7%, 2%);
+}
+
+.review-heading{
+    padding-bottom: 4%;
+}
+
+.review-review{
+    color: darkslategray;
+}
+
+.reviews-list{
+    min-height: 100vh;
+    display: flex;
+}

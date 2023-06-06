@@ -7,7 +7,7 @@ import { useAxiosPrivate } from "../../hooks/useAxiosPrivate";
 
 export const getAll = async (URI: string) => await axios.get(URI);
 
-export const get = async (URI: string, imdbId: string) => await axios.get(URI + "/" + imdbId);
+export const get = async (URI: string, id: string) => await axios.get(URI + "/" + id);
 
 export const getTitle = async (URI: string, title: string) => await axios.get(URI + "/title/" + title);
 
