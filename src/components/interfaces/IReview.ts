@@ -9,8 +9,9 @@ export interface IReview{
     userEntity: IUser
     review: string
     rating: number
+    createdDate: string
 }
 
 interface ReviewId{
-    date: any
+    objectId: string
 }

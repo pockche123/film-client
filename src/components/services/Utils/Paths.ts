@@ -8,6 +8,7 @@ export const Paths = {
     register: "/register",
     userPage: '/userPage',
     accessNotAllowed: "/accessNotAllowed",
-    reviewPage: "/reviewPage/",
+    reviews: "/reviews/",
+    review: "/review/",
     userProfile: "/userProfile/"
 }

@@ -1,136 +1,116 @@
-
-
-.film-container{
-    /* width:100%;
-    height: 100%; */
-    min-height: 100vh;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      display: flex;
-        position: relative; /* Add this line */
-
+.film-container {
+  min-height: 100vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  position: relative;
 }
 
-.film-content{
-   /* display: flex; */
-  /* flex-direction: column; */
-  flex: 1; 
-  z-index: 1000; 
-
+.film-content {
+  flex: 1;
 }
 
-
-  .film-page-poster {
-      width: 30%; /* Use width instead of flex-basis */
+.film-page-poster {
+  width: 30%; 
   /* background-color: black;  */
   position: sticky;
   top: 0;
-  height: 100vh; /* Adjust the height as needed */
+  height: 100vh; 
   overflow-y: auto;
-} 
+}
 
 .poster {
-  width: 80%; 
-  left: 10%; 
-  max-height: '100vh';
-   /* overflow-y: 'auto'; */
+  width: 80%;
+  left: 10%;
+  max-height: "100vh";
+  /* overflow-y: 'auto'; */
   top: 5%;
-
 }
-.poster img{
-  position: absolute; 
-  top: 50%; 
-  left: 50%; 
+.poster img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-
-
 }
 .film-socials {
-   display: flex;
- flex-direction: column;
-  margin-top:100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100vh;
   /* height: 70vh; */
   width: 60vw;
-
- 
 }
-.film-social-nav{
+.film-social-nav {
   text-align: left;
 }
-.social{
-  margin-top: 2%; 
-  padding:2%; 
+.social {
+  margin-top: 2%;
+  padding: 2%;
   /* height:50vh; */
-    /* box-shadow: 0 0 2px 2px gainsboro; */
- 
+  /* box-shadow: 0 0 2px 2px gainsboro; */
 }
 
-.no-reviews{
-  
+.no-reviews {
 }
 
-.reviews-present{
-  max-height: 50vh; 
-     box-shadow: 0 5px 7px gainsboro; 
-     /* box-shadow: 0  2px 4px rgba(0, 0, 0, 0.1); */
-      border-radius: 5px;
-      padding-bottom: 2vw;
-
+.reviews-present {
+  max-height: 50vh;
+  box-shadow: 0 5px 7px gainsboro;
+  /* box-shadow: 0  2px 4px rgba(0, 0, 0, 0.1); */
+  border-radius: 5px;
+  padding-bottom: 2vw;
 }
 
-.review-page-nav{
+.review-page-nav {
   padding-top: 15px;
-  cursor: pointer; 
+  cursor: pointer;
   text-align: left;
 }
 
-.review-page-nav :hover{
+.review-page-nav :hover {
   color: slategray;
 }
 
-.profile-pic{
-  padding: 20px; 
+.profile-pic {
+  padding: 20px;
   text-align: left;
 }
-.profile-pic-user{
+.profile-pic-user {
   padding-left: 2%;
-    padding-top: 2%;
-  padding-bottom: 0%; 
-  gap: 0; 
-
+  padding-top: 2%;
+  padding-bottom: 0%;
+  gap: 0;
 }
 
-.profile-pic img{
+.profile-pic img {
   height: 70px;
   border-radius: 50%;
-    float: left;
-padding-right: 2%;
-cursor: pointer;
+  float: left;
+  padding-right: 2%;
+  cursor: pointer;
 }
-.profile-pic-rating{
-  display: flex; 
+.profile-pic-rating {
+  display: flex;
   align-items: center;
 }
-.fa-star, .fa-star-half{
+.fa-star,
+.fa-star-half {
   color: rgb(239, 211, 48);
 }
 
 .film-info {
   position: relative;
-  z-index: -1; 
-
+  z-index: -1;
 }
-.review-content{
+.review-content {
   text-align: left;
   max-height: 50vw;
   padding-left: 104px;
-  padding-bottom: 0.4vw; 
-  padding-right: 2vw; 
-   overflow: hidden;
+  padding-bottom: 0.4vw;
+  padding-right: 2vw;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-
 
 .film-info::before {
   content: "";
@@ -138,181 +118,167 @@ cursor: pointer;
   top: 0px;
   left: 0px;
   bottom: 0px;
-  right: 0px; 
+  right: 0px;
   width: 100%;
-  height: 500px ;
-  opacity: 0.5; /* Adjust the opacity as needed */
-  background-image: linear-gradient(to bottom, rgba(235, 232, 232, 0), rgb(193, 183, 183)), var(--backgroundImg); 
+  height: 500px;
+  opacity: 0.5; 
+  background-image: linear-gradient(
+      to bottom,
+      rgba(235, 232, 232, 0),
+      rgb(193, 183, 183)
+    ),
+    var(--backgroundImg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.title{
+.title {
   text-align: left;
   margin-left: 3%;
- 
 }
 
-.icons{
+.icons {
   text-align: left;
   display: flex;
   margin-left: 3%;
-   justify-content:space-between;
-   width: 60%;
-   z-index: 1000; 
+  justify-content: space-between;
+  width: 60%;
+  z-index: 1000;
 }
 
 .pg-rating {
-  border: 1px solid black; 
-  display: inline-block; 
-  text-align: center; 
- height: 5vh;
- opacity: 0.4;
- padding: 0.5%;
+  border: 1px solid black;
+  display: inline-block;
+  text-align: center;
+  height: 5vh;
+  opacity: 0.4;
+  padding: 0.5%;
 }
 
-
-.info{
+.info {
   text-align: left;
   margin-left: 3%;
   width: 40vw;
 }
 
-.detail{
-    position: absolute; 
-    display: flex; 
-    width: 100%;
-    margin-left: 3%;
-    margin-top: 3%;
-    margin-right: 3%; 
-    margin-bottom: 3%;
+.detail {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-right: 3%;
+  margin-bottom: 3%;
 }
 
-
-  .poster{
-    position: relative;
-    height: 70vh;
-    border: 1px solid white;
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.5s ease-in-out;
-    cursor: pointer;
-    
-  }
+.poster {
+  position: relative;
+  height: 70vh;
+  border: 1px solid white;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
 
 .poster img:hover {
   filter: brightness(70%);
   cursor: pointer;
 }
 
+.poster > img {
+  height: 100%;
+  width: 100%;
+}
 
-  .poster>img{
-    height: 100%; 
-    width: 100%;
-  }
-  
-  .overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-   display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  
-
 }
 
-.quote{
+.quote {
   text-align: left;
-   margin-left: 2%;
-    margin-top: 3%;
-     display: column;
-    position:relative;
-    font-size: 1.1em;
-    font-style: italic;
-    opacity: 0.7;
- 
+  margin-left: 2%;
+  margin-top: 3%;
+  display: column;
+  position: relative;
+  font-size: 1.1em;
+  font-style: italic;
+  opacity: 0.7;
 }
-  .overview{
-    display: column;
-    position:relative;
-    /* width: 67vw; */
-    text-align: left;
-    margin-top: 3%;
-    margin-right: 7%;
-    margin-left: 2%;
-    font-size: 1em;
-    padding: 1%;
-    background-color:gainsboro;
-    border-radius: 3px;
- 
-  }
-
-
-
-  @media only screen  and (max-width: 700px){
-    .film-container{
-      display: inline-block;
-          min-height: 100vh; /* Set the height to 100% of the viewport height */
-
-      margin-top: 0;
-      margin-bottom: 10%; 
-      
-    }
-
-    .film-page-poster{
-      width: 100%;
-      position: relative; 
-
-    }
-    .film-info{
-      width: 90vw; 
-      display: flex; 
-      flex-direction: column;
-    }
-
-    .poster{
-      width: 40%; 
-        top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-
-    }
-
-    .overview{
-      min-height: 100vh;
-    }
-
-     .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-   display: flex; 
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  
-
+.overview {
+  display: column;
+  position: relative;
+  /* width: 67vw; */
+  text-align: left;
+  margin-top: 3%;
+  margin-right: 7%;
+  margin-left: 2%;
+  font-size: 1em;
+  padding: 1%;
+  background-color: gainsboro;
+  border-radius: 3px;
 }
+
+@media only screen and (max-width: 700px) {
+  .film-container {
+    display: inline-block;
+    min-height: 100vh; 
+
+    margin-top: 0;
+    margin-bottom: 10%;
   }
 
-
-  @media only screen and (max-width: 500px){
-    .poster{
-      width: 50%; 
-        top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-
+  .film-page-poster {
+    width: 100%;
+    position: relative;
+  }
+  .film-info {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
   }
 
+  .poster {
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .overview {
+    min-height: 100vh;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .poster {
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* 
@@ -364,4 +330,3 @@ left: 2vw;
 
 
 } */
-

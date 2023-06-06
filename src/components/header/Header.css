@@ -1,3 +1,7 @@
+.header{
+    z-index:-100;
+}
+
 
 .search{
     color: white;
