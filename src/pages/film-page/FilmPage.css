@@ -16,6 +16,7 @@
   top: 0;
   height: 100vh; 
   overflow-y: auto;
+  z-index: 1000;
 }
 
 .poster {
@@ -98,7 +99,6 @@
 
 .film-info {
   position: relative;
-  z-index: -1;
 }
 .review-content {
   text-align: left;
@@ -201,7 +201,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
 }
 
 .quote {
@@ -226,6 +225,7 @@
   padding: 1%;
   background-color: gainsboro;
   border-radius: 3px;
+  z-index: 5; 
 }
 
 @media only screen and (max-width: 700px) {

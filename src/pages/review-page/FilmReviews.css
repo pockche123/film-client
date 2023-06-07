@@ -1,0 +1,25 @@
+
+
+
+.reviews{
+    display: flex;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+
+}
+
+.reviews-logged-in{
+    padding-top: 5%;
+    width: 30%; 
+}
+
+.reviews-list{
+    flex: 1; 
+    flex-direction: column;
+    margin-top: 2%; 
+    margin-right: 5%; 
+}
+
+.review-card{
+    margin-bottom: 5%; 
+}

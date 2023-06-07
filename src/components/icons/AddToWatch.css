@@ -12,6 +12,38 @@
 }
 
 
+.add-to-watch:hover .add-to-watch-logged-in-hover {
+  margin-top: 0.5em;
+  content: "Login to add this film to your watch list";
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5em;
+  background-color: rgb(6, 6, 73);
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  white-space: nowrap;
+  z-index: 1000;
+} 
+
+/* .add-to-watch:hover::before {
+  margin-top: 0.5em;
+  content: "Login to add this film to your watch list";
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5em;
+  background-color: rgb(6, 6, 73);
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  white-space: nowrap;
+  z-index: 1000;
+} */
+
 .add-to-watch:hover::before {
   margin-top: 0.5em;
   content: "Login to add this film to your watch list";
@@ -26,6 +58,16 @@
   font-size: 0.9em;
   white-space: nowrap;
   z-index: 1000;
+}
+
+.add-to-watch.logged-in:hover::before {
+
+  content: "Add this film to your watch list";
+ 
+}
+
+.add-to-watch.red:hover::before {
+   content: "Remove from your watch list";
 }
 
 .add-to-watch:hover::after {

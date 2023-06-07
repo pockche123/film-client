@@ -64,11 +64,14 @@ export const handleCurrentUser = (
 })
   // getTheCurrentUser(accessToken)
     .then(response => {
-      // Handle the successful response here
-      // console.log("handleCurrentUser ,", response.data)
+ 
       const user = response?.data
       const role = response?.data.role
-      // console.log("this is ROLE, ", role)
+
+      if(user){
+        localStorage.setItem("loggedIn", "true")
+      }
+  
 
       setAuth({ user, accessToken, role, refreshToken })
       const username = response.data.username

@@ -57,7 +57,9 @@ const ReviewBlock = ({ film }: { film: Film }) => {
           </>
         </div>
       ) : (
-        <ReviewContentCard props={reviewCardProps} />
+          <div>
+            <ReviewContentCard props={reviewCardProps} />
+            </div>
       )}
 
       {totalReviews > 0 && (
