@@ -6,28 +6,25 @@ import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { format } from 'date-fns'
 import { enGB } from 'date-fns/locale'
 
-const ReviewContentCard = ({props}:{props:any}) => {
+const ReviewContentCard = ({ props }: { props: any }) => {
   const navigate = useNavigate()
   const reviewTextRef = useRef<HTMLDivElement>(null)
-    const [isOverflowed, setIsOverflowed] = useState(false)
-    const stars = []
-    const { profilePic, username, rating, date, review, reviewId } = props
+  const [isOverflowed, setIsOverflowed] = useState(false)
+  const stars = []
+  const { profilePic, username, rating, date, review, reviewId } = props
+  const fullStars = Math.floor(rating / 2)
+  const hasHalfStar = rating % 2 !== 0
+  const formattedDate = date
+    ? format(new Date(date), 'MMMM d, yyyy', { locale: enGB })
+    : ''
 
-    const fullStars = Math.floor(rating / 2)
-    const hasHalfStar = rating % 2 !== 0
-    const formattedDate =  date? format(new Date(date), 'MMMM d, yyyy', { locale: enGB }): ''
+  for (let i = 0; i < fullStars; i++) {
+    stars.push(<FontAwesomeIcon key={i} icon={faStar} />)
+  }
 
-
-
-for (let i = 0; i < fullStars; i++) {
-  stars.push(<FontAwesomeIcon key={i} icon={faStar} />)
-}
-
-if (hasHalfStar) {
-  stars.push(<FontAwesomeIcon key='half' icon={faStarHalf} />)
-}
-
-
+  if (hasHalfStar) {
+    stars.push(<FontAwesomeIcon key='half' icon={faStarHalf} />)
+  }
 
   useEffect(() => {
     const reviewTextElement = reviewTextRef.current
@@ -42,9 +39,6 @@ if (hasHalfStar) {
       setIsOverflowed(isContentOverflowed)
     }
   }, [])
-    
-
-
 
   const handleUser = () => {
     navigate(Paths.userProfile + username)

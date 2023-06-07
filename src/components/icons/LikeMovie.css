@@ -27,6 +27,15 @@
   white-space: nowrap;
 }
 
+.like-movie.logged-in:hover::before{
+  content:"Add this film to your favourite list";
+}
+
+.like-movie.red:hover::before{
+  content: "Remove from your favourite list"
+}
+
+
 .like-movie:hover::after {
   content: "";
   position: absolute;
