@@ -27,6 +27,10 @@
   white-space: nowrap;
 }
 
+.rate-film.logged-in:hover::before{
+  content: "Rate the film"
+}
+
 .rate-film:hover::after {
   content: "";
   position: absolute;

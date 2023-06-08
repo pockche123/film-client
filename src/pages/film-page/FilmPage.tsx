@@ -8,6 +8,7 @@ import FilmSocialNav from '../../components/films/FilmSocialNav'
 import Discussion from '../../components/discussion/Discussion'
 import FilmPoster from '../../components/films/FilmPoster'
 import ReviewBlock from '../../components/review/ReviewBlock'
+import Rate from '../../components/icons/Rate'
 
 
 const FilmPage = () => {
@@ -15,6 +16,8 @@ const FilmPage = () => {
   const [socialActiveSection, setSocialActiveSection] = useState('reviews')
   const location = useLocation()
   const film = location.state && location.state.film
+  const [rating, setRating] = useState(0)
+
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section);
@@ -58,7 +61,9 @@ const FilmPage = () => {
           </div>    
         </div>
         <hr/>
-</div>
+      </div>
+      
+
     </div>
   )
 }
