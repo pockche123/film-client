@@ -1,61 +1,138 @@
-import React, { useMemo } from 'react'
-import PropTypes from 'prop-types'
+import React, { useRef, useState } from 'react'
+import Box from '@mui/material/Box'
+import StarIcon from '@mui/icons-material/Star'
+import StarBorderIcon from '@mui/icons-material/StarBorder'
+import { MouseEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
+const Rate = () => {
+  const [rating, setRating] = useState(0)
+  const totalStars = 5
+  const ratingContainerRef = useRef<HTMLDivElement>(null)
+  const precision = 0.5
+  const [activeStar, setActiveStar] = useState(-1)
+  const [hoverActiveStar, setHoverActiveStar] = useState<number>(-1)
+  const [isHovered, setIsHovered] = useState(false)
 
+  const calculateRating = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = ratingContainerRef.current?.getBoundingClientRect()
+    if (!rect) {
+      return 0
+    }
 
-const Rate = ({ props }: { props: any}) => {
-    
-    const {
-        count, rating, color, onRating
-    } = props;
+    const { width, left } = rect
+    const percent = (e.clientX - left) / width
+    const numberInStars = percent * totalStars
+    const nearestNumber =
+      Math.round((numberInStars + precision / 2) / precision) * precision
 
-    const starRating = useMemo(() => {
+    return Number(
+      nearestNumber.toFixed(precision.toString().split('.')[1]?.length || 0)
+    )
+  }
 
-        return Array(count)
-            .fill(0)
-            .map((_, i) => i + 1)
-            .map(idx => {
-                <FontAwesomeIcon key={idx}
-                    className="cursor-pointer"
-                    icon={faStar} 
-                    onClick={() => onRating(idx)}
-                />
-            })
-                
-                
+  const handleClick = (e: any) => {
+    setIsHovered(false)
+    const newRating = calculateRating(e)
+    setActiveStar(newRating)
+    setRating(newRating * 2)
+  }
 
-    },[count, rating])
+  const handleMouseMove = (e: any) => {
+    setIsHovered(true)
 
+    setHoverActiveStar(calculateRating(e))
+  }
+
+  const handleMouseLeave = (e: any) => {
+    setHoverActiveStar(-1) // Reset to default state
+    setIsHovered(false)
+  }
+
+  const handleZeroRating = () => {
+    setRating(0)
+    setActiveStar(0)
+  }
 
   return (
-    <div>
-
-
+    <div className="rating-box">
+      {/* <button onClick={handleZeroRating} style={{ borderRadius: '0.7em' }}>
+        -
+          </button> */}
           
+          <FontAwesomeIcon icon={faMinus} onClick={handleZeroRating}
+               style={{
+    cursor: 'pointer',
+    fontSize: '10px',
+    borderRadius: '50%',
+    width: '15px',
+    height: '15px',
+    alignItems: 'center',
+    justifyContent: 'center',
+                   backgroundColor: 'gray',
+    marginLeft: '5px'
+  }} />
+<span/>
+
+      <Box
+        sx={{
+          display: 'inline-flex',
+          position: 'relative',
+                  cursor: 'pointer',
+          marginLeft: '5px'
+      
+        }}
+        onClick={handleClick}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        ref={ratingContainerRef}
+      >
+        {[...new Array(totalStars)].map((arr, index) => {
+          const activeState = isHovered ? hoverActiveStar : activeStar
+
+          const showEmptyIcon = activeState === -1 || activeState < index + 1
+
+          const isActiveRating = activeState !== 1
+          const isRatingWithPrecision = activeState % 1 !== 0
+          const isRatingEqualToIndex = Math.ceil(activeState) === index + 1
+          const showRatingWithPrecision =
+            isActiveRating && isRatingWithPrecision && isRatingEqualToIndex
+
+          return (
+            <Box
+              position={'relative'}
+              sx={{
+                cursor: 'pointer'
+              }}
+              key={index}
+            >
+              <Box
+                sx={{
+                  width: showRatingWithPrecision
+                    ? `${(activeState % 1) * 100}%`
+                    : '0%',
+                  overflow: 'hidden',
+                  position: 'absolute'
+                }}
+              >
+                      <StarIcon style={{ color: 'white' }} />
+              </Box>
+
+              <Box
+                sx={{
+                  color: showEmptyIcon ? 'gray' : 'inherit'
+                }}
+              >
+                {showEmptyIcon ? <StarBorderIcon style={{ color: 'white' }}/> : <StarIcon />}
+              </Box>
+            </Box>
+          )
+        })}
+      </Box>
+      {rating}
     </div>
   )
 }
-
-Rate.propTypes = {
-  count: PropTypes.number,
-  rating: PropTypes.number,
-  onRating: PropTypes.func,
-  color: PropTypes.shape({
-    filled: PropTypes.string,
-    unfilled: PropTypes.string
-  })
-}
-
-Rate.defaultProps = {
-  count: 5,
-  rating: 0,
-  color: {
-    filled: '#f5eb3b',
-    unfilled: '#dcdcdc'
-  }
-}
-
 
 export default Rate
