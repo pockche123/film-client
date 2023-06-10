@@ -64,8 +64,22 @@
 } */
 
 .rating-popover {
-  position:absolute;
-  top: 38%;
-  left: 300px;
-  margin-top: 5px;
+  position: absolute;
+  top: calc(98%);
+  left: 51%;
+  transform: translateX(-49%);
+  padding: 0.5em;
+  z-index: 1;
+
+}
+
+.rating-popover::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 48.5%;
+  transform: translate(-50%, -50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent  rgb(6, 6, 73) transparent;
 }
