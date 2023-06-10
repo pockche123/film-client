@@ -7,9 +7,9 @@ import './LikeMovie.css'
 
 const LikeMovie = () => {
 
-  const userLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false')
+   const userLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false')
 const [bookmarkColour, setBookmarkColour] = useState('white')
-
+  // const userLoggedIn = true;
   
   const handleLikeMovie = () => {
     if (userLoggedIn === true && bookmarkColour === 'white') {

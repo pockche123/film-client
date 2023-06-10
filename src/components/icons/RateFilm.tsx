@@ -1,13 +1,35 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import './RateFilm.css'
 import Rate from './Rate'
 
 const RateFilm = () => {
-  const userLoggedIn = true
-
+  // let userLoggedIn = false
   const [showPopover, setShowPopover] = useState(false)
+  const [bookmarkColour, setBookmarkColour] = useState('white')
+  let existingRating = 0
+ const userLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false')
+
+
+  useEffect(() => {
+    colorChange()
+  })
+
+  const colorChange = () => {
+    if (
+      userLoggedIn === true &&
+      existingRating > 0 &&
+      bookmarkColour === 'white'
+    ) {
+      setBookmarkColour('gold')
+    }
+
+    if (!userLoggedIn || existingRating === 0) {
+      setBookmarkColour('white')
+    }
+  
+  }
 
   const handleClick = () => {
     if (userLoggedIn) {
@@ -18,20 +40,18 @@ const RateFilm = () => {
   return (
     <>
       <div
-        className={`rate-film ${userLoggedIn ? 'logged-in' : ''}`}
+        className={`rate-film ${userLoggedIn ? 'logged-in' : ''} ${
+          bookmarkColour === 'gold' ? 'gold' : ''
+        }`}
         onClick={handleClick}
       >
-        <FontAwesomeIcon icon={faStar} />
-    </div>
-      { showPopover &&(
-        <div className='rating-popover'>
-          <Rate />
-        </div>
-      )}
-
-
-    
-      {/* <div>{showPopover && <Rate />}</div> */}
+        <FontAwesomeIcon icon={faStar} style={{ color: bookmarkColour }} />
+        {showPopover && (
+          <div className='rating-popover' onClick={e => e.stopPropagation()}>
+            <Rate />
+          </div>
+        )}
+      </div>
     </>
   )
 }

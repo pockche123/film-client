@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Box from '@mui/material/Box'
 import StarIcon from '@mui/icons-material/Star'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
@@ -14,6 +14,13 @@ const Rate = () => {
   const [activeStar, setActiveStar] = useState(-1)
   const [hoverActiveStar, setHoverActiveStar] = useState<number>(-1)
   const [isHovered, setIsHovered] = useState(false)
+    const existingRating = 2.5
+    
+    useEffect(() => {
+  setActiveStar(existingRating)
+  setRating(existingRating * 2)
+}, [])
+
 
   const calculateRating = (e: MouseEvent<HTMLDivElement>) => {
     const rect = ratingContainerRef.current?.getBoundingClientRect()
@@ -35,13 +42,13 @@ const Rate = () => {
   const handleClick = (e: any) => {
     setIsHovered(false)
     const newRating = calculateRating(e)
+
     setActiveStar(newRating)
     setRating(newRating * 2)
   }
 
   const handleMouseMove = (e: any) => {
     setIsHovered(true)
-
     setHoverActiveStar(calculateRating(e))
   }
 
@@ -56,32 +63,30 @@ const Rate = () => {
   }
 
   return (
-    <div className="rating-box">
-      {/* <button onClick={handleZeroRating} style={{ borderRadius: '0.7em' }}>
-        -
-          </button> */}
-          
-          <FontAwesomeIcon icon={faMinus} onClick={handleZeroRating}
-               style={{
-    cursor: 'pointer',
-    fontSize: '10px',
-    borderRadius: '50%',
-    width: '15px',
-    height: '15px',
-    alignItems: 'center',
-    justifyContent: 'center',
-                   backgroundColor: 'gray',
-    marginLeft: '5px'
-  }} />
-<span/>
+    <div className='rating-box'>
+      <FontAwesomeIcon
+        icon={faMinus}
+        onClick={handleZeroRating}
+        style={{
+          cursor: 'pointer',
+          fontSize: '10px',
+          borderRadius: '50%',
+          width: '15px',
+          height: '15px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'gray',
+          marginLeft: '5px'
+        }}
+      />
+      <span />
 
       <Box
         sx={{
           display: 'inline-flex',
           position: 'relative',
-                  cursor: 'pointer',
+          cursor: 'pointer',
           marginLeft: '5px'
-      
         }}
         onClick={handleClick}
         onMouseMove={handleMouseMove}
@@ -116,7 +121,7 @@ const Rate = () => {
                   position: 'absolute'
                 }}
               >
-                      <StarIcon style={{ color: 'white' }} />
+                <StarIcon style={{ color: 'white' }} />
               </Box>
 
               <Box
@@ -124,7 +129,11 @@ const Rate = () => {
                   color: showEmptyIcon ? 'gray' : 'inherit'
                 }}
               >
-                {showEmptyIcon ? <StarBorderIcon style={{ color: 'white' }}/> : <StarIcon />}
+                {showEmptyIcon ? (
+                  <StarBorderIcon style={{ color: 'white' }} />
+                ) : (
+                  <StarIcon />
+                )}
               </Box>
             </Box>
           )
