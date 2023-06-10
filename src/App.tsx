@@ -10,7 +10,6 @@ import Home from './pages/home-page/Home'
 import SearchPage from './pages/search-page/SearchPage'
 import PageNotFound from './pages/PageNotFound'
 import Login from './pages/login-page/Login'
-import UserPage from './pages/user-pages/UserPage'
 import Register from './pages/register-page/Register'
 import { Paths } from './components/services/Utils/Paths'
 import Layout from './components/layout/Layout'
@@ -24,6 +23,7 @@ import UserLandingPage from './pages/user-pages/landing-page/UserLandingPage'
 import FilmReviews from './pages/review-page/FilmReviews';
 import UserProfile from './pages/user-pages/profile-page/UserProfile'
 import Review from './pages/review-page/Review'
+import CreateReview from './pages/review-page/CreateReview'
 
 function App () {
   return (
@@ -45,6 +45,7 @@ function App () {
           <Route path={Paths.reviews + ':filmTitle'} element={<FilmReviews />} />
           <Route path={Paths.review + ':id'} element = {<Review/>}/>
           <Route path={Paths.userProfile + ':username'} element={<UserProfile />} />
+          <Route path={Paths.createReview + ':username'} element={<CreateReview />}/>
           
 
 

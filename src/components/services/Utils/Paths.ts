@@ -10,5 +10,6 @@ export const Paths = {
     accessNotAllowed: "/accessNotAllowed",
     reviews: "/reviews/",
     review: "/review/",
-    userProfile: "/userProfile/"
+    userProfile: "/userProfile/",
+    createReview: "/createReview/"
 }

@@ -2,16 +2,55 @@
 
 
 .reviews{
-    display: flex;
+
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
 
+}
+
+.reviews-reviews{
+    display: flex;
 }
 
 .reviews-logged-in{
     padding-top: 5%;
     width: 30%; 
 }
+
+.reviews-logged-in-yes{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    width: 80%; 
+    margin-left: 10%;
+    border-radius: 20px;
+}
+
+.reviews-logged-in-yes:hover{
+    color: rgb(46, 136, 233)
+}
+
+
+.reviews-back-to-page{
+    background-color: black;
+    width: 100%;
+    text-align: left;
+    padding: 1em;
+    margin-top: 2em;
+    color: white;
+    display: inline-flex;
+}
+
+
+.reviews-back-to-page img{
+
+    height: 100px;
+    margin-left: 2em;
+
+}
+
+
 
 .reviews-list{
     flex: 1; 

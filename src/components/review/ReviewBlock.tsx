@@ -12,6 +12,8 @@ import ReviewContentCard from './ReviewContentCard'
 
 const ReviewBlock = ({ film }: { film: Film }) => {
   const filmTitle = film.title
+  const poster = film.poster 
+  const year = film.year
   const [data, setData] = useState<IReview | undefined>(undefined)
   const rating = data?.rating ?? 0
   const navigate = useNavigate()
@@ -32,10 +34,12 @@ const ReviewBlock = ({ film }: { film: Film }) => {
       setTotalReviews(res.data.length)
       setData(lastReview)
     })
+
+    console.log("poster , ", poster)
   })
 
   const navToReviewPage = () => {
-    navigate(Paths.reviews + filmTitle)
+    navigate(Paths.reviews + filmTitle, {state:{poster, filmTitle, year}})
   }
 
   const reviewCardProps = {
