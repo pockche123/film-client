@@ -5,8 +5,9 @@ import StarBorderIcon from '@mui/icons-material/StarBorder'
 import { MouseEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import differenceInCalendarYears from 'date-fns/differenceInCalendarYears/index'
 
-const Rate = () => {
+const Rate = ({inCreatePage}:{inCreatePage: boolean}) => {
   const [rating, setRating] = useState(0)
   const totalStars = 5
   const ratingContainerRef = useRef<HTMLDivElement>(null)
@@ -63,7 +64,7 @@ const Rate = () => {
   }
 
   return (
-    <div className='rating-box'>
+      <div className={`rating-box ${inCreatePage ? 'create-page': ''}`}>
       <FontAwesomeIcon
         icon={faMinus}
         onClick={handleZeroRating}

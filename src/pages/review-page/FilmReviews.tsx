@@ -12,13 +12,15 @@ const FilmReviews = () => {
   const params = useParams()
   const filmTitle = params.filmTitle as string
   const [data, setData] = useState<IReview[]>([])
-   const userLoggedIn = JSON.parse(localStorage.getItem("loggedIn") || "false")
-  // let userLoggedIn = true
+  //  const userLoggedIn = JSON.parse(localStorage.getItem("loggedIn") || "false")
+ let userLoggedIn = true
   const navigate = useNavigate()
   let username = 'tester1'
   const location = useLocation()
   const poster = location.state && location.state.poster
   const year = location.state && location.state.year
+
+
 
   useEffect(() => {
     getReviewsByFilmTitle(filmTitle).then(res => {
@@ -29,7 +31,7 @@ const FilmReviews = () => {
   })
 
   const handleReviewsLoggedIn = () => {
-    navigate(Paths.createReview + username)
+    navigate(Paths.createReview + username, { state: {poster, filmTitle, year}})
   }
 
   const handleBackToMain = () => {

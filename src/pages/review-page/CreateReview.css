@@ -1,0 +1,28 @@
+
+.create-review{
+    min-height: 100vh;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+}
+
+
+.create-review-poster img{
+    height: 400px;
+    padding: 2em;
+    
+}
+
+
+.create-review-poster{
+    float: left; 
+}
+
+.create-review-heading{
+    text-align: left;
+    padding-top: 2em;
+}
+
+.create-review-rating{
+    background-color: none;
+    margin-left: 24%;
+}

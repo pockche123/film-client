@@ -5,12 +5,11 @@ import './RateFilm.css'
 import Rate from './Rate'
 
 const RateFilm = () => {
-  // let userLoggedIn = false
+  let userLoggedIn = true
   const [showPopover, setShowPopover] = useState(false)
   const [bookmarkColour, setBookmarkColour] = useState('white')
   let existingRating = 0
- const userLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false')
-
+//  const userLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false')
 
   useEffect(() => {
     colorChange()
@@ -48,7 +47,7 @@ const RateFilm = () => {
         <FontAwesomeIcon icon={faStar} style={{ color: bookmarkColour }} />
         {showPopover && (
           <div className='rating-popover' onClick={e => e.stopPropagation()}>
-            <Rate />
+            <Rate inCreatePage={false} />
           </div>
         )}
       </div>
