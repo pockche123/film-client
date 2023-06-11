@@ -58,6 +58,12 @@
   border-radius: 15px;
 }
 
+.rating-box.create-page{
+  background-color:cadetblue;
+  color: gold;
+
+}
+
 /* .rate-film {
   display: inline-block;
   position: relative;
