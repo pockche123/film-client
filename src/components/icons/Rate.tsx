@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import differenceInCalendarYears from 'date-fns/differenceInCalendarYears/index'
 
-const Rate = ({inCreatePage}:{inCreatePage: boolean}) => {
+const Rate = ({ inCreatePage }: { inCreatePage: boolean }) => {
   const [rating, setRating] = useState(0)
   const totalStars = 5
   const ratingContainerRef = useRef<HTMLDivElement>(null)
@@ -15,13 +15,13 @@ const Rate = ({inCreatePage}:{inCreatePage: boolean}) => {
   const [activeStar, setActiveStar] = useState(-1)
   const [hoverActiveStar, setHoverActiveStar] = useState<number>(-1)
   const [isHovered, setIsHovered] = useState(false)
-    const existingRating = 2.5
-    
-    useEffect(() => {
-  setActiveStar(existingRating)
-  setRating(existingRating * 2)
-}, [])
+  const existingRating = 2.5
+  const [newRating, setNewRating] = useState(0)
 
+  useEffect(() => {
+    setActiveStar(existingRating)
+    setRating(existingRating * 2)
+  }, [])
 
   const calculateRating = (e: MouseEvent<HTMLDivElement>) => {
     const rect = ratingContainerRef.current?.getBoundingClientRect()
@@ -45,7 +45,8 @@ const Rate = ({inCreatePage}:{inCreatePage: boolean}) => {
     const newRating = calculateRating(e)
 
     setActiveStar(newRating)
-    setRating(newRating * 2)
+      setRating(newRating * 2)
+      setNewRating(newRating *2)
   }
 
   const handleMouseMove = (e: any) => {
@@ -59,12 +60,13 @@ const Rate = ({inCreatePage}:{inCreatePage: boolean}) => {
   }
 
   const handleZeroRating = () => {
-    setRating(0)
+      setRating(0)
+      setNewRating(0)
     setActiveStar(0)
   }
 
   return (
-      <div className={`rating-box ${inCreatePage ? 'create-page': ''}`}>
+    <div className={`rating-box ${inCreatePage ? 'create-page' : ''}`}>
       <FontAwesomeIcon
         icon={faMinus}
         onClick={handleZeroRating}
@@ -139,8 +141,17 @@ const Rate = ({inCreatePage}:{inCreatePage: boolean}) => {
             </Box>
           )
         })}
+
+      
       </Box>
-      {rating}
+
+            {!inCreatePage
+          ? (
+              rating
+          )
+          : (
+            
+              newRating )}
     </div>
   )
 }

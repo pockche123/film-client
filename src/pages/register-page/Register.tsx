@@ -6,6 +6,8 @@ import EmailInput from '../../components/register/EmailInput'
 import PasswordInput from '../../components/register/PasswordInput'
 import RePasswordInput from '../../components/register/RePasswordInput'
 import InvalidCases from '../../components/register/InvalidCases'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -73,6 +75,9 @@ const Register = () => {
   }
 
   return (
+
+    <>
+      <Header/>
     <form
       className='register-form image-half-left'
       onSubmit={e => handleRegister(e)}
@@ -151,7 +156,10 @@ const Register = () => {
           <InvalidCases {...invalidCasesProps} />
         </div>
       </div>
-    </form>
+      </form>
+      <Footer/>
+      
+      </>
   )
 }
 

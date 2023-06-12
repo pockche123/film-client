@@ -3,6 +3,8 @@ import { getAllFilms } from '../../components/services/API/Films'
 import { Film } from '../../components/interfaces/IFilm'
 import { useNavigate, useParams } from 'react-router-dom'
 import './SearchPage.css'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 const SearchPage = () => {
   const [films, setFilms] = useState<Array<Film>>([])
@@ -55,6 +57,8 @@ const SearchPage = () => {
   }
 
   return (
+    <>
+      <Header/>
     <div className="search-page" >
       {searchedFilms.length > 0 ? (
         searchedFilms.map(film => (
@@ -90,7 +94,9 @@ const SearchPage = () => {
       ) : showMessage ? (
         <div>There were no matches for your search term.</div>
       ) : null}
-    </div>
+      </div>
+      <Footer/>
+      </>
   )
 }
 
