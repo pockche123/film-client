@@ -5,6 +5,27 @@
 
 }
 
+textarea{
+      height: 30px;
+    width:  70%;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+textarea:focus{
+    border-bottom: 2px solid #333;
+
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+.create-review-form{
+    margin: 1em;
+}
 
 .create-review-poster img{
     height: 400px;
