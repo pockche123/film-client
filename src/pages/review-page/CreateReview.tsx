@@ -16,9 +16,10 @@ const CreateReview = () => {
   const navigate = useNavigate();
   const [review, setReview] = useState("");
   const [textareaHeight, setTextareaHeight] = useState("auto");
+  
 
   const handleTextareaResize = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setTextareaHeight("auto"); // Reset the height to auto to recalculate it
+    setTextareaHeight("auto"); // Reset the height to auto to recalculate 
     setTextareaHeight(`${e.target.scrollHeight}px`); // Update the height based on the scrollHeight
   };
 
