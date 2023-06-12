@@ -7,6 +7,8 @@ import ReviewContentCard from '../../components/review/ReviewContentCard'
 import { Paths } from '../../components/services/Utils/Paths'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import Footer from '../../components/footer/Footer'
+import Header from '../../components/header/Header'
 
 const FilmReviews = () => {
   const params = useParams()
@@ -19,6 +21,7 @@ const FilmReviews = () => {
   const location = useLocation()
   const poster = location.state && location.state.poster
   const year = location.state && location.state.year
+  const film = location.state && location.state.film
 
 
 
@@ -31,7 +34,7 @@ const FilmReviews = () => {
   })
 
   const handleReviewsLoggedIn = () => {
-    navigate(Paths.createReview + username, { state: {poster, filmTitle, year}})
+    navigate(Paths.createReview + username, { state: {poster, filmTitle, year, film}})
   }
 
   const handleBackToMain = () => {
@@ -43,6 +46,8 @@ const FilmReviews = () => {
   })
 
   return (
+    <>
+      <Header/>
     <div className='reviews'>
       <div className='reviews-back-to-page'>
         <img src={poster} alt='film-poster' /> &nbsp; &nbsp;
@@ -88,7 +93,9 @@ const FilmReviews = () => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
+      <Footer/>
+      </>
   )
 }
 

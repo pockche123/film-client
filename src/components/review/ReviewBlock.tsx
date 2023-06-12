@@ -36,10 +36,11 @@ const ReviewBlock = ({ film }: { film: Film }) => {
     })
 
     console.log("poster , ", poster)
+    console.log("this be film", film)
   })
 
   const navToReviewPage = () => {
-    navigate(Paths.reviews + filmTitle, {state:{poster, filmTitle, year, film}})
+    navigate(Paths.reviews + filmTitle, { state: { poster, filmTitle, year, film } })
   }
 
   const reviewCardProps = {

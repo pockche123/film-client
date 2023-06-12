@@ -9,6 +9,9 @@ import Discussion from '../../components/discussion/Discussion'
 import FilmPoster from '../../components/films/FilmPoster'
 import ReviewBlock from '../../components/review/ReviewBlock'
 import Rate from '../../components/icons/Rate'
+import { Navbar } from 'react-bootstrap'
+import Footer from '../../components/footer/Footer'
+import Header from '../../components/header/Header'
 
 
 const FilmPage = () => {
@@ -28,6 +31,8 @@ const FilmPage = () => {
   }
 
   return (
+    <>
+      <Header/>
     <div className='film-container'>
   
       <div className='film-page-poster'>
@@ -64,7 +69,9 @@ const FilmPage = () => {
       </div>
       
 
-    </div>
+      </div>
+      <Footer/>
+      </>
   )
 }
 

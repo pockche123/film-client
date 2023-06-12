@@ -28,7 +28,7 @@ import CreateReview from './pages/review-page/CreateReview'
 function App () {
   return (
     <div className='app'>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path={Paths.home} element={<Home />} />
@@ -45,10 +45,7 @@ function App () {
           <Route path={Paths.reviews + ':filmTitle'} element={<FilmReviews />} />
           <Route path={Paths.review + ':id'} element = {<Review/>}/>
           <Route path={Paths.userProfile + ':username'} element={<UserProfile />} />
-          <Route path={Paths.createReview + ':username'} element={<CreateReview />}/>
-          
-
-
+        
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={['USER']} />}>
               <Route
@@ -59,8 +56,12 @@ function App () {
             </Route>
           </Route>
         </Route>
+        <Route path={Paths.createReview + ':username'} element={<CreateReview />} />
+
         </Routes>
-      <Footer/>
+      {/* <Footer /> */}
+   
+
     </div>
 
 

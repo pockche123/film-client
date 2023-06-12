@@ -7,6 +7,8 @@ import '../film-page/FilmPage.css'
 import { Paths } from '../../components/services/Utils/Paths'
 import { format } from 'date-fns'
 import { enGB } from 'date-fns/locale'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 const Review = () => {
   const params = useParams()
@@ -31,6 +33,8 @@ const Review = () => {
   })
 
   return (
+    <>
+      <Header/>
     <div className='review-container'>
       <div className='review-poster'>
        <img src={poster} alt='review-poster'/>
@@ -48,7 +52,9 @@ const Review = () => {
           {data?.review}
           </div>
         </div>
-    </div>
+      </div>
+      <Footer/>
+      </>
   )
 }
 
