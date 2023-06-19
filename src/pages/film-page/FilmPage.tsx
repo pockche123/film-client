@@ -5,7 +5,7 @@ import FilmNav from '../../components/films/FilmNav'
 import FilmOverview from '../../components/films/FilmOverview'
 import FilmImages from '../../components/films/FilmImages'
 import FilmSocialNav from '../../components/films/FilmSocialNav'
-import Discussion from '../../components/discussion/Discussion'
+import DiscussionBlock from '../../components/discussion/DiscussionBlock'
 import FilmPoster from '../../components/films/FilmPoster'
 import ReviewBlock from '../../components/review/ReviewBlock'
 import Rate from '../../components/icons/Rate'
@@ -61,7 +61,7 @@ const FilmPage = () => {
         </div>
       <div className="social">
           {socialActiveSection === 'reviews' && <ReviewBlock film={film} />}
-          {socialActiveSection === 'discussions' && <Discussion film={film}/>}
+          {socialActiveSection === 'discussions' && <DiscussionBlock film={film}/>}
 
           </div>    
         </div>

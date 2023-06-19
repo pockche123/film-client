@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getReviewsByFilmTitle } from '../services/API/Reviews'
 import { Film } from '../interfaces/IFilm'
+import { getDiscussionByFilmTitle } from '../services/API/Discussion'
 
 const FilmSocialNav = ({
   activeSection,
@@ -14,6 +15,7 @@ const FilmSocialNav = ({
   
   
   const [totalReviews, setTotalReviews] = useState(0)
+  const [totalDiscussions, setTotalDiscussions] = useState(0)
   const filmTitle = film.title
   
   useEffect(() => {
@@ -23,10 +25,18 @@ const FilmSocialNav = ({
     setTotalReviews(res.data.length)
  
   })
-})
+    
+    getDiscussionLength();
+  })
+  
+  const getDiscussionLength = () => {
+    getDiscussionByFilmTitle(filmTitle).then(res => {
+       setTotalDiscussions(res.data.length)
+    })
+  }
 
 
-  const totalDiscussions = localStorage.getItem("totalDiscussions")
+  
 
   useEffect(() => {
     console.log("totalreviews ", totalReviews)
@@ -62,7 +72,7 @@ const FilmSocialNav = ({
         className='film-social-nav-label'
         style={{
           cursor: 'pointer',
-          width: '12vw',
+          width: '13vw',
           borderBottom:
             activeSection === 'discussions' ? '4px solid black' : 'none'
         }}
