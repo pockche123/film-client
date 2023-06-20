@@ -1,4 +1,3 @@
-import { UseScrollTriggerOptions } from "@mui/material/useScrollTrigger/useScrollTrigger"
 import { Film } from "./IFilm"
 import { IUser } from "./IUser"
 
@@ -11,4 +10,5 @@ export interface Discussion{
     description: string 
     likes: number
     id: string
+    timestamp: string
 }
