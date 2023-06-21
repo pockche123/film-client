@@ -24,6 +24,7 @@ import FilmReviews from './pages/review-page/FilmReviews';
 import UserProfile from './pages/user-pages/profile-page/UserProfile'
 import Review from './pages/review-page/Review'
 import CreateReview from './pages/review-page/CreateReview'
+import DiscussionPage from './pages/discussion-page/DiscussionPage'
 
 function App () {
   return (
@@ -45,6 +46,7 @@ function App () {
           <Route path={Paths.reviews + ':filmTitle'} element={<FilmReviews />} />
           <Route path={Paths.review + ':id'} element = {<Review/>}/>
           <Route path={Paths.userProfile + ':username'} element={<UserProfile />} />
+          <Route path={Paths.discussionPage + ':id'} element={<DiscussionPage/>}/>
         
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={['USER']} />}>
