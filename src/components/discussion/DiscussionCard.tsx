@@ -9,6 +9,7 @@ import {
   faCircleArrowUp,
   faCircleArrowDown
 } from '@fortawesome/free-solid-svg-icons'
+import { Paths } from '../services/Utils/Paths'
 // import { faDown } from '@fortawesome/free-regular-svg-icons'
 
 interface DiscussionCardProps {
@@ -25,7 +26,8 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
         'HH:mm'
       )}`
         : ''
-const [isSmaller, setIsSmaller] = useState(false)
+  const [isSmaller, setIsSmaller] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 const [isBigger, setIsBigger] = useState(false)
   const title = data.title
@@ -37,11 +39,11 @@ const [isBigger, setIsBigger] = useState(false)
   })
 
   const handleUsername = () => {
-    navigate('/userProfile/' + username)
+    navigate(Paths.userProfile + username)
   }
 
   const handleToDiscussion = () => {
-    navigate('/discussionPage/' + id)
+    navigate(Paths.discussionPage + id)
   }
 
     
@@ -49,7 +51,8 @@ const [isBigger, setIsBigger] = useState(false)
         if (isBigger) {
             setIsBigger(false)
         } else {
-            setIsSmaller(true)
+          setIsSmaller(true)
+     
         }
 
     }
@@ -59,21 +62,29 @@ const [isBigger, setIsBigger] = useState(false)
         if (isSmaller) {
             setIsSmaller(false)
         } else {
-            setIsBigger(true)
+          setIsBigger(true)
+        
         }
-    }
+  }
+  
+  const handleLogin = () => {
+    navigate(Paths.login)
+  }
 
   return (
     <div className='discussion-card'>
       <div className='discussion-card-likes'>
+
+
+
               <FontAwesomeIcon icon={faCircleArrowUp}
          className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-        onClick={handleUpVote}
+        onClick={isLoggedIn ? handleUpVote: handleLogin}
               />
         <h6>{likes}</h6>
               <FontAwesomeIcon icon={faCircleArrowDown} 
                   className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-                  onClick = { handleDownVote }
+                  onClick = {isLoggedIn? handleDownVote: handleLogin  }
 
               />
       </div>
@@ -87,6 +98,8 @@ const [isBigger, setIsBigger] = useState(false)
             on {formattedDate}
           </label>
         </div>
+
+
 
         <div className='discussion-card-title' onClick={handleToDiscussion}>
           <h4>{title}</h4>
