@@ -16,3 +16,50 @@
 .discussion-flex-two{
     width: 70%;
 }
+
+
+.discussion-heading{
+    text-align: left; 
+    display: inline-flex;
+    margin-top: 3em;
+    background-color:whitesmoke;
+    width: 90%;
+    height: 20%; 
+    padding: 1em;
+}
+
+.discussion-heading img{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    cursor: pointer;
+    float: left; 
+
+ 
+}
+
+.discussion-heading-texts{
+    margin-left: 1em;
+}
+
+.discussion-user:hover{
+    color: blue; 
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+.discussion-description{
+    text-align: left;
+    margin-left: 2.7em;
+    border: 1px solid; 
+    width: 90%;
+    padding: 1em;
+
+
+}
+
+.icons img{
+    color:aqua;
+}
