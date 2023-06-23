@@ -13,6 +13,8 @@ export const getTitle = async (URI: string, title: string) => await axios.get(UR
 
 export const getByFilmTitle = async (URI: string, title: string) => await axios.get(URI + "/film/" + title);
 
+export const getByDiscussionId = async(URI: string, id: string) => await axios.get(URI + "/discussion/" + id);
+
 
 
 

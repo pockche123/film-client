@@ -1,0 +1,66 @@
+
+.discussion-heading{
+    text-align: left; 
+    display: flex;
+    margin-top: 3em;
+    background-color:whitesmoke;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+
+.discussion-heading img{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    cursor: pointer;
+    float: left; 
+}
+
+.discussion-heading-texts{
+    margin-left: 1em;
+}
+
+.discussion-user:hover{
+    color: blue; 
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+.discussion-description{
+    text-align: left;
+
+    padding: 1em;
+    margin-bottom: 2em;
+
+
+}
+
+
+.discussion-icons {
+display: flex;
+ margin-bottom: 2em;
+}
+
+.discussion-icons-bit{
+     width: 75px;
+  padding: 0.5em;
+  background-color: gainsboro;
+  display: flex;
+  border-radius: 9999px;
+  margin-right: 2.5em;
+
+
+}
+
+.discussion-icons-comments{
+     width: 60px;
+  padding: 0.5em;
+  background-color: gainsboro;
+  display: flex;
+  border-radius: 9999px;
+  margin-right: 2.5em;
+  bottom: 10px;
+}

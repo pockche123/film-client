@@ -16,7 +16,8 @@
   top: 0;
   height: 100vh; 
   overflow-y: auto;
-  z-index: 1000;
+  /* z-index: 1000; */
+  z-index:10;
 }
 
 .poster {
@@ -201,6 +202,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .quote {

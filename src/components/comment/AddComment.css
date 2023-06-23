@@ -1,0 +1,14 @@
+
+.add-comment {
+  border: 1px solid;
+  border-radius: 9999px; /* Use a large value for a pill shape */
+  width: 200px;
+  padding: 0.8em;
+}
+
+.add-comment:hover {
+  cursor: pointer;
+  border-color: black; /* Change the border color on hover */
+   border-width: 1.1px;
+
+}
