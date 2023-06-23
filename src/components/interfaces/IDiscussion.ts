@@ -3,7 +3,7 @@ import { IUser } from "./IUser"
 
 
 
-export interface Discussion{
+export interface IDiscussion{
     film: Film
     user: IUser
     title: string

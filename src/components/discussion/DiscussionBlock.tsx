@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Film } from '../interfaces/IFilm'
 import { getDiscussionByFilmTitle } from '../services/API/Discussion'
-import { Discussion } from '../interfaces/IDiscussion'
+import { IDiscussion } from '../interfaces/IDiscussion'
 import DiscussionCard from './DiscussionCard'
 
 const DiscussionBlock = ({ film }: { film: Film }) => {
   const filmTitle = film.title;
-  const [data, setData] = useState<Discussion[]>([]);
+  const [data, setData] = useState<IDiscussion[]>([]);
   const [totalDiscussion, setTotalDiscussion] = useState(0);
 
   useEffect(() => {

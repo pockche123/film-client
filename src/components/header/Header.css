@@ -28,11 +28,11 @@
 .logo:hover{
     color: #00BFFF;
 }
-
+/* 
 .header{
     position: relative;
-    z-index: 100;
-}
+    z-index: 1;
+} */
 .search-header{
     width: 100vw;
 text-indent: 33px;

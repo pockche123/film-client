@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Discussion } from '../interfaces/IDiscussion'
+import { IDiscussion } from '../interfaces/IDiscussion'
 import './DiscussionCard.css'
 import { useNavigate } from 'react-router-dom'
 import { format } from 'date-fns'
@@ -13,7 +13,7 @@ import { Paths } from '../services/Utils/Paths'
 // import { faDown } from '@fortawesome/free-regular-svg-icons'
 
 interface DiscussionCardProps {
-  data: Discussion
+  data: IDiscussion
 }
 
 const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
@@ -25,11 +25,11 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
         new Date(date),
         'HH:mm'
       )}`
-        : ''
+    : ''
   const [isSmaller, setIsSmaller] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-const [isBigger, setIsBigger] = useState(false)
+  const [isBigger, setIsBigger] = useState(false)
   const title = data.title
   const likes = data.likes
   const id = data.id
@@ -46,27 +46,22 @@ const [isBigger, setIsBigger] = useState(false)
     navigate(Paths.discussionPage + id)
   }
 
-    
-    const handleUpVote = () => {
-        if (isBigger) {
-            setIsBigger(false)
-        } else {
-          setIsSmaller(true)
-     
-        }
-
+  const handleUpVote = () => {
+    if (isBigger) {
+      setIsBigger(false)
+    } else {
+      setIsSmaller(true)
     }
-
-
-    const handleDownVote = () => {
-        if (isSmaller) {
-            setIsSmaller(false)
-        } else {
-          setIsBigger(true)
-        
-        }
   }
-  
+
+  const handleDownVote = () => {
+    if (isSmaller) {
+      setIsSmaller(false)
+    } else {
+      setIsBigger(true)
+    }
+  }
+
   const handleLogin = () => {
     navigate(Paths.login)
   }
@@ -74,19 +69,17 @@ const [isBigger, setIsBigger] = useState(false)
   return (
     <div className='discussion-card'>
       <div className='discussion-card-likes'>
-
-
-
-              <FontAwesomeIcon icon={faCircleArrowUp}
-         className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-        onClick={isLoggedIn ? handleUpVote: handleLogin}
-              />
+        <FontAwesomeIcon
+          icon={faCircleArrowUp}
+          className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
+          onClick={isLoggedIn ? handleUpVote : handleLogin}
+        />
         <h6>{likes}</h6>
-              <FontAwesomeIcon icon={faCircleArrowDown} 
-                  className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-                  onClick = {isLoggedIn? handleDownVote: handleLogin  }
-
-              />
+        <FontAwesomeIcon
+          icon={faCircleArrowDown}
+          className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
+          onClick={isLoggedIn ? handleDownVote : handleLogin}
+        />
       </div>
       <div>
         <div className='discussion-card-top'>
@@ -98,8 +91,6 @@ const [isBigger, setIsBigger] = useState(false)
             on {formattedDate}
           </label>
         </div>
-
-
 
         <div className='discussion-card-title' onClick={handleToDiscussion}>
           <h4>{title}</h4>
