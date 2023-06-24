@@ -46,21 +46,23 @@ display: flex;
 
 .discussion-icons-bit{
      width: 75px;
-  padding: 0.5em;
+  padding: 0.2em;
   background-color: gainsboro;
   display: flex;
   border-radius: 9999px;
   margin-right: 2.5em;
+cursor: pointer;
 
 
 }
 
 .discussion-icons-comments{
      width: 60px;
-  padding: 0.5em;
+  padding: 0.2em;
   background-color: gainsboro;
   display: flex;
   border-radius: 9999px;
   margin-right: 2.5em;
   bottom: 10px;
+  cursor: pointer;
 }
