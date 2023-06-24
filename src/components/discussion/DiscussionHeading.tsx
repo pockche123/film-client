@@ -98,29 +98,29 @@ const DiscussionHeading = ({
           <FontAwesomeIcon
             icon={faCircleArrowUp}
             className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-            style={{ marginTop: '2px' }} 
+            style={{ marginTop: '0.3em', marginLeft: '0.3em' }} 
             onClick={isLoggedIn ? handleUpVote : handleLogin}
           />
           &nbsp;
-          <span style={{ fontSize: '12px' }}>{likes}</span>
+          <span style={{ fontSize: '12px', marginTop:'0.5em' }}>{likes}</span>
           &nbsp;
           <FontAwesomeIcon
             icon={faCircleArrowDown}
             className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-            style={{ marginTop: '2px' }} 
+            style={{ marginTop: '0.3em' }} 
             onClick={isLoggedIn ? handleDownVote : handleLogin}
           />
         </div>
 
         <div className='discussion-icons-comments'>
           &nbsp;
-          <FontAwesomeIcon icon={faCommentAlt} style={{ marginTop: '4px' }} />
+          <FontAwesomeIcon icon={faCommentAlt} style={{ marginTop: '0.4em', marginLeft: '0.5em' }} />
           &nbsp;
-          <span style={{ fontSize: '12px', marginTop:'2px' }}>{commentsLength}</span>
+          <span style={{ fontSize: '12px', marginTop: '0.3em' }}>{commentsLength}</span>
         </div>
         <div className='discussion-icons-bit'>
-          <FontAwesomeIcon icon={faArrowUpFromBracket} style={{ marginTop: '2px' }} />
-          &nbsp; <h6 style={{fontSize: '14px', marginTop:'2px'}}>Share </h6>
+          <FontAwesomeIcon icon={faArrowUpFromBracket} style={{ marginTop: '0.3em', marginLeft: '0.5em' }} />
+          &nbsp; <h6 style={{fontSize: '13px', marginTop:'0.45em'}}>Share </h6>
         </div>
       </div>
     </div>

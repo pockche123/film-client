@@ -3,12 +3,14 @@
   border: 1px solid;
   border-radius: 9999px; /* Use a large value for a pill shape */
   width: 200px;
-  padding: 0.8em;
+  padding: 0.5em;
+border-color: rgba(0, 0, 0, 0.6); /* Change the border color to a slightly transparent black on hover */
+margin-bottom: 4em;
 }
 
 .add-comment:hover {
   cursor: pointer;
-  border-color: black; /* Change the border color on hover */
-   border-width: 1.1px;
-
+  border-color: rgba(0, 0, 0, 1); /* Change the border color to a slightly transparent black on hover */
 }
+
+
