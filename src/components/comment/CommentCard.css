@@ -1,0 +1,28 @@
+
+
+
+.comment{
+    border: 1px solid;
+    padding: 1em;
+}
+.comment-user-profile img{
+    height: 35px;
+    border-radius: 50%;
+    float: left;
+    
+}
+
+.comment-user-profile{
+    display: flex;
+    font-size: 13px;
+}
+
+.comment-heading{
+    margin-left: 1em; 
+    margin-top: 0.5em;
+}
+
+#comment-username:hover{
+   text-decoration: underline;
+   cursor: pointer;
+}

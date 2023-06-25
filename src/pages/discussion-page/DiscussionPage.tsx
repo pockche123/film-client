@@ -9,13 +9,14 @@ import { IComment } from '../../components/interfaces/IComment'
 import { getCommentsByDiscussion } from '../../components/services/API/Comment'
 import { AxiosResponse } from 'axios'
 import AddComment from '../../components/comment/AddComment'
+import CommentCard from '../../components/comment/CommentCard'
 
 const DiscussionPage = () => {
   const params = useParams()
   const id = params.id as string
   const [data, setData] = useState<IDiscussion>()
   const [commentsLength, setCommentsLength] = useState(0)
-  const [comments, setComments] = useState<IComment>()
+  const [comments, setComments] = useState<Array<IComment>>([])
 
   useEffect(() => {
     getDiscussion()
@@ -31,25 +32,31 @@ const DiscussionPage = () => {
       .catch(e => console.log(e))
   }
 
+  const handleComment = () => {
+    const commentsSection = document.getElementById('comments-section')
+    commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    console.log('inside comment handle')
+  }
+
   const getComments = () => {
     getCommentsByDiscussion(id)
-      .then((res: AxiosResponse) => {
+      .then(res => {
         setComments(res.data)
-        console.log('length, ', res.data.length)
         setCommentsLength(res.data.length)
       })
-      .catch((e: Error) => console.log(e))
+      .catch(e => console.log(e))
   }
 
   return (
     <div className='discussion-page'>
-      <div className='discussion-flex-one'>
-         TBD
-
-      </div>
+      <div className='discussion-flex-one'>TBD</div>
       <div className='discussion-flex-two'>
         <div className='discussion-flex-two-contents'>
-          <DiscussionHeading data={data} comments={comments} />
+          <DiscussionHeading
+            data={data}
+            comments={comments}
+            handleComment={handleComment}
+          />
 
           <div className='discussion-heading-break'>
             <hr style={{ width: '90%' }} />
@@ -60,8 +67,25 @@ const DiscussionPage = () => {
             </label>
           </div>
 
-       <AddComment/>
+          <div>
+            <AddComment />
+          </div>
 
+          {/* <div className='comments-section'>
+            {comments.map((comment:IComment) => {
+              <div key={comment.commentId}>
+              <CommentCard  />
+              </div>
+            })}
+            
+            </div> */}
+          <div className='comments-section'>
+            {comments.map((comment: IComment) => (
+              <div key={comment.commentId}>
+                <CommentCard comment={comment} />
+              </div>
+            ))}
+          </div>
 
 
         </div>
