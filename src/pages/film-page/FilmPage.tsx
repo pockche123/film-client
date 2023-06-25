@@ -8,8 +8,6 @@ import FilmSocialNav from '../../components/films/FilmSocialNav'
 import DiscussionBlock from '../../components/discussion/DiscussionBlock'
 import FilmPoster from '../../components/films/FilmPoster'
 import ReviewBlock from '../../components/review/ReviewBlock'
-import Rate from '../../components/icons/Rate'
-import { Navbar } from 'react-bootstrap'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 

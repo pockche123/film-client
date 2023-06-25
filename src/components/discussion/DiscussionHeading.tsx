@@ -7,20 +7,19 @@ import {
   faArrowUpFromBracket,
   faCircleArrowDown,
   faCircleArrowUp,
-  faComment,
   faCommentAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IComment } from '../interfaces/IComment'
-import { IDiscussion } from '../interfaces/IDiscussion'
 import './DiscussionHeading.css'
 
 const DiscussionHeading = ({
   data,
-  comments
+  comments,
+  handleComment
 }: {
   data: any
-  comments: any
+    comments: any
+    handleComment: any
 }) => {
   const navigate = useNavigate()
   const film = data?.film
@@ -72,6 +71,7 @@ const DiscussionHeading = ({
     navigate(Paths.login)
   }
 
+
   return (
     <div className='discussion-intro'>
       <div className='discussion-heading'>
@@ -114,7 +114,7 @@ const DiscussionHeading = ({
 
         <div className='discussion-icons-comments'>
           &nbsp;
-          <FontAwesomeIcon icon={faCommentAlt} style={{ marginTop: '0.4em', marginLeft: '0.5em' }} />
+          <FontAwesomeIcon icon={faCommentAlt} style={{ marginTop: '0.4em', marginLeft: '0.5em' }} onClick={handleComment} />
           &nbsp;
           <span style={{ fontSize: '12px', marginTop: '0.3em' }}>{commentsLength}</span>
         </div>
