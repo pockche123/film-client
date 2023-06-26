@@ -5,7 +5,7 @@
 
 }
 
-textarea{
+#create-review-textarea{
       height: 30px;
     width:  70%;
     border: none;
@@ -14,12 +14,12 @@ textarea{
     resize: none;
     outline: none;
 }
-textarea:focus{
+#create-review-textarea:focus{
     border-bottom: 2px solid #333;
 
 }
 
-textarea:focus::placeholder {
+#create-review-textarea:focus::placeholder {
   color: transparent;
 }
 

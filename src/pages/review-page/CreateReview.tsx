@@ -64,6 +64,7 @@ const CreateReview = () => {
 /> */}
 
           <textarea
+            id="create-review-textarea"
             value={review}
             onChange={(e) => setReview(e.target.value)}
             placeholder="Add a review..."
