@@ -26,3 +26,54 @@
    text-decoration: underline;
    cursor: pointer;
 }
+
+.comment-content{
+    text-align: left;
+    margin-left: 3.2em; 
+    margin-bottom: 1em;
+}
+
+.comment-icons{
+    margin-left: 3.2em;
+   display: flex;
+}
+
+
+.icon{
+    cursor: pointer;
+}
+
+.comment-icons-thumbs:hover{
+    background-color: gainsboro;
+    border-radius: 999px;
+}
+
+.comment-icon-reply{
+    margin-left: 2em;
+    display: flex;
+   top: 1em;
+    padding: 0.2em;
+ 
+}
+
+.comment-icon-reply:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+    border-radius: 999px;
+}
+
+.comment-reply{
+    padding: 2em 0;
+    border: 1px solid black; 
+}
+
+.comment-reply-buttons{
+   width: 100%; 
+   border: 1px solid black;
+
+}
+
+#comment-reply-enter{
+   float: right; 
+   margin-right: 1em;
+}
