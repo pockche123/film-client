@@ -80,7 +80,7 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
           <div className='comment-reply-buttons'>
             <button id='comment-reply-enter'>Reply</button>
 
-            <button style={{ float: 'right', border:'none', marginRight:'1em'}}>Cancel</button>
+            <b id='comment-reply-cancel'>Cancel</b>
            
               </div>
 

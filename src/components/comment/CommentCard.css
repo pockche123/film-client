@@ -77,3 +77,22 @@
    float: right; 
    margin-right: 1em;
 }
+
+#comment-reply-cancel{
+    float: right; 
+    border: none; 
+    margin-right: 1em;
+    margin-top: 0.5em;
+    padding:0  0.4em; 
+    color:rgb(46, 136, 233);
+    font-size: 14px;
+    
+}
+
+#comment-reply-cancel:hover{
+    text-decoration: underline;
+    background-color: rgb(200, 223, 247);
+    border-radius: 999px;
+    cursor: pointer;
+
+}
