@@ -10,6 +10,7 @@ import { getCommentsByDiscussion } from '../../components/services/API/Comment'
 import { AxiosResponse } from 'axios'
 import AddComment from '../../components/comment/AddComment'
 import CommentCard from '../../components/comment/CommentCard'
+import { CommentBox } from '../../components/comment/CommentBox'
 
 const DiscussionPage = () => {
   const params = useParams()
@@ -17,7 +18,8 @@ const DiscussionPage = () => {
   const [data, setData] = useState<IDiscussion>()
   const [commentsLength, setCommentsLength] = useState(0)
   const [comments, setComments] = useState<Array<IComment>>([])
-
+  const [login, setLogin] = useState(true)
+  const [reply, setReply] = useState("")
   useEffect(() => {
     getDiscussion()
     getComments()
@@ -33,7 +35,7 @@ const DiscussionPage = () => {
   }
 
   const handleComment = () => {
-    const commentsSection = document.getElementById('comments-section')
+    const commentsSection = document.getElementById('comments')
     commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
     console.log('inside comment handle')
   }
@@ -67,19 +69,19 @@ const DiscussionPage = () => {
             </label>
           </div>
 
-          <div>
-            <AddComment />
-          </div>
+          {login ? (
+            <div>
+            <CommentBox reply={reply} setReply={setReply} setLogin={setLogin} />
 
-          {/* <div className='comments-section'>
-            {comments.map((comment:IComment) => {
-              <div key={comment.commentId}>
-              <CommentCard  />
-              </div>
-            })}
-            
-            </div> */}
-          <div className='comments-section'>
+            </div>
+          ): (
+
+            <div>
+              <AddComment />
+            </div>
+         ) }
+      
+          <div id='comments'>
             {comments.map((comment: IComment) => (
               <div key={comment.commentId}>
                 <CommentCard comment={comment} />
