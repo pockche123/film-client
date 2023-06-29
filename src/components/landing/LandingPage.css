@@ -47,6 +47,8 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
     height: 55px;
     text-indent: 33px;
     border-radius: 10px;
+    width: 650px; 
+
 }
 
 .input:focus{

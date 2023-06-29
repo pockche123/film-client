@@ -12,7 +12,7 @@ import {
   faBold,
   faMessage
 } from '@fortawesome/free-solid-svg-icons'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
 import { CommentBox } from './CommentBox'
 
@@ -79,7 +79,7 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
         <div className='comment-icons-thumbs' onClick={handleThumbsDown}>
           {thumbsDown ? (
             <ThumbDownAltIcon
-              style={{ cursor: 'pointer', color: 'black', marginRight: '2em' }}
+              style={{ cursor: 'pointer', color: 'black' }}
             />
           ) : (
             <ThumbDownOffAltIcon style={{ cursor: 'pointer' }} />
