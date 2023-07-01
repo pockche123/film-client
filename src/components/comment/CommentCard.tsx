@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import { IComment } from '../interfaces/IComment'
 import './CommentCard.css'
 import TimeAgo from '../time/TimeAgo'
@@ -13,10 +13,11 @@ import {
   faMessage
 } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
-import { Paths } from '../services/Utils/Paths'
 import { CommentBox } from './CommentBox'
+import ChildrenCommentCard from './ChildrenCommentCard'
+import { getChildrenComments } from '../services/API/Comment'
 
-const CommentCard = ({ comment }: { comment: IComment }) => {
+const CommentCard = ({ comment }: { comment: IComment}) => {
   const [thumbsUp, setThumbsUp] = useState(false)
   const [thumbsDown, setThumbsDown] = useState(false)
   const [login, setLogin] = useState(false)
@@ -24,6 +25,9 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
   const userLoggedIn = true
   const [reply, setReply] = useState('')
   const navigate = useNavigate()
+  const [childComments, setChildComments] = useState<Array<IComment>>([])
+  const [displayComments, setDisplayComments] = useState(false);
+
 
 
   const handleThumbsUp = () => {
@@ -48,6 +52,25 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
     }
   }
 
+  const getComments = () => {
+    getChildrenComments(comment.id)
+      .then(res => {
+        setChildComments(res.data)
+        console.log("CHILDREN, ", res.data.length)
+      })
+    .catch(e => console.log(e))
+}
+
+  
+  useEffect(() => {
+    getComments();
+
+    console.log("ID, ", comment.id)
+  }, [])
+
+  const showChildComments = () => {
+    setDisplayComments(prevState => !prevState)
+  }
 
 
 
@@ -95,6 +118,47 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
       {login && (
         <CommentBox reply={reply} setReply={setReply} setLogin={setLogin} />
       )}
+
+
+<div className="child-c" onClick={showChildComments}>
+      {
+  childComments.length > 0 ? (
+    <b id='child-length'>{childComments.length} reply</b>
+  ) : childComments.length > 1 ? (
+    <b id='child-length'>{childComments.length} replies</b>
+  ) : (
+    ''
+  )
+        }
+  </div>
+{/* 
+      { displayComments && (
+        <div className="child-comments">
+          {childComments?.map((comment: IComment) => (
+            <div key={comment.id}>
+              <CommentCard comment={comment} />
+            </div>
+          ))}
+          
+        </div>
+      )} */}
+
+
+{
+  displayComments && (
+    <div className='child-comments'>
+      {childComments?.map((comment: IComment) => (
+        <div key={comment.id} className='comment-with-connector'>
+          <div className='comment-connector'></div>
+          <CommentCard comment={comment} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+
+
     </div>
   )
 }
