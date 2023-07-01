@@ -6,7 +6,7 @@ import './DiscussionPage.css'
 
 import DiscussionHeading from '../../components/discussion/DiscussionHeading'
 import { IComment } from '../../components/interfaces/IComment'
-import { getCommentsByDiscussion } from '../../components/services/API/Comment'
+import { getCommentsByDiscussion, getParentCommentsByDiscussion } from '../../components/services/API/Comment'
 import { AxiosResponse } from 'axios'
 import AddComment from '../../components/comment/AddComment'
 import CommentCard from '../../components/comment/CommentCard'
@@ -20,16 +20,19 @@ const DiscussionPage = () => {
   const [comments, setComments] = useState<Array<IComment>>([])
   const [login, setLogin] = useState(true)
   const [reply, setReply] = useState("")
+  const [parentComments, setParentComments] = useState<Array<IComment>>([])
+
   useEffect(() => {
     getDiscussion()
     getComments()
+    getParentComments()
+
   })
 
   const getDiscussion = () => {
     getDiscussionById(id)
       .then(res => {
         setData(res.data)
-        console.log('anything? ', res.data)
       })
       .catch(e => console.log(e))
   }
@@ -37,7 +40,7 @@ const DiscussionPage = () => {
   const handleComment = () => {
     const commentsSection = document.getElementById('comments')
     commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-    console.log('inside comment handle')
+ 
   }
 
   const getComments = () => {
@@ -47,6 +50,14 @@ const DiscussionPage = () => {
         setCommentsLength(res.data.length)
       })
       .catch(e => console.log(e))
+  }
+
+  const getParentComments = () => {
+    getParentCommentsByDiscussion(id)
+      .then(res => {
+        setParentComments(res.data)
+      })
+    .catch(e => console.log(e))
   }
 
   return (
@@ -82,9 +93,9 @@ const DiscussionPage = () => {
          ) }
       
           <div id='comments'>
-            {comments.map((comment: IComment) => (
-              <div key={comment.commentId}>
-                <CommentCard comment={comment} />
+            {parentComments.map((comment: IComment) => (
+              <div key={comment.id}>
+                <CommentCard comment={comment}/>
               </div>
             ))}
           </div>

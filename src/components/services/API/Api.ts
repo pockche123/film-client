@@ -13,7 +13,13 @@ export const getTitle = async (URI: string, title: string) => await axios.get(UR
 
 export const getByFilmTitle = async (URI: string, title: string) => await axios.get(URI + "/film/" + title);
 
-export const getByDiscussionId = async(URI: string, id: string) => await axios.get(URI + "/discussion/" + id);
+export const getByDiscussionId = async (URI: string, id: string) => await axios.get(URI + "/discussion/" + id);
+
+export const getChildrenById = async (URI: string, id: string) => await axios.get(URI + "/children/" + id);
+
+export const getParentByDiscussionId = async (URI: string, id: string) => await axios.get(URI + "/parent/discussion/" + id);
+
+export const getChildrenByDiscussionid = async (URI: string, id: string) => await axios.get(URI + "/children/discussion/" + id);
 
 
 

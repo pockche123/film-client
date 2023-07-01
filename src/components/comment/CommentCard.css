@@ -151,3 +151,43 @@
     cursor: pointer;
 
 }
+
+#child-length{
+
+    float: left;
+    font-size: 13px;
+    padding: 0.2em;
+    border-radius: 999px;
+}
+#child-length:hover{
+       background-color: gainsboro;
+        text-decoration: underline;
+         cursor: pointer;
+            
+    color:rgb(46, 136, 233);
+
+}
+.child-c{
+margin-bottom: 2em;
+}
+
+
+
+
+.comment-with-connector {
+  position: relative;
+}
+
+.comment-connector {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 3px;
+  height: calc(100% - 50%);
+  background-color: #ccc; /* Change color as needed */
+  transform: translateY(-50%);
+}
+
+.child-comments {
+  margin-left: 30px; /* Adjust the indentation as needed */
+}

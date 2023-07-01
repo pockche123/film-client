@@ -4,7 +4,7 @@ import { IUser } from "./IUser"
 
 
 export interface IComment {
-    commentId: string 
+    id: string 
     discussion: IDiscussion
     user: IUser
     parentComment: IComment
