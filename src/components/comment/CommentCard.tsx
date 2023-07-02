@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef} from 'react'
 import { IComment } from '../interfaces/IComment'
 import './CommentCard.css'
 import TimeAgo from '../time/TimeAgo'
@@ -14,7 +14,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import { CommentBox } from './CommentBox'
-import ChildrenCommentCard from './ChildrenCommentCard'
 import { getChildrenComments } from '../services/API/Comment'
 
 const CommentCard = ({ comment }: { comment: IComment}) => {
@@ -27,6 +26,12 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
   const navigate = useNavigate()
   const [childComments, setChildComments] = useState<Array<IComment>>([])
   const [displayComments, setDisplayComments] = useState(false);
+
+  const date = new Date(comment.timestamp);
+
+
+
+
 
 
 
@@ -61,12 +66,26 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
     .catch(e => console.log(e))
 }
 
+
+
+
+
+//   useEffect(() => {
+//   const commentDate = document.querySelector('.comment-date')  
+//     commentDate?.style.setProperty('--dynamic-content', 'hello')
+
+// }, [])
+
+
   
   useEffect(() => {
     getComments();
 
-    console.log("ID, ", comment.id)
+    console.log("date ", date.toString())
   }, [])
+
+
+
 
   const showChildComments = () => {
     setDisplayComments(prevState => !prevState)
@@ -79,11 +98,15 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
   return (
     <div className='comment'>
       <div className='comment-user-profile'>
-        <img src={comment.user.profilePic} alt='comment-profile' /> &nbsp;
+        <div className='comment-profile'>
+          <img src={comment.user.profilePic} alt='comment-profile' /> &nbsp;
+          </div>
         <div className='comment-heading'>
           <b id='comment-username'>{comment.user.username}</b>
           &nbsp; • &nbsp;
-          <TimeAgo timestamp={comment.timestamp} />
+          <span className='comment-date'>
+            <TimeAgo timestamp={comment.timestamp} />
+          </span>
         </div>
       </div>
 
@@ -120,17 +143,20 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
       )}
 
 
-<div className="child-c" onClick={showChildComments}>
-      {
+            {
   childComments.length > 0 ? (
-    <b id='child-length'>{childComments.length} reply</b>
-  ) : childComments.length > 1 ? (
-    <b id='child-length'>{childComments.length} replies</b>
+     <div className="child-c" onClick={showChildComments}>
+            <b id='child-length'>{childComments.length} reply</b>
+            </div>
+        ) : childComments.length > 1 ? (
+            <div className="child-c" onClick={showChildComments}>
+              <b id='child-length'>{childComments.length} replies</b>
+              </div>
   ) : (
     ''
   )
         }
-  </div>
+
 {/* 
       { displayComments && (
         <div className="child-comments">

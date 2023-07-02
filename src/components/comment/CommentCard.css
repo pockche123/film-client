@@ -1,65 +1,101 @@
-
-
-
-.comment{
-    border: 1px solid;
-    padding: 1em;
-}
-.comment-user-profile img{
-    height: 35px;
-    border-radius: 50%;
-    float: left;
-    
-}
-
-.comment-user-profile{
-    display: flex;
-    font-size: 13px;
-}
-
-.comment-heading{
-    margin-left: 1em; 
-    margin-top: 0.5em;
-}
-
-#comment-username:hover{
-   text-decoration: underline;
-   cursor: pointer;
-}
-
-.comment-content{
-    text-align: left;
-    margin-left: 3.2em; 
-    margin-bottom: 1em;
-}
-
-.comment-icons{
-    margin-left: 3.2em;
-   display: flex;
+.comment {
+  border: 1px solid;
+  padding: 1em;
 }
 
 
-.icon{
+.comment-profile {
+  width: 35px; /* Desired width */
+  height: 35px; /* Desired height */
+  border-radius: 50%; /* Create a circular shape */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.comment-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+
+.comment-date:hover{
     cursor: pointer;
+    color: black;
 }
 
-.comment-icons-thumbs:hover{
-    background-color: gainsboro;
-    border-radius: 999px;
+.comment-date:hover::before{
+margin-top: 0.5em;
+  content: "";
+  position: relative;
+  top: calc(100%);
+  left: 50%;
+  padding: 0.5em;
+  background-color: #060649;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  white-space: nowrap;
+  z-index: 1000;
 }
 
-.comment-icon-reply{
-    margin-left: 2em;
-    display: flex;
-   top: 1em;
-    padding: 0.2em;
- 
+/* .comment-date:hover::after{
+      content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent  rgb(6, 6, 73) transparent;
+} */
+
+
+
+.comment-user-profile {
+  display: flex;
+  font-size: 13px;
 }
 
-.comment-icon-reply:hover{
-    background-color: gainsboro;
-    cursor: pointer;
-    border-radius: 999px;
+.comment-heading {
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+#comment-username:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.comment-content {
+  text-align: left;
+  margin-left: 3.2em;
+  margin-bottom: 1em;
+}
+
+.comment-icons {
+  margin-left: 3.2em;
+  display: flex;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.comment-icons-thumbs:hover {
+  background-color: gainsboro;
+  border-radius: 999px;
+}
+
+.comment-icon-reply {
+  margin-left: 2em;
+  display: flex;
+  top: 1em;
+  padding: 0.2em;
+}
+
+.comment-icon-reply:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+  border-radius: 999px;
 }
 
 /* .comment-reply{
@@ -77,102 +113,87 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 0.2em; 
+  padding-bottom: 0.2em;
   margin: 2em auto;
   border: 1px solid black;
   width: 90%;
   border-radius: 5px;
 }
 
-
-.comment-reply-buttons{
-   width: 100%; 
-   /* border: 1px solid black; */
-
+.comment-reply-buttons {
+  width: 100%;
+  /* border: 1px solid black; */
 }
 
-#comment-reply-enter{
-   float: right; 
-   margin-right: 1em;
-   padding: 0 0.5em; 
-   padding-bottom: 0.2em;
-   margin-top:0.3em;
-   font-size: 14px;
-   border-radius: 999px; 
-   border: 1px solid grey; 
-   background: grey;
-   cursor: pointer; 
-   color: white; 
-
+#comment-reply-enter {
+  float: right;
+  margin-right: 1em;
+  padding: 0 0.5em;
+  padding-bottom: 0.2em;
+  margin-top: 0.3em;
+  font-size: 14px;
+  border-radius: 999px;
+  border: 1px solid grey;
+  background: grey;
+  cursor: pointer;
+  color: white;
 }
 
-
-#discussion-comment:focus{
-    border: none;
-    outline: none;
-     box-shadow: none;
+#discussion-comment:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-
-#bold-icon{
-    float: left; 
-    padding: 0.5em;
-    margin-left: 2em;
+#bold-icon {
+  float: left;
+  padding: 0.5em;
+  margin-left: 2em;
 }
 
-#bold-icon:hover{
-    background-color: gainsboro;
-    cursor: pointer;
+#bold-icon:hover {
+  background-color: gainsboro;
+  cursor: pointer;
 }
 
-
-
-
-
-#comment-reply-enter:hover{
+#comment-reply-enter:hover {
   background-color: gainsboro;
 }
 
-#comment-reply-cancel{
-    float: right; 
-    border: none; 
-    margin-right: 1em;
-    margin-top: 0.5em;
-    padding:0  0.4em; 
-    color:rgb(46, 136, 233);
-    font-size: 14px;
-    
+#comment-reply-cancel {
+  float: right;
+  border: none;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  padding: 0 0.4em;
+  color: rgb(46, 136, 233);
+  font-size: 14px;
 }
 
-#comment-reply-cancel:hover{
-    text-decoration: underline;
-    background-color: rgb(200, 223, 247);
-    border-radius: 999px;
-    cursor: pointer;
-
+#comment-reply-cancel:hover {
+  text-decoration: underline;
+  background-color: rgb(200, 223, 247);
+  border-radius: 999px;
+  cursor: pointer;
 }
 
-#child-length{
-
-    float: left;
-    font-size: 13px;
-    padding: 0.2em;
-    border-radius: 999px;
+#child-length {
+  float: left;
+  font-size: 13px;
+  padding: 0.2em;
+  border-radius: 999px;
+    margin-bottom: 2em;
 }
-#child-length:hover{
-       background-color: gainsboro;
-        text-decoration: underline;
-         cursor: pointer;
-            
-    color:rgb(46, 136, 233);
-
-}
-.child-c{
-margin-bottom: 2em;
+#child-length:hover {
+  background-color: gainsboro;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(46, 136, 233);
 }
 
-
-
+.child-c {
+  margin-bottom: 2em;
+}
 
 .comment-with-connector {
   position: relative;
