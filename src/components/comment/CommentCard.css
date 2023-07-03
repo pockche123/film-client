@@ -202,8 +202,8 @@ margin-top: 0.5em;
   position: absolute;
   top: 50%;
   left: -10px;
-  width: 3px;
-  height: calc(100% - 50%);
+  width: 2px;
+  height: calc(100% - 5%);
   background-color: #ccc; /* Change color as needed */
   transform: translateY(-50%);
 }

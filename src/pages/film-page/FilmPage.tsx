@@ -44,11 +44,11 @@ const FilmPage = () => {
           onSectionChange={handleSectionChange}
         />
       </div>
-      <div>
+      <div className="film-over">
         {activeSection === 'overview' && <FilmOverview film={film} />}
         {activeSection === 'images' && <FilmImages film={film} />}
       </div>
-      <div className="film-socials">
+        <div className={`film-socials ${activeSection === 'images' ? 'no-margin' : ''}`}>
         <div className="film-social-nav">
           <FilmSocialNav
             activeSection={socialActiveSection}

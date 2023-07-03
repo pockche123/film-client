@@ -11,8 +11,11 @@
 
 .discussion-flex-one{
     flex: 1; 
-     background-color: beige;
+     background-color:  #0047AB;
      position: sticky; 
+     top: 0; 
+     height: 100vh;
+    overflow-y: auto;
 }
 
 .discussion-flex-two{

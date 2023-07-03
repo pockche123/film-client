@@ -13,7 +13,7 @@ const FilmImages = ({ film }: { film: Film }) => {
   }, [])
 
   return (
-    <div className='film-images-container'>
+    <div className='film-images-container' style={{paddingBottom: '0'}}>
       <Carousel>
         {backdrops.map((image, index) => (
           <img src={image} alt={`Backdrop ${index}`} key={index} />
