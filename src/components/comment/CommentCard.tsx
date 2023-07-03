@@ -57,11 +57,7 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
       .catch(e => console.log(e))
   }
 
-  //   useEffect(() => {
-  //   const commentDate = document.querySelector('.comment-date')
-  //     commentDate?.style.setProperty('--dynamic-content', 'hello')
 
-  // }, [])
 
   useEffect(() => {
     getComments()
@@ -141,18 +137,6 @@ const CommentCard = ({ comment }: { comment: IComment }) => {
       ) : (
         ''
       )}
-
-      {/* 
-      { displayComments && (
-        <div className="child-comments">
-          {childComments?.map((comment: IComment) => (
-            <div key={comment.id}>
-              <CommentCard comment={comment} />
-            </div>
-          ))}
-          
-        </div>
-      )} */}
 
       {displayComments && (
         <div className='child-comments'>

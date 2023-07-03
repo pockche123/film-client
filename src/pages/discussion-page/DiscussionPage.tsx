@@ -14,6 +14,7 @@ import { AxiosResponse } from 'axios'
 import AddComment from '../../components/comment/AddComment'
 import CommentCard from '../../components/comment/CommentCard'
 import { CommentBox } from '../../components/comment/CommentBox'
+import DiscussionFlexOne from '../../components/discussion/DiscussionFlexOne'
 
 const DiscussionPage = () => {
   const params = useParams()
@@ -63,7 +64,7 @@ const DiscussionPage = () => {
 
   return (
     <div className='discussion-page'>
-      <div className='discussion-flex-one'>TBD</div>
+      <div className='discussion-flex-one'><DiscussionFlexOne/></div>
       <div className='discussion-flex-two'>
         <div className='discussion-flex-two-contents'>
           <DiscussionHeading
