@@ -1,12 +1,10 @@
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ChangeEvent } from 'react'
-import { EmailInputProps } from '../interfaces/IAuth'
+import { EmailInputProps } from '../../interfaces/IAuth'
 
 const EmailInput = (props: EmailInputProps) => {
-
-
-const{setEmail, setEmailInvalid, email, emailInvalid} = props 
+  const { setEmail, setEmailInvalid, email, emailInvalid } = props
 
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()

@@ -1,11 +1,10 @@
 import { faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ChangeEvent } from 'react'
-import { PasswordInputProps } from '../interfaces/IAuth'
+import { PasswordInputProps } from '../../interfaces/IAuth'
 import { handleTogglePassword } from '../services/Utils/PasswordUtils'
 
 const PasswordInput = (props: PasswordInputProps) => {
-
   const {
     showPassword,
     password,
@@ -39,9 +38,7 @@ const PasswordInput = (props: PasswordInputProps) => {
     setValidPassword(isPasswordValid)
   }
 
-
   return (
-    
     <div className='user-login-password'>
       <div className='icon-box'>
         <FontAwesomeIcon icon={faLock} className='fa-user-password' />

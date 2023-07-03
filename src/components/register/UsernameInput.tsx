@@ -2,8 +2,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { getAllUsers } from '../services/API/Users'
-import { IUser } from '../interfaces/IUser'
-import { UsernameInputProps } from '../interfaces/IAuth'
+import { IUser } from '../../interfaces/IUser'
+import { UsernameInputProps } from '../../interfaces/IAuth'
 
 const UsernameInput = (props: UsernameInputProps) => {
   const {

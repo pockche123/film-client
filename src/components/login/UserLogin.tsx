@@ -9,10 +9,10 @@ import {
   faEyeSlash,
   faX
 } from '@fortawesome/free-solid-svg-icons'
-import useAuth from '../hooks/useAuth'
+import useAuth from '../../hooks/useAuth'
 import { Paths } from '../services/Utils/Paths'
-import { axiosPrivate } from '../services/API/Http';
-import { useAxiosPrivate } from '../hooks/useAxiosPrivate'
+import { axiosPrivate } from '../services/API/Http'
+import { useAxiosPrivate } from '../../hooks/useAxiosPrivate'
 
 const UserLogin = () => {
   const [username, setUsername] = useState('')
@@ -24,8 +24,7 @@ const UserLogin = () => {
   const location = useLocation()
   const from = location.state?.from?.pathname || Paths.userPage
   const { setAuth, persist, setPersist } = useAuth() as any
-  const axiosPrivate = useAxiosPrivate();
-
+  const axiosPrivate = useAxiosPrivate()
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword)
@@ -45,25 +44,20 @@ const UserLogin = () => {
       setWrongCred,
       setAuth,
       setErrMessage,
-      from, 
+      from,
       axiosPrivate
     )
   }
 
   const togglePersist = () => {
-
-    setPersist((prev: any) => !prev);
-  
-  
+    setPersist((prev: any) => !prev)
   }
 
   useEffect(() => {
-    localStorage.setItem("persist", persist)
-   if (persist === false) {
-  localStorage.clear()
-}
-
-
+    localStorage.setItem('persist', persist)
+    if (persist === false) {
+      localStorage.clear()
+    }
   }, [persist])
 
   return (
@@ -122,15 +116,14 @@ const UserLogin = () => {
         <Link to='/'>Forgot password</Link>
       </div>
       <p />
-      <div className="persist-check">
-        <input type="checkbox"
-          id="persist"
+      <div className='persist-check'>
+        <input
+          type='checkbox'
+          id='persist'
           onChange={togglePersist}
           checked={persist}
         />
         <label htmlFor='persist'>Trust this device</label>
-       
-
       </div>
       <div style={{ height: '30px' }}>
         {wrongCred && (

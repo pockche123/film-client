@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Film } from '../interfaces/IFilm'
+import { Film } from '../../interfaces/IFilm'
 import { useLocation } from 'react-router-dom'
 
 const FilmPoster = ({ film }: { film: Film }) => {

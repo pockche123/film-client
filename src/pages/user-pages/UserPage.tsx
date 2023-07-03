@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import useRefreshToken from '../../components/hooks/useRefreshToken';
-import useAuth from '../../components/hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
-import { useLogout } from '../../components/hooks/useLogout';
+import useRefreshToken from '../../hooks/useRefreshToken'
+import useAuth from '../../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
+import { useLogout } from '../../hooks/useLogout'
 
 const UserPage = () => {
   const api = 'http://localhost:8080/api/v1/check'
