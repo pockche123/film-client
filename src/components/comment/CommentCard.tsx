@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef} from 'react'
-import { IComment } from '../interfaces/IComment'
+import React, { useState, useEffect, useRef } from 'react'
+import { IComment } from '../../interfaces/IComment'
 import './CommentCard.css'
 import TimeAgo from '../time/TimeAgo'
 
@@ -8,15 +8,12 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt'
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBold,
-  faMessage
-} from '@fortawesome/free-solid-svg-icons'
+import { faBold, faMessage } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import { CommentBox } from './CommentBox'
 import { getChildrenComments } from '../services/API/Comment'
 
-const CommentCard = ({ comment }: { comment: IComment}) => {
+const CommentCard = ({ comment }: { comment: IComment }) => {
   const [thumbsUp, setThumbsUp] = useState(false)
   const [thumbsDown, setThumbsDown] = useState(false)
   const [login, setLogin] = useState(false)
@@ -25,15 +22,9 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
   const [reply, setReply] = useState('')
   const navigate = useNavigate()
   const [childComments, setChildComments] = useState<Array<IComment>>([])
-  const [displayComments, setDisplayComments] = useState(false);
+  const [displayComments, setDisplayComments] = useState(false)
 
-  const date = new Date(comment.timestamp);
-
-
-
-
-
-
+  const date = new Date(comment.timestamp)
 
   const handleThumbsUp = () => {
     if (thumbsDown === true) {
@@ -61,46 +52,45 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
     getChildrenComments(comment.id)
       .then(res => {
         setChildComments(res.data)
-        console.log("CHILDREN, ", res.data.length)
+        console.log('CHILDREN, ', res.data.length)
       })
-    .catch(e => console.log(e))
-}
+      .catch(e => console.log(e))
+  }
 
+  //   useEffect(() => {
+  //   const commentDate = document.querySelector('.comment-date')
+  //     commentDate?.style.setProperty('--dynamic-content', 'hello')
 
+  // }, [])
 
-
-
-//   useEffect(() => {
-//   const commentDate = document.querySelector('.comment-date')  
-//     commentDate?.style.setProperty('--dynamic-content', 'hello')
-
-// }, [])
-
-
-  
   useEffect(() => {
-    getComments();
+    getComments()
 
-    console.log("date ", date.toString())
+    console.log('date ', date.toString())
   }, [])
-
-
-
 
   const showChildComments = () => {
     setDisplayComments(prevState => !prevState)
   }
 
+  const commentDate = document.querySelector('.comment-date') as HTMLElement
 
+  useEffect(() => {
+    commentDate?.addEventListener('mouseover', () => {
+      commentDate.style.setProperty('content', `hello`)
+    })
 
-
+    commentDate?.addEventListener('mouseout', () => {
+      commentDate.style.setProperty('content', '')
+    })
+  })
 
   return (
     <div className='comment'>
       <div className='comment-user-profile'>
         <div className='comment-profile'>
           <img src={comment.user.profilePic} alt='comment-profile' /> &nbsp;
-          </div>
+        </div>
         <div className='comment-heading'>
           <b id='comment-username'>{comment.user.username}</b>
           &nbsp; • &nbsp;
@@ -124,9 +114,7 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
         &nbsp;
         <div className='comment-icons-thumbs' onClick={handleThumbsDown}>
           {thumbsDown ? (
-            <ThumbDownAltIcon
-              style={{ cursor: 'pointer', color: 'black' }}
-            />
+            <ThumbDownAltIcon style={{ cursor: 'pointer', color: 'black' }} />
           ) : (
             <ThumbDownOffAltIcon style={{ cursor: 'pointer' }} />
           )}
@@ -142,22 +130,19 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
         <CommentBox reply={reply} setReply={setReply} setLogin={setLogin} />
       )}
 
+      {childComments.length > 0 ? (
+        <div className='child-c' onClick={showChildComments}>
+          <b id='child-length'>{childComments.length} reply</b>
+        </div>
+      ) : childComments.length > 1 ? (
+        <div className='child-c' onClick={showChildComments}>
+          <b id='child-length'>{childComments.length} replies</b>
+        </div>
+      ) : (
+        ''
+      )}
 
-            {
-  childComments.length > 0 ? (
-     <div className="child-c" onClick={showChildComments}>
-            <b id='child-length'>{childComments.length} reply</b>
-            </div>
-        ) : childComments.length > 1 ? (
-            <div className="child-c" onClick={showChildComments}>
-              <b id='child-length'>{childComments.length} replies</b>
-              </div>
-  ) : (
-    ''
-  )
-        }
-
-{/* 
+      {/* 
       { displayComments && (
         <div className="child-comments">
           {childComments?.map((comment: IComment) => (
@@ -169,22 +154,16 @@ const CommentCard = ({ comment }: { comment: IComment}) => {
         </div>
       )} */}
 
-
-{
-  displayComments && (
-    <div className='child-comments'>
-      {childComments?.map((comment: IComment) => (
-        <div key={comment.id} className='comment-with-connector'>
-          <div className='comment-connector'></div>
-          <CommentCard comment={comment} />
+      {displayComments && (
+        <div className='child-comments'>
+          {childComments?.map((comment: IComment) => (
+            <div key={comment.id} className='comment-with-connector'>
+              <div className='comment-connector'></div>
+              <CommentCard comment={comment} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  )
-}
-
-
-
+      )}
     </div>
   )
 }

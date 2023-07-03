@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChangeEvent } from 'react'
 import { getAllFilms } from '../services/API/Films'
-import { Film } from '../interfaces/IFilm'
+import { Film } from '../../interfaces/IFilm'
 import { useEffect } from 'react'
 import { Paths } from '../services/Utils/Paths'
 
@@ -44,7 +44,6 @@ const Header = () => {
       return null
     }
 
- 
     return (
       <ul>
         {foundMatches.map(film => {
@@ -103,9 +102,8 @@ const Header = () => {
   }
 
   const handleRegister = () => {
-  navigate(Paths.register)
-}
-
+    navigate(Paths.register)
+  }
 
   return (
     <div className='header'>
@@ -136,7 +134,11 @@ const Header = () => {
             >
               Login
             </Button>
-            <Button variant='outline-warning' className='me-2' onClick={handleRegister}>
+            <Button
+              variant='outline-warning'
+              className='me-2'
+              onClick={handleRegister}
+            >
               Register
             </Button>
             <p />

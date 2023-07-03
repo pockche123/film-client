@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import useAuth from '../../components/hooks/useAuth'
-import { useAxiosPrivate } from '../../components/hooks/useAxiosPrivate';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Paths } from '../../components/services/Utils/Paths';
-import { useLogout } from '../../components/hooks/useLogout';
+import useAuth from '../../hooks/useAuth'
+import { useAxiosPrivate } from '../../hooks/useAxiosPrivate'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Paths } from '../../components/services/Utils/Paths'
+import { useLogout } from '../../hooks/useLogout'
 
 const DemoPage = () => {
   const api = 'http://localhost:8080/api/v1/check'
@@ -24,7 +24,7 @@ const DemoPage = () => {
             Authorization: `Bearer ${token}`
           }
         })
-      
+
         setData(response.data)
       } catch (error) {
         console.log(error)
@@ -34,17 +34,17 @@ const DemoPage = () => {
 
     console.log('ACCESS TOKEN: ', token)
     fetchData()
-  }, []) 
-  
+  }, [])
 
-
-  return <div>{data}
-    
+  return (
     <div>
-      <button onClick={() => handleLogout()}> logout </button>
+      {data}
+
+      <div>
+        <button onClick={() => handleLogout()}> logout </button>
+      </div>
     </div>
-  
-  </div>
+  )
 }
 
 export default DemoPage

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import FilmCard from './FilmCard'
-import { Film } from '../interfaces/IFilm'
+import { Film } from '../../interfaces/IFilm'
 import Carousel from 'react-material-ui-carousel'
 
 import './Films.css'

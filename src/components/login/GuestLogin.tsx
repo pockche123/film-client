@@ -3,9 +3,9 @@ import { faUser, faX } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { handleLogin } from '../services/Utils/LoginUtils'
 import { useEffect, useState } from 'react'
-import useAuth from '../hooks/useAuth'
+import useAuth from '../../hooks/useAuth'
 import { Paths } from '../services/Utils/Paths'
-import { useAxiosPrivate } from '../hooks/useAxiosPrivate'
+import { useAxiosPrivate } from '../../hooks/useAxiosPrivate'
 
 const GuestLogin = () => {
   const navigate = useNavigate()
@@ -14,9 +14,8 @@ const GuestLogin = () => {
   const [errMessage, setErrMessage] = useState('')
   const location = useLocation()
   // const username = 'guest1'
-  const from = location.state?.from?.pathname || Paths.userPage;
+  const from = location.state?.from?.pathname || Paths.userPage
   const axiosPrivate = useAxiosPrivate()
-
 
   const handleGuestLogin = () => {
     const guestLoginDetails = {
@@ -36,16 +35,15 @@ const GuestLogin = () => {
   }
 
   const togglePersist = () => {
-  setPersist((prev: any) => !prev)
-}
-
-useEffect(() => {
-  localStorage.setItem('persist', persist)
-  if (persist === false) {
-    localStorage.clear()
+    setPersist((prev: any) => !prev)
   }
-}, [persist])
 
+  useEffect(() => {
+    localStorage.setItem('persist', persist)
+    if (persist === false) {
+      localStorage.clear()
+    }
+  }, [persist])
 
   return (
     <div className='guest-login-container' style={{ paddingTop: '5px' }}>
@@ -69,16 +67,15 @@ useEffect(() => {
         />
       </div>
       <label>Guest</label>
-            <p />
-      <div className="persist-check">
-        <input type="checkbox"
-          id="persist"
+      <p />
+      <div className='persist-check'>
+        <input
+          type='checkbox'
+          id='persist'
           onChange={togglePersist}
           checked={persist}
         />
         <label htmlFor='persist'>Trust this device</label>
-       
-
       </div>
       <div style={{ height: '30px' }}>
         {wrongCred && (

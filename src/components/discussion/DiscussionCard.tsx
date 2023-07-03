@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IDiscussion } from '../interfaces/IDiscussion'
+import { IDiscussion } from '../../interfaces/IDiscussion'
 import './DiscussionCard.css'
 import { useNavigate } from 'react-router-dom'
 import { format } from 'date-fns'

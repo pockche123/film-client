@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { getDiscussionById } from '../../components/services/API/Discussion'
 import { useNavigate, useParams } from 'react-router-dom'
-import { IDiscussion } from '../../components/interfaces/IDiscussion'
+import { IDiscussion } from '../../interfaces/IDiscussion'
 import './DiscussionPage.css'
 
 import DiscussionHeading from '../../components/discussion/DiscussionHeading'
-import { IComment } from '../../components/interfaces/IComment'
-import { getCommentsByDiscussion, getParentCommentsByDiscussion } from '../../components/services/API/Comment'
+import { IComment } from '../../interfaces/IComment'
+import {
+  getCommentsByDiscussion,
+  getParentCommentsByDiscussion
+} from '../../components/services/API/Comment'
 import { AxiosResponse } from 'axios'
 import AddComment from '../../components/comment/AddComment'
 import CommentCard from '../../components/comment/CommentCard'
@@ -19,14 +22,13 @@ const DiscussionPage = () => {
   const [commentsLength, setCommentsLength] = useState(0)
   const [comments, setComments] = useState<Array<IComment>>([])
   const [login, setLogin] = useState(true)
-  const [reply, setReply] = useState("")
+  const [reply, setReply] = useState('')
   const [parentComments, setParentComments] = useState<Array<IComment>>([])
 
   useEffect(() => {
     getDiscussion()
     getComments()
     getParentComments()
-
   })
 
   const getDiscussion = () => {
@@ -40,7 +42,6 @@ const DiscussionPage = () => {
   const handleComment = () => {
     const commentsSection = document.getElementById('comments')
     commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
- 
   }
 
   const getComments = () => {
@@ -57,7 +58,7 @@ const DiscussionPage = () => {
       .then(res => {
         setParentComments(res.data)
       })
-    .catch(e => console.log(e))
+      .catch(e => console.log(e))
   }
 
   return (
@@ -82,25 +83,25 @@ const DiscussionPage = () => {
 
           {login ? (
             <div>
-            <CommentBox reply={reply} setReply={setReply} setLogin={setLogin} />
-
+              <CommentBox
+                reply={reply}
+                setReply={setReply}
+                setLogin={setLogin}
+              />
             </div>
-          ): (
-
+          ) : (
             <div>
               <AddComment />
             </div>
-         ) }
-      
+          )}
+
           <div id='comments'>
             {parentComments.map((comment: IComment) => (
               <div key={comment.id}>
-                <CommentCard comment={comment}/>
+                <CommentCard comment={comment} />
               </div>
             ))}
           </div>
-
-
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { IUser } from '../../interfaces/IUser'
+import { IUser } from '../../../interfaces/IUser'
 import { create, getAll, getCurrentUser } from './Api'
 import { URI } from './Http'
 

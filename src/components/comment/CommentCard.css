@@ -24,7 +24,6 @@
 
 .comment-date:hover::before{
 margin-top: 0.5em;
-  content: "";
   position: relative;
   top: calc(100%);
   left: 50%;
