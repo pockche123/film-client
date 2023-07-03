@@ -44,7 +44,7 @@ border-radius: 3px;
 }
 
 .film-card-container{
-    height: 600px;
+    height: 610px;
     background-color: black;
       position: relative;
 }
@@ -103,6 +103,14 @@ border-radius: 3px;
     width: 100%;
 
 }  
+
+
+.film-tag{
+    background-color: black;
+    color: white;
+    text-align: left;
+    margin-left: 2em;
+}
 
 @media only screen and (max-width: 800px) {
 

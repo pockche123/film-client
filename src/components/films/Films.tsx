@@ -27,6 +27,7 @@ const Films = () => {
     <div className='homePage'>
       <div className='film-carousel-container'>
         <Carousel>
+         
           {films?.map(film => (
             <FilmCard key={film.imdbId} film={film} /> //"ths is interfaceProps: this is the value that is being passed"
           ))}
