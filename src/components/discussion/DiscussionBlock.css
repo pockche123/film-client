@@ -1,0 +1,11 @@
+
+
+
+.discussions-nav{
+    text-align: left;
+}
+
+.discussions-nav:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
