@@ -20,13 +20,19 @@ const FilmCard = (props: FilmProps) => {
 
   return (
     <Paper key={imdbId}>
+     
       <div className='film-card-container'>
+        <div className='film-tag'>
+  <h1>What's popular? </h1>
+</div>
+
         <Parallax
           className='film-card'
           strength={1000}
           style={{ '--img': `url(${backdrops[0]})` } as React.CSSProperties}
         >
           <div className='film-detail'>
+
             <div className='film-poster'>
               {
                 <img
