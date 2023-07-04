@@ -1,0 +1,45 @@
+.film-discussions{  
+
+    display: flex; 
+    min-height: 100vh; 
+}
+
+
+.film-diss-flex-one{
+    flex:1; 
+   background-color:  #0047AB;
+     position: sticky; 
+     top: 0; 
+}
+
+.film-diss-flex-two{
+    width: 70%; 
+    background-color: lightgray;
+}
+
+.film-diss-back{
+text-align: left;
+padding: 1em;
+background-color: white;
+width: 50%;
+ border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 0.5s;
+
+}
+
+.film-diss-back:hover{
+
+  transform: scale(1.1);
+  cursor: pointer;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: navy;
+
+
+    
+}
+
+
+.film-diss-card{
+    margin: 2em;
+}
