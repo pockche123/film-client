@@ -10,7 +10,6 @@ import {
   getCommentsByDiscussion,
   getParentCommentsByDiscussion
 } from '../../components/services/API/Comment'
-import { AxiosResponse } from 'axios'
 import AddComment from '../../components/comment/AddComment'
 import CommentCard from '../../components/comment/CommentCard'
 import { CommentBox } from '../../components/comment/CommentBox'

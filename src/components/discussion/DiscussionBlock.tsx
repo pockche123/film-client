@@ -15,7 +15,7 @@ const DiscussionBlock = ({ film }: { film: Film }) => {
 
  
   const handleDiscussions = () => {
-    navigate(Paths.discussions)
+    navigate(Paths.discussions + filmTitle)
   }
 
   useEffect(() => {
