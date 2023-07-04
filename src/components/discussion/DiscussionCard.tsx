@@ -3,13 +3,13 @@ import { IDiscussion } from '../../interfaces/IDiscussion'
 import './DiscussionCard.css'
 import { useNavigate } from 'react-router-dom'
 import { format } from 'date-fns'
-import { enGB } from 'date-fns/locale'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCircleArrowUp,
   faCircleArrowDown
 } from '@fortawesome/free-solid-svg-icons'
 import { Paths } from '../services/Utils/Paths'
+import DiscussionIcons from './DiscussionIcons'
 // import { faDown } from '@fortawesome/free-regular-svg-icons'
 
 interface DiscussionCardProps {
@@ -92,8 +92,13 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
           </label>
         </div>
 
-        <div className='discussion-card-title' onClick={handleToDiscussion}>
-          <h4>{title}</h4>
+        <div >
+          <div className='discussion-card-title' onClick={handleToDiscussion}>
+            <h4>{title}</h4>
+            </div>
+          <div className='discussion-icons'> 
+            <DiscussionIcons id={id} likes={likes} />
+            </div>
         </div>
       </div>
     </div>

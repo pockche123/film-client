@@ -6,6 +6,7 @@ import DiscussionCard from './DiscussionCard'
 import { useNavigate } from 'react-router-dom'
 import './DiscussionBlock.css'
 import { Paths } from '../services/Utils/Paths'
+import DiscussionIcons from './DiscussionIcons'
 
 const DiscussionBlock = ({ film }: { film: Film }) => {
   const filmTitle = film.title
@@ -56,6 +57,7 @@ const DiscussionBlock = ({ film }: { film: Film }) => {
           )
         }
       </div>
+  
     </div>
   )
 }

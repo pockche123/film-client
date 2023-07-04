@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './DiscussionHeading.css'
+import DiscussionIcons from './DiscussionIcons'
 
 const DiscussionHeading = ({
   data,
@@ -28,6 +29,7 @@ const DiscussionHeading = ({
   const imdbId = data?.film.imdbId
   const description = data?.description
   const commentsLength = comments?.length
+  const id = data?.id
 
   const date = data?.timestamp
   const likes = data?.likes
@@ -93,7 +95,9 @@ const DiscussionHeading = ({
 
       <div className='discussion-description'>{description}</div>
 
-      <div className='discussion-icons'>
+      <DiscussionIcons id={id} likes={likes}/>
+
+      {/* <div className='discussion-icons'>
         <div className='discussion-icons-bit'>
           <FontAwesomeIcon
             icon={faCircleArrowUp}
@@ -122,7 +126,7 @@ const DiscussionHeading = ({
           <FontAwesomeIcon icon={faArrowUpFromBracket} style={{ marginTop: '0.3em', marginLeft: '0.5em' }} />
           &nbsp; <h6 style={{fontSize: '13px', marginTop:'0.45em'}}>Share </h6>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

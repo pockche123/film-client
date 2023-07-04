@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   faArrowUpFromBracket,
   faCircleArrowDown,
@@ -6,58 +6,95 @@ import {
   faCommentAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from 'react-router-dom'
+import { Paths } from '../services/Utils/Paths'
+import { getCommentsByDiscussion } from '../services/API/Comment'
 
+const DiscussionIcons = ({id, likes}: {id:string, likes: number}) => {
+  const [isSmaller, setIsSmaller] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isBigger, setIsBigger] = useState(false)
+    const navigate = useNavigate()
+    const [commentsLength, setCommentsLength] = useState(0);
 
-const DiscussionIcons = () => {
+  const handleUpVote = () => {
+    if (isBigger) {
+      setIsBigger(false)
+    } else {
+      setIsSmaller(true)
+    }
+  }
 
-const [isSmaller, setIsSmaller] = useState(false)
-const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const handleDownVote = () => {
+    if (isSmaller) {
+      setIsSmaller(false)
+    } else {
+      setIsBigger(true)
+    }
+  }
 
-const [isBigger, setIsBigger] = useState(false)
-
+  const handleLogin = () => {
+    navigate(Paths.login)
+    }
     
+    const handleComment = () => {
+  const commentsSection = document.getElementById('comments')
+  commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+}
+
+ const getComments = () => {
+  getCommentsByDiscussion(id)
+    .then(res => {
+      setCommentsLength(res.data.length)
+    })
+    .catch(e => console.log(e))
+    }
     
+    useEffect(() => {
+        getComments()
+    })
+
+
   return (
-<div className='discussion-icons'>
-  <div className='discussion-icons-bit'>
-    <FontAwesomeIcon
-      icon={faCircleArrowUp}
-      className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-      style={{ marginTop: '0.3em', marginLeft: '0.3em' }}
-      onClick={isLoggedIn ? handleUpVote : handleLogin}
-    />
-    &nbsp;
-    <span style={{ fontSize: '12px', marginTop: '0.5em' }}>{likes}</span>
-    &nbsp;
-    <FontAwesomeIcon
-      icon={faCircleArrowDown}
-      className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-      style={{ marginTop: '0.3em' }}
-      onClick={isLoggedIn ? handleDownVote : handleLogin}
-    />
-  </div>
+    <div className='discussion-icons'>
+      <div className='discussion-icons-bit'>
+        <FontAwesomeIcon
+          icon={faCircleArrowUp}
+          className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
+          style={{ marginTop: '0.3em', marginLeft: '0.3em' }}
+          onClick={isLoggedIn ? handleUpVote : handleLogin}
+        />
+        &nbsp;
+        <span style={{ fontSize: '12px', marginTop: '0.5em' }}>{likes}</span>
+        &nbsp;
+        <FontAwesomeIcon
+          icon={faCircleArrowDown}
+          className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
+          style={{ marginTop: '0.3em' }}
+          onClick={isLoggedIn ? handleDownVote : handleLogin}
+        />
+      </div>
 
-  <div className='discussion-icons-comments'>
-    &nbsp;
-    <FontAwesomeIcon
-      icon={faCommentAlt}
-      style={{ marginTop: '0.4em', marginLeft: '0.5em' }}
-      onClick={handleComment}
-    />
-    &nbsp;
-    <span style={{ fontSize: '12px', marginTop: '0.3em' }}>
-      {commentsLength}
-    </span>
-  </div>
-  <div className='discussion-icons-bit'>
-    <FontAwesomeIcon
-      icon={faArrowUpFromBracket}
-      style={{ marginTop: '0.3em', marginLeft: '0.5em' }}
-    />
-    &nbsp; <h6 style={{ fontSize: '13px', marginTop: '0.45em' }}>Share </h6>
-  </div>
-</div>
-
+      <div className='discussion-icons-comments'>
+        &nbsp;
+        <FontAwesomeIcon
+          icon={faCommentAlt}
+          style={{ marginTop: '0.4em', marginLeft: '0.5em' }}
+          onClick={handleComment}
+        />
+        &nbsp;
+        <span style={{ fontSize: '12px', marginTop: '0.3em' }}>
+          {commentsLength}
+        </span>
+      </div>
+      <div className='discussion-icons-bit'>
+        <FontAwesomeIcon
+          icon={faArrowUpFromBracket}
+          style={{ marginTop: '0.3em', marginLeft: '0.5em' }}
+        />
+        &nbsp; <h6 style={{ fontSize: '13px', marginTop: '0.45em' }}>Share </h6>
+      </div>
+    </div>
   )
 }
 
