@@ -1,31 +1,25 @@
-
-
-
-.discussion-card{
-   height: auto; 
-     box-shadow: 0 5px 7px gainsboro;
-
-   border-radius: 5px; 
-   padding: 0.5em;
-   display: inline-flex;
-   width: 100%;
-   margin-bottom: 1em;
-   background-color: white;
+.discussion-card {
+  box-shadow: 0 5px 7px gainsboro;
+  border-radius: 5px;
+  padding: 0.5em;
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 1em;
+  background-color: white;
 }
 
-.discussion-card-top{
-    text-align: left;
-    color: gray;
-    font-size: 14px;
-    font-weight: 100;
-    margin-left: 5em;
+.discussion-card-top {
+  text-align: left;
+  color: gray;
+  font-size: 14px;
+  font-weight: 100;
+  margin-left: 5em;
 }
 
-.discussion-card-user:hover{
-cursor: pointer; 
-text-decoration: underline;
- color: rgb(46, 136, 233)
-
+.discussion-card-user:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(46, 136, 233);
 }
 
 .fa-circle-arrow-up {
@@ -34,39 +28,43 @@ text-decoration: underline;
   cursor: pointer;
 }
 
-.fa-circle-arrow-up:hover, .fa-circle-arrow-down:hover{
-    color: navy;
+.fa-circle-arrow-up:hover,
+.fa-circle-arrow-down:hover {
+  color: navy;
 }
 
-.fa-circle-arrow-down{
-      color: #007bff; /* Set your desired color */
+.fa-circle-arrow-down {
+  color: #007bff; /* Set your desired color */
   font-size: 20px; /* Set your desired font size */
   cursor: pointer;
 }
 
-.fa-circle-arrow-up.smaller{
-    color: navy;
+.fa-circle-arrow-up.smaller {
+  color: navy;
 }
 
-.fa-circle-arrow-down.bigger{
-    color: navy;
+.fa-circle-arrow-down.bigger {
+  color: navy;
 }
 
-
-
-
-.discussion-card-likes{
-margin-left: 0.5em;
-text-align: center;
+.discussion-card-likes {
+  margin-left: 0.5em;
+  margin-top: 1em;
+  text-align: center;
 }
 
-.discussion-card-title{
-    text-align: left;
-    margin-top: 0.5em;
-    margin-left: 4em;
+.discussion-card-title {
+  text-align: left;
+  margin-top: 0.5em;
+  margin-left: 4em;
 }
 
-.discussion-card-title:hover{
-    color: gray;
-    cursor: pointer;
+.discussion-card-title:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.discussion-icons {
+  margin-left: 2em;
+  margin-top: 1em;
 }
