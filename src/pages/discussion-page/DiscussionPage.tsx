@@ -24,6 +24,7 @@ const DiscussionPage = () => {
   const [login, setLogin] = useState(true)
   const [reply, setReply] = useState('')
   const [parentComments, setParentComments] = useState<Array<IComment>>([])
+  const filmTitle = data?.film.title as string
 
   useEffect(() => {
     getDiscussion()
@@ -63,13 +64,14 @@ const DiscussionPage = () => {
 
   return (
     <div className='discussion-page'>
-      <div className='discussion-flex-one'><DiscussionFlexOne/></div>
+      <div className='discussion-flex-one'><DiscussionFlexOne filmTitle={filmTitle} /></div>
       <div className='discussion-flex-two'>
         <div className='discussion-flex-two-contents'>
           <DiscussionHeading
             data={data}
             comments={comments}
             handleComment={handleComment}
+            commentsLength={commentsLength}
           />
 
           <div className='discussion-heading-break'>
@@ -98,7 +100,7 @@ const DiscussionPage = () => {
           <div id='comments'>
             {parentComments.map((comment: IComment) => (
               <div key={comment.id}>
-                <CommentCard comment={comment} />
+                <CommentCard comment={comment}/>
               </div>
             ))}
           </div>

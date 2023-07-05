@@ -6,6 +6,9 @@
   width: 100%;
   margin-bottom: 1em;
   background-color: white;
+  border: 1px solid;
+  height: 150px; 
+  
 }
 
 .discussion-card-top {
@@ -56,7 +59,7 @@
 .discussion-card-title {
   text-align: left;
   margin-top: 0.5em;
-  margin-left: 4em;
+  margin-left: 4.5em;
 }
 
 .discussion-card-title:hover {

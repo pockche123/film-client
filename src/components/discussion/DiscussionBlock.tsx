@@ -18,6 +18,7 @@ const DiscussionBlock = ({ film }: { film: Film }) => {
   const handleDiscussions = () => {
     navigate(Paths.discussions + filmTitle)
   }
+  
 
   useEffect(() => {
     getDiscussionByFilmTitle(filmTitle).then(res => {

@@ -16,11 +16,13 @@ import DiscussionIcons from './DiscussionIcons'
 const DiscussionHeading = ({
   data,
   comments,
-  handleComment
+  handleComment,
+  commentsLength
 }: {
   data: any
     comments: any
     handleComment: any
+    commentsLength: any
 }) => {
   const navigate = useNavigate()
   const film = data?.film
@@ -28,7 +30,7 @@ const DiscussionHeading = ({
   const username = data?.user.username
   const imdbId = data?.film.imdbId
   const description = data?.description
-  const commentsLength = comments?.length
+
   const id = data?.id
 
   const date = data?.timestamp
@@ -44,6 +46,7 @@ const DiscussionHeading = ({
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const [isBigger, setIsBigger] = useState(false)
+  let discussionBit = true as boolean
 
   const handleUser = () => {
     navigate(Paths.userProfile + username)
@@ -95,38 +98,8 @@ const DiscussionHeading = ({
 
       <div className='discussion-description'>{description}</div>
 
-      <DiscussionIcons id={id} likes={likes}/>
+      <DiscussionIcons id={id} likes={likes} discussionBit={true} commentsLength={commentsLength}/>
 
-      {/* <div className='discussion-icons'>
-        <div className='discussion-icons-bit'>
-          <FontAwesomeIcon
-            icon={faCircleArrowUp}
-            className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-            style={{ marginTop: '0.3em', marginLeft: '0.3em' }} 
-            onClick={isLoggedIn ? handleUpVote : handleLogin}
-          />
-          &nbsp;
-          <span style={{ fontSize: '12px', marginTop:'0.5em' }}>{likes}</span>
-          &nbsp;
-          <FontAwesomeIcon
-            icon={faCircleArrowDown}
-            className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-            style={{ marginTop: '0.3em' }} 
-            onClick={isLoggedIn ? handleDownVote : handleLogin}
-          />
-        </div>
-
-        <div className='discussion-icons-comments'>
-          &nbsp;
-          <FontAwesomeIcon icon={faCommentAlt} style={{ marginTop: '0.4em', marginLeft: '0.5em' }} onClick={handleComment} />
-          &nbsp;
-          <span style={{ fontSize: '12px', marginTop: '0.3em' }}>{commentsLength}</span>
-        </div>
-        <div className='discussion-icons-bit'>
-          <FontAwesomeIcon icon={faArrowUpFromBracket} style={{ marginTop: '0.3em', marginLeft: '0.5em' }} />
-          &nbsp; <h6 style={{fontSize: '13px', marginTop:'0.45em'}}>Share </h6>
-        </div>
-      </div> */}
     </div>
   )
 }
