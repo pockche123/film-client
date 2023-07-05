@@ -20,22 +20,17 @@ const FilmDiscussions = () => {
     }).catch(e => console.log(e))
   })
 
-  const handleBack = () => {
-    navigate(-1);
-}
+
 
   return (
     <div className='film-discussions'>
       <div className= 'film-diss-flex-one'>
-       <DiscussionFlexOne/>
+        <DiscussionFlexOne filmTitle={filmTitle} />
       </div>
 
       <div className='film-diss-flex-two'>
 
-        <div className='film-diss-back' onClick={handleBack}>
-          <h5> Back to {filmTitle}</h5>
-        </div>
-
+       
         <div className='film-diss-card'>
         {data.map(discussion => (
           <div key={discussion.id}>

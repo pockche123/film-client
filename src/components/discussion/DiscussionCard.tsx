@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Paths } from '../services/Utils/Paths'
 import DiscussionIcons from './DiscussionIcons'
+import { getCommentsByDiscussion } from '../services/API/Comment'
 // import { faDown } from '@fortawesome/free-regular-svg-icons'
 
 interface DiscussionCardProps {
@@ -33,9 +34,22 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
   const title = data.title
   const likes = data.likes
   const id = data.id
+  const [commentsLength, setCommentsLength] = useState(0)
+
+
+  const getComments = () => {
+  getCommentsByDiscussion(id)
+    .then(res => {
+
+      setCommentsLength(res.data.length)
+    })
+    .catch(e => console.log(e))
+}
+
 
   useEffect(() => {
     console.log('inside ', data)
+    getComments()
   })
 
   const handleUsername = () => {
@@ -97,7 +111,7 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
             <h4>{title}</h4>
             </div>
           <div className='discussion-icons'> 
-            <DiscussionIcons id={id} likes={likes} />
+            <DiscussionIcons id={id} likes={likes} discussionBit={false} commentsLength={commentsLength}/>
             </div>
         </div>
       </div>

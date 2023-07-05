@@ -10,12 +10,22 @@ import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
 import { getCommentsByDiscussion } from '../services/API/Comment'
 
-const DiscussionIcons = ({id, likes}: {id:string, likes: number}) => {
+const DiscussionIcons = ({
+  id,
+  likes,
+  discussionBit,
+  commentsLength
+}: {
+  id: string
+  likes: number
+    discussionBit: boolean
+  commentsLength: any
+}) => {
   const [isSmaller, setIsSmaller] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isBigger, setIsBigger] = useState(false)
-    const navigate = useNavigate()
-    const [commentsLength, setCommentsLength] = useState(0);
+  const navigate = useNavigate()
+  const[comments, setComments] = useState<Array<Comment>>([])
 
   const handleUpVote = () => {
     if (isBigger) {
@@ -35,45 +45,36 @@ const DiscussionIcons = ({id, likes}: {id:string, likes: number}) => {
 
   const handleLogin = () => {
     navigate(Paths.login)
-    }
-    
-    const handleComment = () => {
-  const commentsSection = document.getElementById('comments')
-  commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-}
+  }
 
- const getComments = () => {
-  getCommentsByDiscussion(id)
-    .then(res => {
-      setCommentsLength(res.data.length)
-    })
-    .catch(e => console.log(e))
-    }
-    
-    useEffect(() => {
-        getComments()
-    })
+  const handleComment = () => {
+    const commentsSection = document.getElementById('comments')
+    commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+  }
+
 
 
   return (
     <div className='discussion-icons'>
-      <div className='discussion-icons-bit'>
-        <FontAwesomeIcon
-          icon={faCircleArrowUp}
-          className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-          style={{ marginTop: '0.3em', marginLeft: '0.3em' }}
-          onClick={isLoggedIn ? handleUpVote : handleLogin}
-        />
-        &nbsp;
-        <span style={{ fontSize: '12px', marginTop: '0.5em' }}>{likes}</span>
-        &nbsp;
-        <FontAwesomeIcon
-          icon={faCircleArrowDown}
-          className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-          style={{ marginTop: '0.3em' }}
-          onClick={isLoggedIn ? handleDownVote : handleLogin}
-        />
-      </div>
+      {discussionBit && (
+        <div className='discussion-icons-bit'>
+          <FontAwesomeIcon
+            icon={faCircleArrowUp}
+            className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
+            style={{ marginTop: '0.3em', marginLeft: '0.3em' }}
+            onClick={isLoggedIn ? handleUpVote : handleLogin}
+          />
+          &nbsp;
+          <span style={{ fontSize: '12px', marginTop: '0.5em' }}>{likes}</span>
+          &nbsp;
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
+            style={{ marginTop: '0.3em' }}
+            onClick={isLoggedIn ? handleDownVote : handleLogin}
+          />
+        </div>
+      )}
 
       <div className='discussion-icons-comments'>
         &nbsp;
