@@ -11,7 +11,6 @@ import {
 import { Paths } from '../services/Utils/Paths'
 import DiscussionIcons from './DiscussionIcons'
 import { getCommentsByDiscussion } from '../services/API/Comment'
-// import { faDown } from '@fortawesome/free-regular-svg-icons'
 
 interface DiscussionCardProps {
   data: IDiscussion
@@ -36,6 +35,8 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
   const id = data.id
   const [commentsLength, setCommentsLength] = useState(0)
 
+
+  
 
   const getComments = () => {
   getCommentsByDiscussion(id)
