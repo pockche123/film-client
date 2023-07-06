@@ -13,5 +13,6 @@ export const Paths = {
     userProfile: "/userProfile/",
     createReview: "/createReview/",
     discussionPage: "/discussionPage/",
-    discussions: "/discussions/"
+    discussions: "/discussions/",
+    allDiscussions: "/allDiscussions"
 }

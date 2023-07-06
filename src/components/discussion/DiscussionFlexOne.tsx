@@ -17,7 +17,7 @@ const DiscussionFlexOne = ({ film }: { film: any }) => {
   }
 
   const handleToDiscussions = () => {
-    
+    navigate(Paths.allDiscussions)
   }
 
   return (
@@ -31,19 +31,20 @@ const DiscussionFlexOne = ({ film }: { film: any }) => {
       <div className='discussion-back'>
         <img src={poster} alt='film-poster' /> &nbsp; &nbsp;
         <div>
-          <div style={{ display: 'column', marginLeft: '1em' }}>
-            <h1>{filmTitle}</h1>
-            <h2>({year})</h2>
+          <div style={{ display: 'column' }}>
+            <h4>{filmTitle}</h4>
+            <h5>({year})</h5>
           </div>
         </div>
       </div>
+       <p/>
       <div className='d-tags'>
         <label className='d-back' onClick={handleBack}>
-          <h5> ← Back to main</h5>
+           <h6>← Back to main</h6>
         </label>{' '}
         <p />
         <label className='d-back' onClick={handleToDiscussions}>
-          <h5> Go to all discussions →</h5>
+          <h6>  Go to all discussions → </h6>
         </label>
       </div>
     </div>
