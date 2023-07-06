@@ -28,3 +28,48 @@ color: black;
       color: navy;
     
 }
+
+
+.dicussion-back{
+    background-color: black;
+    width: 100%;
+    text-align: left;
+    padding: 1em;
+    margin-left: 1.5em;
+    color: white;
+    display: inline-flex;
+
+}
+
+
+.discussion-back img{
+
+    height: 100px;
+    margin-left: 2em;
+    border: 1px gold solid;
+   
+
+}
+
+.d-back{
+     cursor: pointer; 
+    width: 70%; 
+    background-color: white;
+    color: black;
+    padding: 0.5em;
+    left: 0; 
+    border-end-end-radius: 2px;
+    border-end-start-radius: 2px;
+    transition: 0.5s;
+
+}
+
+.d-tags{
+    text-align: left;
+}
+
+.d-back:hover{
+   background-color:ghostwhite;
+   color: gray;
+
+}
