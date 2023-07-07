@@ -39,7 +39,7 @@ const FilmDiscussions = () => {
         <div className='film-diss-card'>
         {data.map(discussion => (
           <div key={discussion.id}>
-            <DiscussionCard data={discussion} />
+            <DiscussionCard data={discussion} discussionBit={true} />
           </div>
         ))}
           </div>

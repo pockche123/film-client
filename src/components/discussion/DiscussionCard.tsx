@@ -14,9 +14,10 @@ import { getCommentsByDiscussion } from '../services/API/Comment'
 
 interface DiscussionCardProps {
   data: IDiscussion
+  discussionBit: boolean
 }
 
-const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
+const DiscussionCard: React.FC<DiscussionCardProps> = ({ data, discussionBit}) => {
   const username = data.user.username
   const navigate = useNavigate()
   const date = data.timestamp
@@ -112,7 +113,7 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data }) => {
             <h4>{title}</h4>
             </div>
           <div className='discussion-icons'> 
-            <DiscussionIcons id={id} likes={likes} discussionBit={false} commentsLength={commentsLength}/>
+            <DiscussionIcons id={id} likes={likes} discussionBit={discussionBit} commentsLength={commentsLength}/>
             </div>
         </div>
       </div>
