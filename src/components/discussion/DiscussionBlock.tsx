@@ -42,7 +42,7 @@ const DiscussionBlock = ({ film }: { film: Film }) => {
       ) : (
         data.map(discussion => (
           <div key={discussion.id}>
-            <DiscussionCard data={discussion} />
+            <DiscussionCard data={discussion} discussionBit={false} />
           </div>
         ))
       )}
@@ -51,7 +51,7 @@ const DiscussionBlock = ({ film }: { film: Film }) => {
           totalDiscussion > 0 && (
             <div className='discussions-nav' onClick={handleDiscussions}>
               <h6>
-                <b>Read all Discussions</b>
+                <b>Go to Discussions</b>
               </h6>
 
               </div>

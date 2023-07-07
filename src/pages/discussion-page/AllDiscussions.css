@@ -1,0 +1,30 @@
+
+
+.all-discussions{
+    display: flex; 
+    min-height: 100vh;
+}
+
+.all-discuss-one{
+   flex: 1; 
+background-color:  #0047AB;
+  color: white;
+    padding-top: 1em;
+    font-size: larger;
+}
+
+/* .all-discuss-one:hover{
+    color: gold;
+    cursor: pointer;
+} */
+
+.discuss-studio:hover{
+    color: gold; 
+    cursor: pointer;
+}
+
+
+.all-discuss-two{
+    width: 70%;
+    background-color: gainsboro;
+}
