@@ -84,19 +84,21 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data, discussionBit}) =
 
   return (
     <div className='discussion-card'>
-      <div className='discussion-card-likes'>
-        <FontAwesomeIcon
-          icon={faCircleArrowUp}
-          className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
-          onClick={isLoggedIn ? handleUpVote : handleLogin}
-        />
-        <h6>{likes}</h6>
-        <FontAwesomeIcon
-          icon={faCircleArrowDown}
-          className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
-          onClick={isLoggedIn ? handleDownVote : handleLogin}
-        />
-      </div>
+      {!discussionBit && (
+        <div className='discussion-card-likes'>
+          <FontAwesomeIcon
+            icon={faCircleArrowUp}
+            className={`fa-circle-arrow-up ${isSmaller ? 'smaller' : ''}`}
+            onClick={isLoggedIn ? handleUpVote : handleLogin}
+          />
+          <h6>{likes}</h6>
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className={`fa-circle-arrow-down ${isBigger ? 'bigger' : ''}`}
+            onClick={isLoggedIn ? handleDownVote : handleLogin}
+          />
+        </div>
+      )}
       <div>
         <div className='discussion-card-top'>
           <label>
