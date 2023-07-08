@@ -42,9 +42,11 @@ const AllDiscussions = () => {
       </div>
 
       <div className='all-discuss-two'>
-        {data.map(discussion => (
+
+        <div className="all-discuss-card">
+          {data.map(discussion => (
           
-          <div key={discussion.id}>
+            <div key={discussion.id} style={{ marginBottom:'2em'}}>
            <DiscussionCard data={discussion} discussionBit={true} />
             </div>
         )
@@ -52,6 +54,7 @@ const AllDiscussions = () => {
 
         )}
 
+        </div>
 
       </div>
 
