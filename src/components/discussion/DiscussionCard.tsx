@@ -11,6 +11,7 @@ import {
 import { Paths } from '../services/Utils/Paths'
 import DiscussionIcons from './DiscussionIcons'
 import { getCommentsByDiscussion } from '../services/API/Comment'
+import FilmPoster from '../films/FilmPoster';
 
 interface DiscussionCardProps {
   data: IDiscussion
@@ -84,7 +85,7 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data, discussionBit}) =
 
   return (
     <div className='discussion-card'>
-      {!discussionBit && (
+      {!discussionBit ? (
         <div className='discussion-card-likes'>
           <FontAwesomeIcon
             icon={faCircleArrowUp}
@@ -98,8 +99,14 @@ const DiscussionCard: React.FC<DiscussionCardProps> = ({ data, discussionBit}) =
             onClick={isLoggedIn ? handleDownVote : handleLogin}
           />
         </div>
+      ) : (
+          <div>
+             <img src={data.film.poster} alt="film-poster"    style={{ height: '21.5vh' }}/>
+            </div>
+          
       )}
-      <div>
+
+      <div className="discussion-card-two">
         <div className='discussion-card-top'>
           <label>
             Posted by{' '}
