@@ -1,0 +1,24 @@
+
+
+.streams{
+    margin-top: 1.8em;
+    padding: 0; 
+    border: 1px solid;
+    width: 80%;
+    margin-left: 2.3em;
+}
+.stream-head{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid orangered;
+    width: 100%;
+
+}
+
+#stream-head-tag{
+   margin-right: 2em;
+   margin-top: 0.3em;
+   margin-left: 1em;
+ 
+}
+
