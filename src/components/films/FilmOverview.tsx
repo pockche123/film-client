@@ -67,7 +67,7 @@ const FilmOverview = ({ film }: { film: any }) => {
               <LikeMovie />
               <AddToWatch />
               <RateFilm />
-              <TrailerButton trailerLink={trailerLink} />
+              {/* <TrailerButton trailerLink={trailerLink} /> */}
             </div>
           </div>
           <div className='background-coloring'>

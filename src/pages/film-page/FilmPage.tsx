@@ -10,6 +10,7 @@ import FilmPoster from '../../components/films/FilmPoster'
 import ReviewBlock from '../../components/review/ReviewBlock'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
+import Stream from '../../components/streams/Stream'
 
 
 const FilmPage = () => {
@@ -34,7 +35,8 @@ const FilmPage = () => {
     <div className='film-container'>
   
       <div className='film-page-poster'>
-        <FilmPoster film={film} />
+          <FilmPoster film={film} />
+          <Stream film={film}/>
         
       </div>
       <div className='film-content'>
