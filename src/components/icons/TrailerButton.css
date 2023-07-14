@@ -1,6 +1,6 @@
 .play-trailer{
     text-decoration: none;
-    color: navy;
+    color: white;
     margin-top: 100px;
     /* transition: transform 1s ease-in-out; */
 }
@@ -8,6 +8,7 @@
 .play-trailer :hover{
    transform: scale(1.1);
    transition: transform 0.1s ease-in-out;
+   color: gold;
 }
 
 .play-button{

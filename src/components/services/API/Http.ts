@@ -9,7 +9,8 @@ export const URI = {
     Auth: site + "/auth",
   Review: site + "/review",
   Discussion: site + "/discussion",
-    comment: site + "/comment"
+    comment: site + "/comment",
+    Stream: site  + "/stream"
 }
 
 
