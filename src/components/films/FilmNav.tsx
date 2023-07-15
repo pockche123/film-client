@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
-import'./FilmNav.css'
-
+import './FilmNav.css'
 
 const FilmNav = ({
   activeSection,
@@ -8,27 +7,25 @@ const FilmNav = ({
 }: {
   activeSection: string
   onSectionChange: Function
-    }) => {
-    
-  
-  
-  useEffect(() => {
-    const storedFilmNav = localStorage.getItem('filmNav')
-    if (storedFilmNav) {
-      onSectionChange(JSON.parse(storedFilmNav))
-    }
-  }, [])
-  
-  
+}) => {
+
   const handleOverview = () => {
     onSectionChange('overview')
-    localStorage.setItem('filmNav', JSON.stringify('overview'))
-
+    // localStorage.setItem('filmNav', JSON.stringify('overview'))
   }
 
   const handleImages = () => {
-    onSectionChange('images')
-    localStorage.setItem('filmNav', JSON.stringify('images'))
+    // onSectionChange('images')
+    // localStorage.setItem('filmNav', JSON.stringify('images'))
+    const imagesSection = document.getElementById('images')
+    imagesSection?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  const handleSocials = () => {
+    // onSectionChange('socials')
+
+    const socialsSection = document.getElementById('social')
+    socialsSection?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   return (
@@ -45,6 +42,18 @@ const FilmNav = ({
         >
           Overview
         </label>
+        
+        <label
+          className='film-nav-label'
+          style={{
+            cursor: 'pointer',
+            borderBottom:
+              activeSection === 'socials' ? '4px solid #00BFFF' : 'none'
+          }}
+          onClick={handleSocials}
+        >
+          Socials
+        </label>
         <label
           className='film-nav-label'
           style={{
@@ -60,6 +69,5 @@ const FilmNav = ({
     </div>
   )
 }
-
 
 export default FilmNav

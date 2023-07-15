@@ -44,7 +44,7 @@ const DiscussionPage = () => {
 
   const handleComment = () => {
     const commentsSection = document.getElementById('comments')
-    commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   const getComments = () => {

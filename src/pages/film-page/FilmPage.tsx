@@ -11,6 +11,7 @@ import ReviewBlock from '../../components/review/ReviewBlock'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 import Stream from '../../components/streams/Stream'
+import ImageBlock from '../../components/images/ImageBlock'
 
 
 const FilmPage = () => {
@@ -19,7 +20,7 @@ const FilmPage = () => {
   const location = useLocation()
   const film = location.state && location.state.film
   const [rating, setRating] = useState(0)
-
+  const images = film.backdrops
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section);
@@ -58,13 +59,19 @@ const FilmPage = () => {
               film={film}
           />
         </div>
-      <div className="social">
+      <div id="social">
           {socialActiveSection === 'reviews' && <ReviewBlock film={film} />}
           {socialActiveSection === 'discussions' && <DiscussionBlock film={film}/>}
-
           </div>    
         </div>
-        <hr/>
+        
+          
+          <div id="images"> 
+            <ImageBlock images={images} />
+            
+          </div>
+          <hr />
+
       </div>
       
 

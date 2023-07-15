@@ -1,0 +1,31 @@
+
+
+.image-block{
+    margin-top: 5em;
+}
+/* 
+.image{
+    display: flex; 
+    flex-direction: row;
+    height: 200px;
+    overflow-x: scroll;
+ 
+
+} */
+/* 
+#backdrop{
+    margin-right: 1em;
+} */
+
+.image {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.image img{  flex-shrink: 0;
+  width: auto;
+  height: 200px;
+  margin-right: 10px; 
+}
