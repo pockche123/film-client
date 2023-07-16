@@ -2,30 +2,44 @@
 
 .image-block{
     margin-top: 5em;
+    max-width: 70vw;
+    margin-bottom: 5em;
+  
 }
-/* 
-.image{
-    display: flex; 
-    flex-direction: row;
-    height: 200px;
-    overflow-x: scroll;
- 
 
-} */
-/* 
-#backdrop{
-    margin-right: 1em;
-} */
+.image-head{
+  display: inline;
+}
+
+#image-title{
+  margin-left:  0.8em; 
+  text-align: left;
+
+}
+
+#image-handle{
+  margin-bottom: 10em;
+  text-align: right;
+  cursor: pointer;
+}
+
+#image-handle:hover{
+color:gray;
+}
 
 .image {
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
   white-space: nowrap;
+  width: 100%;
 }
 
-.image img{  flex-shrink: 0;
+.image img{
+  
+  
+  flex-shrink: 0;
   width: auto;
   height: 200px;
-  margin-right: 10px; 
+  margin-right: 1em; 
 }
