@@ -3,22 +3,26 @@
 .image-block{
     margin-top: 5em;
     max-width: 70vw;
-    margin-bottom: 5em;
+    /* margin-bottom: 5em; */
   
 }
 
 .image-head{
-  display: inline;
-}
-
-#image-title{
-  margin-left:  0.8em; 
+  display: flex;
+  flex-direction: row;
   text-align: left;
 
 }
 
+#image-title{
+
+  text-align: left;
+  margin-right: 50vw;
+  margin-left: 18px;
+
+}
+
 #image-handle{
-  margin-bottom: 10em;
   text-align: right;
   cursor: pointer;
 }

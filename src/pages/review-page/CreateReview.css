@@ -52,7 +52,7 @@
     display: inline-flex;
     bottom: 0%; 
     position: relative;
-    background-color: rgba(127, 255, 212, 0.5); /* Aqua color with 50% opacity */
+    background-color: darkorange;
 position: sticky;
     width: 100%;
     padding: 0.5em;
