@@ -13,7 +13,6 @@ import Header from '../../components/header/Header'
 import Stream from '../../components/streams/Stream'
 import ImageBlock from '../../components/images/ImageBlock'
 
-
 const FilmPage = () => {
   const [activeSection, setActiveSection] = useState('overview')
   const [socialActiveSection, setSocialActiveSection] = useState('reviews')
@@ -23,63 +22,61 @@ const FilmPage = () => {
   const images = film.backdrops
 
   const handleSectionChange = (section: string) => {
-    setActiveSection(section);
+    setActiveSection(section)
   }
 
   const handleSocialSectionChange = (section: string) => {
-    setSocialActiveSection(section);
+    setSocialActiveSection(section)
   }
 
   return (
     <>
-      <Header/>
-    <div className='film-container'>
-  
-      <div className='film-page-poster'>
+      <Header />
+      <div className='film-container'>
+        <div className='film-page-poster'>
           <FilmPoster film={film} />
-          <Stream film={film}/>
-        
-      </div>
-      <div className='film-content'>
-      <div className='film-navs'>
-        <FilmNav
-          activeSection={activeSection}
-          onSectionChange={handleSectionChange}
-        />
-      </div>
-      <div className="film-over">
-        {activeSection === 'overview' && <FilmOverview film={film} />}
-        {activeSection === 'images' && <FilmImages film={film} />}
-      </div>
-        <div className={`film-socials ${activeSection === 'images' ? 'no-margin' : ''}`}>
-            <div className="film-social-nav">
-          <FilmSocialNav
-            activeSection={socialActiveSection}
-              onSectionChange={handleSocialSectionChange}
-              film={film}
-          />
+          <Stream film={film} />
         </div>
-      <div id="social">
-          {socialActiveSection === 'reviews' && <ReviewBlock film={film} />}
-          {socialActiveSection === 'discussions' && <DiscussionBlock film={film}/>}
-          </div>    
-        </div>
-        
-          
-          <div id="images"> 
-            <ImageBlock images={images} />
-            
+        <div className='film-content'>
+          <div className='film-navs'>
+            <FilmNav
+              activeSection={activeSection}
+              onSectionChange={handleSectionChange}
+            />
+          </div>
+          <div className='film-over'>
+            {activeSection === 'overview' && <FilmOverview film={film} />}
+            {activeSection === 'images' && <FilmImages film={film} />}
+          </div>
+          <div
+            className={`film-socials ${
+              activeSection === 'images' ? 'no-margin' : ''
+            }`}
+          >
+            <div className='film-social-nav'>
+              <FilmSocialNav
+                activeSection={socialActiveSection}
+                onSectionChange={handleSocialSectionChange}
+                film={film}
+              />
+            </div>
+            <div id='social'>
+              {socialActiveSection === 'reviews' && <ReviewBlock film={film} />}
+              {socialActiveSection === 'discussions' && (
+                <DiscussionBlock film={film} />
+              )}
+            </div>
+          </div>
+
+          <div id='images'>
+            <ImageBlock film={film} />
           </div>
           <hr />
-
+        </div>
       </div>
-      
-
-      </div>
-      <Footer/>
-      </>
+      <Footer />
+    </>
   )
 }
-
 
 export default FilmPage

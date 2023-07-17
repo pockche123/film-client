@@ -1,0 +1,55 @@
+
+
+.images{
+    
+}
+
+.image-content{
+    min-height: 100vh;
+}
+
+.image-section{
+    display: flex; 
+
+}
+
+.image-flex-one{
+    flex: 1; 
+    width: 25%; 
+    border: 1px solid;
+}
+
+.image-flex-two{
+    width: 75%;
+    margin-top: 2em; 
+}
+
+
+/* .image-each {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2em;
+} */
+
+.image-each {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+  margin: 2em;
+}
+/* 
+.image-each img {
+  width: calc(30% - 1em); 
+  margin-bottom: 1em;
+  border: 10px solid gray;
+  border-radius: 5px;
+} */
+
+
+
+.image-each img {
+  width: 100%;
+  margin-bottom: 1em;
+  border: 10px solid gray;
+  border-radius: 5px;
+}

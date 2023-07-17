@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
+import BackToMain from '../../components/films/BackToMain'
 
 const FilmReviews = () => {
   const params = useParams()
@@ -49,7 +50,7 @@ const FilmReviews = () => {
     <>
       <Header />
       <div className='reviews'>
-        <div className='reviews-back-to-page'>
+        {/* <div className='reviews-back-to-page'>
           <img src={poster} alt='film-poster' /> &nbsp; &nbsp;
           <div>
             <div style={{ display: 'flex' }}>
@@ -60,7 +61,8 @@ const FilmReviews = () => {
               <h5> ← Back to main</h5>
             </label>
           </div>
-        </div>
+        </div> */}
+        <BackToMain film={film}/>
 
         <div className='reviews-reviews'>
           <div className='reviews-logged-in'>
