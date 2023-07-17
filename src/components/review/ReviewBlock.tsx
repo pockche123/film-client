@@ -7,6 +7,7 @@ import enGB from 'date-fns/locale/en-GB'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
 import ReviewContentCard from './ReviewContentCard'
+import './ReviewBlock.css'
 
 const ReviewBlock = ({ film }: { film: Film }) => {
   const filmTitle = film.title

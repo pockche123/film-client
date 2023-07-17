@@ -36,7 +36,7 @@ const DiscussionBlock = ({ film }: { film: Film }) => {
   return (
     <div className='discuss-block'>
       {totalDiscussion === 0 ? (
-        <div className='no-discussions'>
+        <div className='no-reviews'>
           We don't have any discussions for {filmTitle}.
         </div>
       ) : (
