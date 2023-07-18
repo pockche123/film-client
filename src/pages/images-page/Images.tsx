@@ -1,15 +1,19 @@
 import React from 'react'
 import BackToMain from '../../components/films/BackToMain'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import './Images.css'
+import { Paths } from '../../components/services/Utils/Paths'
 
 const Images = () => {
 
   const location = useLocation()
   const film = location.state && location.state.film
   const images = film.backdrops
+  const navigate = useNavigate()
+
+
 
   return (
     <div className="images">
@@ -22,8 +26,10 @@ const Images = () => {
           </div>
           <div className="image-flex-two">
             {images.map((image: string) => (
-              <div className="image-each">
-                <img src={image} alt="image" />
+              <div className="image-each"  >
+                <a href={image}>
+                  <img src={image} alt="image" />
+                  </a>
                 </div>
             ))}
 
