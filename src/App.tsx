@@ -31,6 +31,7 @@ import Images from './pages/images-page/Images'
 
 
 
+
 function App () {
   return (
     <div className='app'>
@@ -54,7 +55,8 @@ function App () {
           <Route path={Paths.discussionPage + ':id'} element={<DiscussionPage/>}/>
           <Route path={Paths.discussions + ':filmTitle'} element={<FilmDiscussions />} />
           <Route path={Paths.allDiscussions} element={<AllDiscussions/>}/>
-          <Route path={Paths.images + ':filmTitle'} element={<Images/>}/>
+          <Route path={Paths.images + ':filmTitle'} element={<Images />} />
+        
         
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={['USER']} />}>

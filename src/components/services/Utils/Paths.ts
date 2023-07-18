@@ -15,5 +15,6 @@ export const Paths = {
     discussionPage: "/discussionPage/",
     discussions: "/discussions/",
     allDiscussions: "/allDiscussions",
-    images: "/images/"
+    images: "/images/",
+
 }

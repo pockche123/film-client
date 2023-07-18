@@ -22,28 +22,16 @@
 .image-flex-two{
     width: 75%;
     margin-top: 2em; 
+    margin-left: 1em;
+    display: grid; 
+   grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+
 }
 
-
-/* .image-each {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 2em;
-} */
 
 .image-each {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
-  margin: 2em;
+  margin: 1.2em;
 }
-/* 
-.image-each img {
-  width: calc(30% - 1em); 
-  margin-bottom: 1em;
-  border: 10px solid gray;
-  border-radius: 5px;
-} */
 
 
 
@@ -52,4 +40,11 @@
   margin-bottom: 1em;
   border: 10px solid gray;
   border-radius: 5px;
+  transition: 0.1s;
+}
+
+.image-each img:hover{
+
+    border: 10px solid gold; 
+    cursor: pointer;
 }
