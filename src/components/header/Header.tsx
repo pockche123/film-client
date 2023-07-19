@@ -123,8 +123,8 @@ const Header = () => {
               <NavLink className='nav-link' to='/'>
                 Home
               </NavLink>
-              <NavLink className='nav-link' to='/watchList'>
-                Watch List
+              <NavLink className='nav-link' to={Paths.allGhibli}>
+                All Ghibli
               </NavLink>
             </Nav>
             <Button
