@@ -3,14 +3,9 @@
 .search-page{
   height: 100%; 
   width: 100%; 
-    /* padding:0; 
-  margin:0;
-  z-index:-1;
-  overflow-x:hidden;
-  position:relative;
-  min-height: 100%; 
-  padding-bottom: 6.75rem; */
+  margin-top: 3em;
   min-height: 100vh;
+  margin-bottom: 5em;
 }
 
 .film-box{
