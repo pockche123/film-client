@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { getAllFilms } from '../../components/services/API/Films'
 import { Film } from '../../interfaces/IFilm'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import './SearchPage.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import SearchResult from '../../components/films/SearchResult'
 
 const SearchPage = () => {
   const [films, setFilms] = useState<Array<Film>>([])
   const params = useParams()
   const title = params.search!
-  const navigate = useNavigate()
-  const [selectedFilm, setSelectedFilm] = useState<Film | undefined>()
+
   const [showMessage, setShowMessage] = useState<boolean>(false)
 
   const loadFilms = () => {
@@ -28,7 +28,6 @@ const SearchPage = () => {
         movie.title &&
         movie.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
-
     return searchedFilm
   }
 
@@ -49,52 +48,34 @@ const SearchPage = () => {
     }
   }, [searchedFilms])
 
-  function goToFilmPage (selectedFilm: Film) {
-    setSelectedFilm(selectedFilm)
-    navigate(`/imdbId/${selectedFilm.imdbId}`, {
-      state: { film: selectedFilm }
-    })
-  }
 
   return (
     <>
       <Header />
       <div className='search-page'>
+
         {searchedFilms.length > 0 ? (
-          searchedFilms.map(film => (
-            <div
-              className='film-box'
-              onClick={() => {
-                goToFilmPage(film)
-              }}
-            >
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <img
-                  src={film.poster}
-                  alt='film-poster'
-                  style={{ height: '23vh' }}
-                />
-                <div>
-                  <div style={{ paddingLeft: '1vw' }}>
-                    <h4>{film.title}</h4>
-                    <i style={{ opacity: '0.7' }}>
-                      {new Date(film.releaseDate).toLocaleDateString('en-US', {
-                        month: 'long',
-                        day: 'numeric',
-                        year: 'numeric'
-                      })}
-                    </i>
-                  </div>
-                  <p />
-                  <div className='searchbox-overview'>{film.overview}</div>
-                </div>
-              </div>
-            </div>
+          searchedFilms.map((film, index) => (
+              <SearchResult allGhibli={false} index={index} film={film} />   
+         
           ))
+
+         
         ) : showMessage ? (
           <div>There were no matches for your search term.</div>
         ) : null}
       </div>
+
+      {
+        searchedFilms.length > 0 && (
+          <div className="results-found">
+            <h6>
+              {searchedFilms.length} results found
+          </h6>
+          </div>
+        )
+   }
+ 
       <Footer />
     </>
   )

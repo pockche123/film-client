@@ -28,6 +28,7 @@ import DiscussionPage from './pages/discussion-page/DiscussionPage'
 import FilmDiscussions from './pages/discussion-page/FilmDiscussions'
 import AllDiscussions from './pages/discussion-page/AllDiscussions'
 import Images from './pages/images-page/Images'
+import AllGhibli from './pages/allGhibli-page/AllGhibli'
 
 
 
@@ -38,6 +39,7 @@ function App () {
       {/* <Header /> */}
       <Routes>
         <Route path='/' element={<Layout />}>
+          <Route path={Paths.allGhibli} element={<AllGhibli/>}/>
           <Route path={Paths.home} element={<Home />} />
           <Route path={Paths.imdbId + ':imdbId'} element={<FilmPage />} />
           <Route path={Paths.trailer + ':ytTrailerId'} element={<Trailer />} />
@@ -56,8 +58,6 @@ function App () {
           <Route path={Paths.discussions + ':filmTitle'} element={<FilmDiscussions />} />
           <Route path={Paths.allDiscussions} element={<AllDiscussions/>}/>
           <Route path={Paths.images + ':filmTitle'} element={<Images />} />
-        
-        
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={['USER']} />}>
               <Route
