@@ -25,6 +25,8 @@ const ReviewBlock = ({ film }: { film: Film }) => {
   const formattedDate = data
     ? format(new Date(data?.createdDate), 'MMMM d, yyyy', { locale: enGB })
     : ''
+  
+  const likes = data?.likes
 
   useEffect(() => {
     getReviewsByFilmTitle(filmTitle).then(res => {
@@ -50,7 +52,9 @@ const ReviewBlock = ({ film }: { film: Film }) => {
     rating,
     date,
     review,
-    reviewId
+    reviewId,
+    likes
+
   }
 
   return (

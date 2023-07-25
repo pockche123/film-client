@@ -10,6 +10,7 @@ export interface IReview{
     review: string
     rating: number
     createdDate: string
+    likes: number
 }
 
 interface ReviewId{
