@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons'
 import { format } from 'date-fns'
 import { enGB } from 'date-fns/locale'
+import './ReviewContentCard.css'
 
 const ReviewContentCard = ({ props }: { props: any }) => {
   const navigate = useNavigate()
@@ -16,7 +17,10 @@ const ReviewContentCard = ({ props }: { props: any }) => {
   const hasHalfStar = rating % 2 !== 0
   const formattedDate = date
     ? format(new Date(date), 'MMMM d, yyyy', { locale: enGB })
-    : ''
+    : '';
+  
+  const [likeClicked, setLikeClicked] = useState(false)
+  const userLoggedIn = false
 
   for (let i = 0; i < fullStars; i++) {
     stars.push(<FontAwesomeIcon key={i} icon={faStar} />)
@@ -30,7 +34,6 @@ const ReviewContentCard = ({ props }: { props: any }) => {
     const reviewTextElement = reviewTextRef.current
 
     if (reviewTextElement) {
-      // Check if the content overflows vertically
       const isContentOverflowed =
         reviewTextElement.scrollHeight > reviewTextElement.clientHeight ||
         reviewTextElement.scrollHeight > reviewTextElement.offsetHeight
@@ -42,6 +45,13 @@ const ReviewContentCard = ({ props }: { props: any }) => {
 
   const handleUser = () => {
     navigate(Paths.userProfile + username)
+  }
+
+  const handleReviewLikes = () => {
+    if (userLoggedIn) {
+      setLikeClicked(prev => !prev);
+    }
+
   }
 
   return (
@@ -81,6 +91,22 @@ const ReviewContentCard = ({ props }: { props: any }) => {
             <u style={{ textAlign: 'right' }}>Read the rest</u>
           </a>
         )}
+
+        
+        <div className={`review-likes ${likeClicked? 'clicked': ''}`} onClick={handleReviewLikes}>
+       
+          <FontAwesomeIcon icon={faHeart} /> &nbsp;
+          {!likeClicked && userLoggedIn? (
+            <b>Like Review</b> 
+          ): (
+          <b>Liked</b> 
+          )}
+          &nbsp;
+          <label>{props.likes}</label>
+
+        </div>
+   
+
       </div>
     </>
   )

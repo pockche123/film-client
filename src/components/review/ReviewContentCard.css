@@ -1,0 +1,15 @@
+
+
+
+.review-likes{
+    text-align: left; 
+    margin-left: 3em;
+}
+
+.review-likes:hover{
+    cursor: pointer;
+}
+
+.review-likes.clicked{
+    color: red;
+}
