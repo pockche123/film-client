@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+
 import './FilmNav.css'
 
 const FilmNav = ({
