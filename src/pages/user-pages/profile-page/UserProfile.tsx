@@ -6,6 +6,7 @@ import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
 import "./UserProfile.css";
 import ProfileImage from "../../../components/user/ProfileImage";
+import ProfileNav from "../../../components/user/ProfileNav";
 
 const UserProfile = () => {
   const params = useParams();
@@ -49,6 +50,7 @@ const UserProfile = () => {
         </div>
         <div className="user-contents">
           <div className="user-nav">
+            <ProfileNav/>
 
           </div>
 
