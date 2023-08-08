@@ -12,6 +12,11 @@ const UserProfile = () => {
   const params = useParams();
   const username = params.username as string;
   const [data, setData] = useState<IUser>();
+  const [activeSection, setActiveSection] = useState('profile');
+
+  const handleSectionChange = (section: string) => {
+    setActiveSection(section)
+  }
 
   const getTheUser = () => {
     getAUser(username)
@@ -50,7 +55,10 @@ const UserProfile = () => {
         </div>
         <div className="user-contents">
           <div className="user-nav">
-            <ProfileNav/>
+            <ProfileNav
+              activeSection={activeSection}
+              onSectionChange = {handleSectionChange}
+            />
 
           </div>
 

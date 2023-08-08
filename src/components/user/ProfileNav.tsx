@@ -1,10 +1,28 @@
 import React from 'react'
 
-const ProfileNav = () => {
+const ProfileNav = ({
+    activeSection, 
+    onSectionChange
+}: {
+        activeSection: string 
+        onSectionChange: Function
+    }) => {
+    
+    
+    const handleNav = (label: string) => {
+        onSectionChange(label);
+    }
+    
+    
     return (
+
+        
       
         <div className="profile-nav">
-            ProfileNav
+            <label className={`profile-nav-label ${activeSection ==="profile"? "active": ""} `}
+                onClick={() => handleNav("profile")}>
+                Profile
+          </label>
         </div>
   )
 }
