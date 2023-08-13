@@ -30,6 +30,7 @@ import AllDiscussions from './pages/discussion-page/AllDiscussions'
 import Images from './pages/images-page/Images'
 import AllGhibli from './pages/allGhibli-page/AllGhibli'
 import EditProfile from './components/user/EditProfile'
+import Settings from './pages/user-pages/settings-page/Settings'
 
 
 
@@ -70,7 +71,7 @@ function App () {
           </Route>
         </Route>
         <Route path={Paths.createReview + ':username'} element={<CreateReview />} />
-        <Route path={Paths.editProfile + ':username'} element={<EditProfile />} />
+        <Route path={Paths.settings} element={<Settings />}/>
 
 
         </Routes>

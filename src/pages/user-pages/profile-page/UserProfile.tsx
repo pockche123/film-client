@@ -36,7 +36,7 @@ const UserProfile = () => {
   });
 
   const handleEditProfile = () => {
-    navigate(Paths.editProfile  + data?.username)
+    navigate(Paths.settings, {state:{data}})
   }
 
   return (
