@@ -17,6 +17,6 @@ export const Paths = {
     allDiscussions: "/allDiscussions",
     images: "/images/",
     allGhibli: "/allGhibli", 
-    editProfile: "/editProfile/"
+    settings: "/settings/"
 
 }

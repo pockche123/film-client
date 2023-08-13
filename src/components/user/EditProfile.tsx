@@ -7,7 +7,8 @@ const EditProfile = () => {
   return (
       <>
           <Header />
-          <div>
+          <div className="edit-profile">
+              
               
           </div>
 
