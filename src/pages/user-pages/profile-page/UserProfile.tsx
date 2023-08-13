@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getAUser } from "../../../components/services/API/Users";
 import { IUser } from "../../../interfaces/IUser";
 import Header from "../../../components/header/Header";
@@ -7,12 +7,16 @@ import Footer from "../../../components/footer/Footer";
 import "./UserProfile.css";
 import ProfileImage from "../../../components/user/ProfileImage";
 import ProfileNav from "../../../components/user/ProfileNav";
+import { Button } from "react-bootstrap";
+import { Paths } from "../../../components/services/Utils/Paths";
 
 const UserProfile = () => {
   const params = useParams();
   const username = params.username as string;
   const [data, setData] = useState<IUser>();
   const [activeSection, setActiveSection] = useState('profile');
+  const loggedIn = true; 
+  const navigate = useNavigate();
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section)
@@ -31,13 +35,25 @@ const UserProfile = () => {
     getTheUser();
   });
 
+  const handleEditProfile = () => {
+    navigate(Paths.editProfile  + data?.username)
+  }
+
   return (
     <>
       <Header />
-      <div className="user-profile">
+      <section className="user-profile">
         <div className="user-header">
           <article className="user-header-article">
             <ProfileImage user={data} />
+            <div className="user-profile-label">
+            <h5 id="user-profile-username">{data?.username}</h5>
+          {  loggedIn && (
+              <div onClick={handleEditProfile}>
+                <Button variant="secondary">Edit Profile</Button>
+              </div>
+              )}
+              </div>
           </article>
 
           <article className="user-header-article">
@@ -59,13 +75,14 @@ const UserProfile = () => {
               activeSection={activeSection}
               onSectionChange = {handleSectionChange}
             />
+    
 
           </div>
 
         </div>
 
 
-      </div>
+      </section>
       <Footer />
     </>
   );

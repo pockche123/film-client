@@ -24,13 +24,29 @@
  
  .user-header article:nth-child(1){
     flex: 1 1 auto;
+     border: 1px solid black;
+     display: flex;
+ }
+
+ .user-profile-label{
+   /* border: 1px solid black; */
+   padding: 30px;
+   padding-bottom: 0;
+ }
+
+ #user-profile-username{
+  
+  /* border: 1px solid black; */
+  margin-right: 30px;
 
  }
+
 
 
   .user-header article:nth-child(n+2){
     margin-left: 4%;
     margin-top: 2%;
+    flex: 0 0 auto; 
  }
 
   
