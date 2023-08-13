@@ -29,6 +29,7 @@ import FilmDiscussions from './pages/discussion-page/FilmDiscussions'
 import AllDiscussions from './pages/discussion-page/AllDiscussions'
 import Images from './pages/images-page/Images'
 import AllGhibli from './pages/allGhibli-page/AllGhibli'
+import EditProfile from './components/user/EditProfile'
 
 
 
@@ -69,9 +70,11 @@ function App () {
           </Route>
         </Route>
         <Route path={Paths.createReview + ':username'} element={<CreateReview />} />
+        <Route path={Paths.editProfile + ':username'} element={<EditProfile />} />
+
 
         </Routes>
-      {/* <Footer /> */}
+   
    
 
     </div>
