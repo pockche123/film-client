@@ -7,17 +7,24 @@
 }
 
 .settings-profile-container{
-    width: 50%; 
+    /* width: 50%;  */
      border: 1px solid black;
      margin-left: 10px;
 }
 
 .settings-profile-container:nth-child(1){
     text-align: left;
+    width: 40%;
 }
 
 .settings-profile-container:nth-child(1) input{
     width: 90%;
+    height: 35px;
+}
+
+.settings-profile-container:nth-child(1) textarea{
+    width: 90%;
+
 }
 
 
