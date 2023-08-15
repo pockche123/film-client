@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const SettingsProfile = ({ user }: { user: IUser }) => {
   const [username, setUsername] = useState('')
@@ -18,11 +18,21 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
         if (inputValue.length <= 100) {
             setBio(inputValue);
         }
-    }
+  }
+
+  const handleSaveChanges = () => {
+    // something to do here later
+  }
+
+  const handleSubmit = () => {
+    //something to do here later
+  }
+  
+
 
   return (
     <div className='settings-profile'>
-      <article className='settings-profile-container'>
+      <form className='settings-profile-container' onSubmit={handleSubmit}>
         <h4>Profile</h4>
         <div className='settings-label'>
           <label>Username</label> <br />
@@ -55,9 +65,43 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
                   <>Remaining characters: {100 - bio.length}</>
 
         </div>
-      </article>
+        <div onClick={handleSaveChanges}>
+          <button className="btn btn-secondary">Save Changes</button>
+        </div>
+      </form>
 
-      <article className='settings-profile-container'></article>
+      <section className='settings-profile-container'>
+          <div className="settings-poster-head">
+          <h6> Favourite Films</h6>
+           <p>Drag posters to reorder</p>
+        </div>
+        <div className="settings-poster">
+          <div className="settings-poster-card">
+            <p className="settings-poster-add">
+              <FontAwesomeIcon icon={faPlus} />
+                </p>
+          </div>
+        <div className="settings-poster-card">
+            <p className="settings-poster-add">
+              <FontAwesomeIcon icon={faPlus} />
+                </p>
+          </div>
+           <div className="settings-poster-card">
+            <p className="settings-poster-add">
+              <FontAwesomeIcon icon={faPlus} />
+                </p>
+          </div>
+           <div className="settings-poster-card">
+            <p className="settings-poster-add">
+              <FontAwesomeIcon icon={faPlus} />
+                </p>
+          </div>
+
+
+         </div>
+
+
+      </section>
     </div>
   )
 }
