@@ -10,15 +10,16 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
   const [username, setUsername] = useState('')
     const [email, setEmail] = useState(user.email)
   const [bio, setBio] = useState('')
-  const [film, setFilm] = useState('')
+  const [search, setSearch] = useState('')
   const [addPoster, setAddPoster] = useState(false)
   const [foundMatches, setFoundMatches] = useState(Array<Film>)
+  const [poster, setPoster] = useState<Array<string>>([])
 
     
 
 
   const findMatches = async (e: ChangeEvent<HTMLInputElement>) => {
-    setFilm(e.target.value);
+    setSearch(e.target.value);
 
     const foundMatches = await getAllFilms().then(res =>
   res.data?.filter(
@@ -34,47 +35,44 @@ setFoundMatches(foundMatches)
 
 
   const renderFoundMatches = () => {
+
+    if (foundMatches.length === 0) {
+      return null;
+    } else {
+      
+      return<ul>
+{
+          foundMatches.map(film => (
+      <div onClick={() => handlePoster(film)}>
+              <li>{film.title}</li>
+              </div>
+    ))
+}
+      </ul>
+      
+
+
+    }    // return<ul>
+    // {
+    //     foundMatches.map(film => (
+    //       <li>{film.title}</li>
+    //     ))
+    // }
+    // </ul>
+  
   }
-  // if (!search || foundMatches.length === 0) {
-  //   return null
-  // }
-
-  // return (
-  //   <ul>
-  //     {foundMatches.map(film => {
-  //       const regex = new RegExp(`(${search})`, 'gi')
-  //       const titleWithBoldedSearch = film.title.replace(
-  //         regex,
-  //         '<strong>$1</strong>'
-  //       )
-  //       return (
-  //         <div className='parent'>
-  //           <div
-  //             className='search-result'
-  //             key={film.imdbId}
-  //             onClick={e => {
-  //               e.preventDefault()
-  //               navigate(`/imdbId/${film.imdbId}`, {
-  //                 state: { film: film }
-  //               })
-  //             }}
-  //           >
-  //             <div className='search-result-icon'>
-  //               <FontAwesomeIcon icon={faSearch} style={{ color: '#9ca3af' }} />
-  //             </div>
-  //             <div
-  //               className='search-result-text'
-  //               dangerouslySetInnerHTML={{ __html: titleWithBoldedSearch }}
-  //             ></div>
-  //           </div>
-  //         </div>
-  //       )
-  //     })}
-  //   </ul>
-  // )
 
 
-    
+  const handlePoster = (film: Film) => {
+    setAddPoster(false)
+    setPoster([...poster, film.poster]);
+
+    if (poster.length > 1) {
+     setPoster(poster.slice(1));
+  } 
+
+  }
+ 
     const handleBioChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = e.target.value;
     
@@ -142,6 +140,15 @@ setFoundMatches(foundMatches)
         </div>
         <div className="settings-poster">
           <div className="settings-poster-card" onClick={() => setAddPoster(true)}>
+
+            {poster.length > 0 && (
+             
+                <img src={poster[0]} alt="poster" />
+
+
+            )}
+
+
             <p className="settings-poster-add">
               <FontAwesomeIcon icon={faPlus} />
                 </p>
@@ -163,16 +170,18 @@ setFoundMatches(foundMatches)
           </div>
           { addPoster && (
             <section className="add-poster">
-              <div className="add-poster-container">
+              <article className="add-poster-container">
                 <h5>PICK YOUR FAVOURITE FILM</h5>
                 <p onClick={() => setAddPoster(false)}><FontAwesomeIcon className="close-icon" icon={faClose} /></p>
               
                 <label>Name of film</label> <br />
               
-                <input type="text" id="add-poster-input" value={film} onChange={e => findMatches(e)} />
+                <input type="text" id="add-poster-input" value={search} onChange={e => findMatches(e)} />
+                <section className='search-result'>{renderFoundMatches()}</section>
+              </article>
+  
+                  {/* <section className='search-result'>{renderFoundMatches()}</section> */}
 
-              </div>
-              <div className='search-result-whole'>{renderFoundMatches()}</div>
 
 
             </section>

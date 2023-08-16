@@ -17,7 +17,7 @@
     left: 0; 
     bottom: 0; 
     right: 0; 
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .add-poster-container{
@@ -41,6 +41,37 @@
 }
 
 
+.search-result{
+    position: fixed; 
+    color: black;
+    left: 442px; 
+    width: 326px;
+    padding: 0;
+
+}
+
+.search-result:hover{
+    cursor: normal;
+}
+
+.search-result ul{
+    width: 100%;
+    padding-left: 0;
+}
+
+
+.search-result li{
+    /* white-space: nowrap; */
+    overflow: hidden;
+    padding: 0 10px; 
+    width: 100%;
+
+}
+
+.search-result li:hover{
+    background-color: darkgray;
+    width: 100%;
+}
 
 
 .add-poster-container p:hover{
