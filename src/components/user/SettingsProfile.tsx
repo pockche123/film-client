@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faPlus, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faPlus, faClose, faX } from '@fortawesome/free-solid-svg-icons';
 import { getAllFilms } from '../services/API/Films';
 import { Film } from '../../interfaces/IFilm';
 
@@ -45,8 +45,12 @@ setFoundMatches(foundMatches)
           foundMatches.map(film => (
       <div onClick={() => handlePoster(film)}>
               <li>{film.title}</li>
-              </div>
-    ))
+            </div>
+            
+            
+          ))
+    
+          
 }
       </ul>
       
@@ -142,8 +146,14 @@ setFoundMatches(foundMatches)
           <div className="settings-poster-card" onClick={() => setAddPoster(true)}>
 
             {poster.length > 0 && (
-             
-                <img src={poster[0]} alt="poster" />
+             <div>
+              <img src={poster[0]} alt="poster" />
+              
+              <p className='x-icon'>
+             <FontAwesomeIcon icon={faX} />
+              </p>
+                </div>
+
 
 
             )}
@@ -177,7 +187,12 @@ setFoundMatches(foundMatches)
                 <label>Name of film</label> <br />
               
                 <input type="text" id="add-poster-input" value={search} onChange={e => findMatches(e)} />
-                <section className='search-result'>{renderFoundMatches()}</section>
+                <section className='search-result'>
+                  {renderFoundMatches()}
+
+                 
+                
+                </section>
               </article>
   
                   {/* <section className='search-result'>{renderFoundMatches()}</section> */}
@@ -188,6 +203,9 @@ setFoundMatches(foundMatches)
           )}
 
          </div>
+<p className='x-icon'>
+  <FontAwesomeIcon icon={faX} />
+</p>
 
 
       </section>
