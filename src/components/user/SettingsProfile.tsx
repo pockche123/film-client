@@ -72,7 +72,8 @@ setFoundMatches(foundMatches)
     setPoster([...poster, film.poster]);
 
     if (poster.length > 1) {
-     setPoster(poster.slice(1));
+      setPoster(poster.slice(1));
+      //maybe the change should be made here 
   } 
 
   }
