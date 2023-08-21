@@ -2,89 +2,67 @@ import React, { ChangeEvent, useState } from 'react'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faPlus, faClose, faX } from '@fortawesome/free-solid-svg-icons';
-import { getAllFilms } from '../services/API/Films';
-import { Film } from '../../interfaces/IFilm';
+import { faPen, faPlus, faClose, faX } from '@fortawesome/free-solid-svg-icons'
+import { getAllFilms } from '../services/API/Films'
+import { Film } from '../../interfaces/IFilm'
 
 const SettingsProfile = ({ user }: { user: IUser }) => {
   const [username, setUsername] = useState('')
-    const [email, setEmail] = useState(user.email)
+  const [email, setEmail] = useState(user.email)
   const [bio, setBio] = useState('')
   const [search, setSearch] = useState('')
   const [addPoster, setAddPoster] = useState(false)
   const [foundMatches, setFoundMatches] = useState(Array<Film>)
-  const [poster, setPoster] = useState<Array<string>>([])
-
-    
-
+  const [poster, setPoster] = useState('')
+  const [posters, setPosters] = useState<Array<string>>([])
 
   const findMatches = async (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+    setSearch(e.target.value)
 
     const foundMatches = await getAllFilms().then(res =>
-  res.data?.filter(
-    (movie: Film) =>
-      movie.title &&
-      movie.title.toLowerCase().includes(e.target.value.toLowerCase())
-  )
-)
+      res.data?.filter(
+        (movie: Film) =>
+          !posters.includes(movie.poster) && 
+          movie.title &&
+          movie.title.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    )
 
-setFoundMatches(foundMatches)
 
+    setFoundMatches(foundMatches)
   }
-
 
   const renderFoundMatches = () => {
-
     if (foundMatches.length === 0) {
-      return null;
+      return null
     } else {
-      
-      return<ul>
-{
-          foundMatches.map(film => (
-      <div onClick={() => handlePoster(film)}>
+      return (
+        <ul>
+          {foundMatches.map(film => (
+            <div onClick={() => handlePoster(film)}>
               <li>{film.title}</li>
             </div>
-            
-            
-          ))
-    
-          
-}
-      </ul>
-      
-
-
-    }    // return<ul>
-    // {
-    //     foundMatches.map(film => (
-    //       <li>{film.title}</li>
-    //     ))
-    // }
-    // </ul>
-  
+          ))}
+        </ul>
+      )
+    }
   }
-
 
   const handlePoster = (film: Film) => {
     setAddPoster(false)
-    setPoster([...poster, film.poster]);
-
-    if (poster.length > 1) {
-      setPoster(poster.slice(1));
-      //maybe the change should be made here 
-  } 
-
+    setSearch('')
+    setPoster(film.poster)
+    setFoundMatches([])
+    setPosters((prevPosters) => [...prevPosters, film.poster])
   }
- 
-    const handleBioChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const inputValue = e.target.value;
-    
-        // Enforce a character limit of 100 characters
-        if (inputValue.length <= 100) {
-            setBio(inputValue);
-        }
+
+  const handleBioChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputValue = e.target.value
+
+    // Enforce a character limit of 100 characters
+    if (inputValue.length <= 100) {
+      setBio(inputValue)
+    }
   }
 
   const handleSaveChanges = () => {
@@ -95,8 +73,10 @@ setFoundMatches(foundMatches)
     //something to do here later
   }
 
-
-
+  const removePoster = (num: number) => {
+    setPoster('')
+    setPosters(posters.slice(num))
+  }
 
   return (
     <div className='settings-profile'>
@@ -122,93 +102,113 @@ setFoundMatches(foundMatches)
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        
-        <div className='settings-label'>
-          <label>Bio</label> <br/>
-          <textarea
-                      value={bio}
-                      onChange = {(e) => handleBioChange(e) }
-                      
-                  />
-                  <>Remaining characters: {100 - bio.length}</>
 
+        <div className='settings-label'>
+          <label>Bio</label> <br />
+          <textarea value={bio} onChange={e => handleBioChange(e)} />
+          <>Remaining characters: {100 - bio.length}</>
         </div>
         <div onClick={handleSaveChanges}>
-          <button className="btn btn-secondary">Save Changes</button>
+          <button className='btn btn-secondary'>Save Changes</button>
         </div>
       </form>
 
       <section className='settings-profile-container'>
-          <div className="settings-poster-head">
+        <div className='settings-poster-head'>
           <h6> Favourite Films</h6>
-           <p>Drag posters to reorder</p>
+          <p>Drag posters to reorder</p>
         </div>
-        <div className="settings-poster">
-          <div className="settings-poster-card" onClick={() => setAddPoster(true)}>
+        <div className='settings-poster'>
+         
+        
+          <div className='settings-poster-card'>
+          
+              <div>
+                <img src={posters[0]} alt='poster' />
 
-            {poster.length > 0 && (
-             <div>
-              <img src={poster[0]} alt="poster" />
-              
-              <p className='x-icon'>
-             <FontAwesomeIcon icon={faX} />
-              </p>
-                </div>
-
-
-
-            )}
-
-
-            <p className="settings-poster-add">
-              <FontAwesomeIcon icon={faPlus} />
+                <p className='x-icon' onClick={() => removePoster(posters.length)}>
+                  <FontAwesomeIcon icon={faX} />
                 </p>
-          </div>
-        <div className="settings-poster-card">
-            <p className="settings-poster-add">
+              </div>
+            
+
+            <p
+              className='settings-poster-add'
+              onClick={() => setAddPoster(true)}
+            >
               <FontAwesomeIcon icon={faPlus} />
-                </p>
+            </p>
           </div>
-           <div className="settings-poster-card">
-            <p className="settings-poster-add">
-              <FontAwesomeIcon icon={faPlus} />
-                </p>
-          </div>
-           <div className="settings-poster-card">
-            <p className="settings-poster-add">
-              <FontAwesomeIcon icon={faPlus} />
-                </p>
-          </div>
-          { addPoster && (
-            <section className="add-poster">
-              <article className="add-poster-container">
+          ;<div className='settings-poster-card'>
+  <div>
+    <img src={posters[1]} alt='poster' />
+
+    <p className='x-icon' onClick={() => removePoster(posters.length)}>
+      <FontAwesomeIcon icon={faX} />
+    </p>
+  </div>
+
+  <p className='settings-poster-add' onClick={() => setAddPoster(true)}>
+    <FontAwesomeIcon icon={faPlus} />
+  </p>
+</div>
+<div className='settings-poster-card'>
+  <div>
+    <img src={posters[2]} alt='poster' />
+
+    <p className='x-icon' onClick={() => removePoster(posters.length)}>
+      <FontAwesomeIcon icon={faX} />
+    </p>
+  </div>
+
+  <p className='settings-poster-add' onClick={() => setAddPoster(true)}>
+    <FontAwesomeIcon icon={faPlus} />
+  </p>
+</div>
+<div className='settings-poster-card'>
+  <div>
+    <img src={posters[3]} alt='poster' />
+
+    <p className='x-icon' onClick={() => removePoster(posters.length)}>
+      <FontAwesomeIcon icon={faX} />
+    </p>
+  </div>
+
+  <p className='settings-poster-add' onClick={() => setAddPoster(true)}>
+    <FontAwesomeIcon icon={faPlus} />
+  </p>
+</div>
+
+
+
+
+
+          {addPoster && (
+            <section className='add-poster'>
+              <article className='add-poster-container'>
                 <h5>PICK YOUR FAVOURITE FILM</h5>
-                <p onClick={() => setAddPoster(false)}><FontAwesomeIcon className="close-icon" icon={faClose} /></p>
-              
+                <p onClick={() => setAddPoster(false)}>
+                  <FontAwesomeIcon className='close-icon' icon={faClose} />
+                </p>
                 <label>Name of film</label> <br />
-              
-                <input type="text" id="add-poster-input" value={search} onChange={e => findMatches(e)} />
+                <input
+                  type='text'
+                  id='add-poster-input'
+                  value={search}
+                  onChange={e => findMatches(e)}
+                />
                 <section className='search-result'>
                   {renderFoundMatches()}
-
-                 
-                
                 </section>
               </article>
-  
-                  {/* <section className='search-result'>{renderFoundMatches()}</section> */}
 
-
-
+              {/* <section className='search-result'>{renderFoundMatches()}</section> */}
             </section>
           )}
-
-         </div>
-<p className='x-icon'>
-  <FontAwesomeIcon icon={faX} />
-</p>
-
-
+        </div>
+        <p className='x-icon'>
+          <FontAwesomeIcon icon={faX} />
+        </p>
       </section>
     </div>
   )
