@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ChangeEvent, useState } from 'react'
 import { getAllFilms } from '../services/API/Films'
 import { Film } from '../../interfaces/IFilm'
+import {DragDropContext, Droppable} from 'react-beautiful-dnd'
 
 const SettingsPosters = () => {
 
@@ -61,21 +62,41 @@ const SettingsPosters = () => {
   setFoundMatches(foundMatches)
 }
 
+  const handleDrag = () => {
+    
+  }
 
 
   return (
-    <div className='settings-poster'>
+      <div className='settings-poster'>
+  
   {[0, 1, 2, 3].map(index => (
     <div key={index} className='settings-poster-card'>
-      {posters[index] && (
-        <div>
-          <img src={posters[index]} alt='poster' />
 
-          <p className='x-icon' onClick={() => removePoster(index)}>
-            <FontAwesomeIcon icon={faX} />
-          </p>
-        </div>
-      )}
+      <DragDropContext onDragEnd={handleDrag}>
+        <Droppable droppableId='posters'>
+          {(provided) => (
+            <div className="posters" {...provided.droppableProps} ref={provided.innerRef} >
+              {
+  posters[index] && (
+    <div className='poster-card'>
+      <img src={posters[index]} alt='poster' />
+
+      <p className='x-icon' onClick={() => removePoster(index)}>
+        <FontAwesomeIcon icon={faX} />
+      </p>
+    </div>
+  )
+}
+
+            </div>
+          ) }
+     
+          </Droppable>
+        </DragDropContext>
+
+
+
       <p className='settings-poster-add' onClick={() => setAddPoster(true)}>
         <FontAwesomeIcon icon={faPlus} />
       </p>
