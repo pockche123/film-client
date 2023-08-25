@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { ChangeEvent, useState } from 'react'
 import { getAllFilms } from '../services/API/Films'
 import { Film } from '../../interfaces/IFilm'
-import {DragDropContext, Droppable} from 'react-beautiful-dnd'
+import { DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
+import './SettingsProfile.css'
 
 const SettingsPosters = () => {
 
@@ -62,15 +63,96 @@ const SettingsPosters = () => {
   setFoundMatches(foundMatches)
 }
 
-  const handleDrag = () => {
-    
+// const handleDrag = (result: any) => {
+//   if (!result.destination) {
+//     return // Drop was not in a valid droppable area
+//   }
+
+//   const sourceIndex = result.source.index
+//   const destinationIndex = result.destination.index
+
+//   // Copy the posters array to avoid mutating the state directly
+//   const updatedPosters = [...posters]
+
+//   // Swap the posters at sourceIndex and destinationIndex
+//   const [movedPoster] = updatedPosters.splice(sourceIndex, 1)
+//   updatedPosters.splice(destinationIndex, 0, movedPoster)
+
+//   setPosters(updatedPosters)
+// }
+
+  
+  const handleDrag = (result: any) => {
+    if (!result.destination) {
+  return
+}
+
+const sourceIndex = result.source.index
+const destinationIndex = result.destination.index
+
+
+const updatedPosters = [...posters]
+
+const [movedPoster] = updatedPosters.splice(sourceIndex, 1)
+updatedPosters.splice(destinationIndex, 0, movedPoster)
+
+// Update the state with the new posters array
+setPosters(updatedPosters)
+
   }
 
 
+
   return (
-      <div className='settings-poster'>
-  
-  {[0, 1, 2, 3].map(index => (
+    <div className='settings-poster'>
+ 
+      <DragDropContext onDragEnd={handleDrag} >
+        <Droppable droppableId='posters-drop' direction="horizontal">
+          
+          {
+            (provided) => (
+              <div  {...provided.droppableProps}
+                ref={provided.innerRef}
+              
+              className = 'horizontal-droppable-container'
+
+              >
+    
+                {
+  [0, 1, 2, 3].map(index => (
+    <div key={index} className='settings-poster-card'>
+      {posters[index] && (
+
+        <Draggable draggableId={`posters[${index}]`} key={index} index={index} >
+          {
+            (provided) => (
+              <div className='horizontal-draggable-item' {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+     <img src={posters[index]} alt='poster' />
+
+          <p className='x-icon' onClick={() => removePoster(index)}>
+            <FontAwesomeIcon icon={faX} />
+                </p>
+                </div>
+            )
+          }
+        </Draggable>
+      )}
+      <p className='settings-poster-add' onClick={() => setAddPoster(true)}>
+        <FontAwesomeIcon icon={faPlus} />
+      </p>
+    </div>
+  ))
+}
+
+
+              </div>
+            )
+
+            }
+           </Droppable>
+        </DragDropContext>
+
+  {/* {[0, 1, 2, 3].map(index => (
     <div key={index} className='settings-poster-card'>
 
       <DragDropContext onDragEnd={handleDrag}>
@@ -101,7 +183,7 @@ const SettingsPosters = () => {
         <FontAwesomeIcon icon={faPlus} />
       </p>
     </div>
-  ))}
+  ))} */}
 
   {addPoster && (
     <section className='add-poster'>
