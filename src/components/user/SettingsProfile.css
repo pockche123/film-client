@@ -131,11 +131,29 @@
 
 .settings-poster{
     display: flex; 
-    flex-direction: row; 
+    flex-direction: row !important;
     justify-content: space-between;
     position: relative;
     
 }
+
+.horizontal-droppable-item{
+      touch-action: pan-x;
+  user-select: none;
+}
+
+.horizontal-droppable-container {
+  display: flex;
+  flex-direction: row;
+justify-content: space-between !important;
+  width: 100%;
+}
+
+
+
+
+
+
 
 
 
