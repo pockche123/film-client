@@ -1,0 +1,31 @@
+
+
+.settings-avatar{
+    border: 1px solid black; 
+    padding: 20px;
+    text-align: left;
+}
+
+#settings-avatar-user{
+    height: 120px;
+    padding: 75px;
+    border-radius: 70%;
+    transition: 0.2s;
+    color: black;
+}
+
+#settings-avatar-user:hover{
+     cursor: pointer;
+     color: gray;
+     background-color: gainsboro;
+     opacity: 0.7;
+}
+
+#settings-avatar-user::after{
+    content: "Drag and Drop Image";
+}
+
+.settings-avatar-icon{
+    text-align: center;
+}
+
