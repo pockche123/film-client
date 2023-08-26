@@ -1,0 +1,22 @@
+
+
+.settings-auth{
+    border: 1px solid black;
+    text-align: left; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.settings-auth h4{
+    padding-bottom: 20px;
+}
+
+.settings-auth input{
+    height: 35px; 
+    width: 400px;
+}
+
+
+
+
+
