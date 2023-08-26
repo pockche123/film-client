@@ -64,7 +64,7 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
           <>Remaining characters: {100 - bio.length}</>
         </div>
         <div onClick={handleSaveChanges}>
-          <button className='btn btn-secondary'>Save Changes</button>
+          <button className='btn btn-secondary'>SAVE CHANGES</button>
         </div>
       </form>
 
