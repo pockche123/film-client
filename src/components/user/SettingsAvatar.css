@@ -14,6 +14,8 @@
     color: white;
     background-color: grey;
     position: relative; 
+    width: 120px;
+     opacity: 0.7;
 
 }
 
@@ -25,52 +27,52 @@
     border: 1px solid;
         background-image: url("https://as1.ftcdn.net/v2/jpg/01/99/11/80/1000_F_199118049_QJ8e3sYdcuXJfODcA5YjJqKOyypKAKuR.jpg");
         position: relative; 
-
+       transition: 0.3s;
+       width: 100%; 
+       z-index: 0; 
+    
     }
 
-    .settings-avatar-container:hover{
-        background-color: rgba(0, 0, 0, 0.2);
-    }
+  
 
-
-
-
-
-
-.settings-avatar-icon::before {
+.settings-avatar-container::before {
     content: "Drag and Drop Images";
     position: absolute;
-    top: 40%; /* Position it below the element */
-    left: 50%; /* Center it horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
+    top: 40%; 
+    left: 50%; 
+    transform: translateX(-50%); 
     padding: 5px;
-    /* background-color: gainsboro; */
     color: black;
-    /* opacity: 0.7; */
-    display: none; /* Initially hidden */
-    z-index: 100; 
+    display: none; 
+    z-index: 100;
+    
 }
 
-
-.settings-avatar-icon:hover::before {
-    display: block; /* Show on hover */
+.settings-avatar-container:hover{
     cursor: pointer;
+    opacity: 0.4;
+}
+
+
+.settings-avatar-container:hover::before {
+    display: block; 
+    cursor: pointer;
+    
 }
 
 
 
 
 
+.settings-avatar-button{
+    padding: 20px; 
+    align-items: center; 
+    justify-content: center;
+    border: 1px solid; 
+    display: none;
+    /* background-color: black; */
 
-#settings-avatar-user:hover{
-
-     cursor: pointer;
-     color: gray;
-     background-color: gainsboro;
-     opacity: 0.7;
-     
 }
-
 
 
 
@@ -80,3 +82,20 @@
     margin-top: 50px; 
 }
 
+
+.settings-avatar-image img{
+    height: 120px;
+    z-index: 100;
+   position: absolute; 
+   left: 45%; 
+   top: 30%; 
+}
+
+.settings-avatar-image{
+   
+     height: 300px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+position: relative; 
+}
