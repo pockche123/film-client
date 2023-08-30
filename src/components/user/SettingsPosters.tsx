@@ -152,38 +152,7 @@ setPosters(updatedPosters)
            </Droppable>
         </DragDropContext>
 
-  {/* {[0, 1, 2, 3].map(index => (
-    <div key={index} className='settings-poster-card'>
-
-      <DragDropContext onDragEnd={handleDrag}>
-        <Droppable droppableId='posters'>
-          {(provided) => (
-            <div className="posters" {...provided.droppableProps} ref={provided.innerRef} >
-              {
-  posters[index] && (
-    <div className='poster-card'>
-      <img src={posters[index]} alt='poster' />
-
-      <p className='x-icon' onClick={() => removePoster(index)}>
-        <FontAwesomeIcon icon={faX} />
-      </p>
-    </div>
-  )
-}
-
-            </div>
-          ) }
-     
-          </Droppable>
-        </DragDropContext>
-
-
-
-      <p className='settings-poster-add' onClick={() => setAddPoster(true)}>
-        <FontAwesomeIcon icon={faPlus} />
-      </p>
-    </div>
-  ))} */}
+ 
 
   {addPoster && (
     <section className='add-poster'>

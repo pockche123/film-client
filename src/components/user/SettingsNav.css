@@ -4,3 +4,40 @@
     color:darkgray;
     cursor: pointer;
 }
+
+.delete-account {
+    z-index:10; 
+    position: fixed; 
+     display: flex;
+    justify-content: center;
+    align-items: center;
+       top:0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0; 
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.delete-account-container{
+    background-color: gray;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid white;
+    position: relative; 
+    width: 30vw;
+    text-align: left;
+    color: white;
+    font-weight: 200;
+}
+
+.delete-account-buttons{
+    padding-top: 20px; 
+    
+}
+
+.delete-account-buttons button{
+    margin-right: 10px; 
+    width: 130px;
+   margin-left: 10px;
+  
+}
