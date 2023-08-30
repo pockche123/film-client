@@ -37,24 +37,23 @@ const SettingsAvatar = () => {
         // <label htmlFor='avatarInput' className='settings-avatar-container'>
           <div className='settings-avatar-icon'>
             {/* <FontAwesomeIcon icon={faUser} id='settings-avatar-user' /> */}
-
-          <Avatar width={300} height={450} onClose={() => onClose} onCrop={onCrop} />
+          <div className='settings-avatar-icon-container'>
+            <Avatar width={900} height={300} onClose={() => onClose} onCrop={onCrop} />
+            </div>
             <div>
-              <button onClick={saveImage}> Upload</button>
+              <button className="btn btn-secondary" onClick={saveImage}> Upload</button>
               </div>
           </div>
         // </label>
       ) : (
-        <div className='settings-avatar-image'>
+        <div className='settings-avatar-container' onClick={() => setStoreImage([])}>
             <img
               // src={URL.createObjectURL(selectedFile)} 
               src={imgCrop}
               alt='file'
 
             />
-            <div onClick={() => setStoreImage([]) }>
-               <button> Select Avatar</button>
-              </div>
+          
       
           
         </div>

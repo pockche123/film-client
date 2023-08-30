@@ -35,26 +35,29 @@
 
   
 
-.settings-avatar-container::before {
-    content: "Drag and Drop Images";
+ .settings-avatar-container::before {
+    content: "Upload a new profile picture";
     position: absolute;
-    top: 40%; 
+    bottom: 5%; 
     left: 50%; 
     transform: translateX(-50%); 
     padding: 5px;
     color: black;
+    font-size: 30px; 
     display: none; 
     z-index: 100;
+    font-weight: 500; 
+    /* width: 100%; */
     
 }
 
-.settings-avatar-container:hover{
+.settings-avatar-container:hover, .settings-avatar-image:hover{
     cursor: pointer;
     opacity: 0.4;
 }
 
 
-.settings-avatar-container:hover::before {
+.settings-avatar-container:hover::before, .settings-avatar-image:hover::before {
     display: block; 
     cursor: pointer;
     
@@ -74,16 +77,21 @@
 
 }
 
+.settings-avatar-icon-container{
+    padding: 15px; 
+
+}
+
+
 
 
 .settings-avatar-icon{
     text-align: center;
-    /* padding: 50px;  */
-    margin-top: 50px; 
+  
 }
 
 
-.settings-avatar-image img{
+.settings-avatar-container img{
     border-radius: 100%;
     z-index: 100;
    position: absolute; 
@@ -92,6 +100,7 @@
   width:200px;
    height:200px;
    object-fit:cover;
+   z-index: 0; 
 
   
 }
@@ -103,7 +112,6 @@
     justify-content: center;
     align-items: center;
     border: 1px solid;
-position: relative; 
  background-image: url("https://as1.ftcdn.net/v2/jpg/01/99/11/80/1000_F_199118049_QJ8e3sYdcuXJfODcA5YjJqKOyypKAKuR.jpg");
  z-index: 0; 
  position: relative;
