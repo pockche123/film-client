@@ -1,5 +1,8 @@
 
-
+.whole-page{
+  width: 100%; 
+  background-color: black;
+}
 
 .user-profile{
     min-height: 100vh;
@@ -7,6 +10,8 @@
     border: 1px solid black;
     width: 80%;
     margin: 0 10%;
+    background-color: white;
+
 }
 
 .user-header{

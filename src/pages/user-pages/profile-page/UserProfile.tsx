@@ -9,6 +9,7 @@ import ProfileImage from "../../../components/user/ProfileImage";
 import ProfileNav from "../../../components/user/ProfileNav";
 import { Button } from "react-bootstrap";
 import { Paths } from "../../../components/services/Utils/Paths";
+import UserProfileSection from "./UserProfileSection";
 
 const UserProfile = () => {
   const params = useParams();
@@ -42,6 +43,7 @@ const UserProfile = () => {
   return (
     <>
       <Header />
+      <div className="whole-page">
       <section className="user-profile">
         <div className="user-header">
           <article className="user-header-article">
@@ -75,14 +77,24 @@ const UserProfile = () => {
               activeSection={activeSection}
               onSectionChange = {handleSectionChange}
             />
-    
 
           </div>
 
         </div>
+        <div>
+          {
+            activeSection === "profile" && (
+              <section>
+                <UserProfileSection data={data} />
+                
+              </section>
+            )
+          }
+        </div>
 
 
-      </section>
+        </section>
+        </div>
       <Footer />
     </>
   );
