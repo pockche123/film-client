@@ -1,0 +1,40 @@
+
+
+.user-profile-section{
+    padding: 20px 0;
+    display: flex;
+}
+
+.user-profile-posters{
+    text-align: left;
+    width: 70%; 
+    border: 1px solid;
+
+}
+
+.user-profile-poster-container{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-profile-poster-card{
+       width: calc(25% - 10px);
+   border:  1px solid darkgrey;
+   height: 210px;
+   border-radius: 5px;
+   display: block;
+   position:relative;
+}
+
+
+.user-profile-bio{
+    margin-left: 15px; 
+    border: 1px solid; 
+    width: 30%; 
+    text-align: left;
+}
+
+.user-profile-activity{
+    padding: 15px 0;
+}
