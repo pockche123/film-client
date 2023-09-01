@@ -1,0 +1,16 @@
+
+
+.user-nav{
+        padding: 20px 0;
+    display: flex;
+}
+
+
+    .profile-nav-label.active{
+        border-bottom: 4px solid #00BFFF;
+        width: max-content;
+    }
+
+    .profile-nav-label:hover{
+        cursor: pointer;
+    }
