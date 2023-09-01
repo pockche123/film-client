@@ -17,7 +17,7 @@ const UserNetworkNav = ({
     <div className='user-nav'>
       <label
         className={`profile-nav-label ${
-          activeSection === 'profile' ? 'active' : ''
+          activeSection === 'following' ? 'active' : ''
         } `}
         onClick={() => handleNav('following')}
       >
@@ -25,7 +25,7 @@ const UserNetworkNav = ({
       </label>
       <label
         className={`profile-nav-label ${
-          activeSection === 'profile' ? 'active' : ''
+          activeSection === 'followers' ? 'active' : ''
         } `}
         onClick={() => handleNav('followers')}
       >
@@ -33,7 +33,7 @@ const UserNetworkNav = ({
       </label>
       <label
         className={`profile-nav-label ${
-          activeSection === 'profile' ? 'active' : ''
+          activeSection === 'blocked' ? 'active' : ''
         } `}
         onClick={() => handleNav('blocked')}
       >
