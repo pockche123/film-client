@@ -38,7 +38,7 @@ const SettingsAvatar = () => {
           <div className='settings-avatar-icon'>
             {/* <FontAwesomeIcon icon={faUser} id='settings-avatar-user' /> */}
           <div className='settings-avatar-icon-container'>
-            <Avatar width={900} height={300} onClose={() => onClose} onCrop={onCrop} />
+            <Avatar width={840} height={300} onClose={() => onClose} onCrop={onCrop} />
             </div>
             <div>
               <button className="btn btn-secondary" onClick={saveImage}> Upload</button>
