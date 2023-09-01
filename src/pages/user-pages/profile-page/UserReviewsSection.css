@@ -1,20 +1,22 @@
 
 
-.user-film-section{
+
+
+.user-reviews-section{
     margin: 20px 0; 
     border: 1px solid;
     text-align: left;
 }
 
-.user-film-container{
+.user-reviews-container{
     min-height: 200px; 
     border: 1px solid; 
     position: relative; 
 }
 
 
-.user-film-container::before{
-    content:"NO FILMS YET"; 
+.user-reviews-container::before{
+    content:"NO REVIEWS YET"; 
     position: absolute;
     top: 50%; 
     left: 50%; 

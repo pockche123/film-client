@@ -11,6 +11,10 @@ import { Button } from "react-bootstrap";
 import { Paths } from "../../../components/services/Utils/Paths";
 import UserProfileSection from "./UserProfileSection";
 import UserFilmSection from "./UserFilmSection";
+import UserReviewsSection from "./UserReviewsSection";
+import UserWatchList from "./UserWatchList";
+import UserLikes from "./UserLikes";
+import UserNetwork from "./UserNetwork";
 
 const UserProfile = () => {
   const params = useParams();
@@ -100,10 +104,39 @@ const UserProfile = () => {
                 </section>
               )
             }
-
-
-
           </div>
+          <div>
+            {
+              activeSection === 'reviews' && (
+                <section>
+                   <UserReviewsSection data={data}/>
+                </section>
+              )
+            }
+          </div>
+          <div>
+            {
+              activeSection === 'watchlist' && (
+                <section>
+                     <UserWatchList data={data}/>
+                </section>
+              )
+
+            }
+          </div>
+          <div>{activeSection === 'likes' &&
+            <section>
+                 <UserLikes data={data}/>
+            </section>}
+          </div>
+          <div>{activeSection === 'network' &&
+            <section>
+              <UserNetwork data={data}/>
+            </section>}
+          </div>
+
+
+       
 
 
         </section>

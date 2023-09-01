@@ -1,0 +1,83 @@
+
+
+
+
+.user-likes-section{
+    margin: 20px 0; 
+    border: 1px solid;
+    text-align: left;
+}
+
+.user-likes-container{
+    min-height: 200px; 
+    border: 1px solid; 
+    position: relative; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-likes-films{
+    border: 1px solid black; 
+     width: calc(25% - 10px);
+     position: relative;
+}
+
+.user-likes-films-container{
+    position: relative;
+     border: 1px solid black; 
+}
+
+
+.user-likes-films::before{
+    content:"No films yet"; 
+    position: absolute;
+    top: 60%; 
+    left: 45%; 
+    transform: translate(-50%, -50%);
+
+}
+
+.user-likes-reviews{
+    border: 1px solid black; 
+    width: calc(35% - 10px);
+    position: relative; 
+}
+
+.user-likes-reviews::before{
+    content:"No reviews yet"; 
+    position: absolute;
+    top: 60%; 
+    left: 45%; 
+    transform: translate(-50%, -50%);
+
+}
+
+.user-likes-discussions{
+        border: 1px solid black; 
+     width: calc(40% - 10px);
+     position: relative; 
+}
+
+.user-likes-discussions::before{
+    content:"No discussions yet"; 
+    position: absolute;
+    top: 60%; 
+    left: 45%; 
+    transform: translate(-50%, -50%);
+
+}
+
+
+
+
+
+.user-likes-container::before{
+    /* content:"NO LIKES YET";  */
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+
+}
+
