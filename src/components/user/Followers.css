@@ -1,0 +1,16 @@
+
+
+.followers{
+    margin: 20px 0; 
+    border: 1px solid; 
+    min-height: 200px;
+}
+
+.followers::before{
+    content:"You have no followers";
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+
+}

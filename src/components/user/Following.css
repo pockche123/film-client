@@ -1,0 +1,16 @@
+
+
+.following{
+     margin: 20px 0; 
+    border: 1px solid; 
+    min-height: 200px;
+    position: relative; 
+}
+
+.following::before{
+    content:"You have no following";
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
