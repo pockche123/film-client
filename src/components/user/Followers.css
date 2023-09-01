@@ -4,6 +4,7 @@
     margin: 20px 0; 
     border: 1px solid; 
     min-height: 200px;
+    position: relative; 
 }
 
 .followers::before{
