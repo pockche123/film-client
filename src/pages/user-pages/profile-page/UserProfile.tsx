@@ -10,6 +10,7 @@ import ProfileNav from "../../../components/user/ProfileNav";
 import { Button } from "react-bootstrap";
 import { Paths } from "../../../components/services/Utils/Paths";
 import UserProfileSection from "./UserProfileSection";
+import UserFilmSection from "./UserFilmSection";
 
 const UserProfile = () => {
   const params = useParams();
@@ -90,7 +91,19 @@ const UserProfile = () => {
               </section>
             )
           }
-        </div>
+          </div>
+          <div>
+            {
+              activeSection === 'film' && (
+                <section>
+                  <UserFilmSection data={data}/>
+                </section>
+              )
+            }
+
+
+
+          </div>
 
 
         </section>

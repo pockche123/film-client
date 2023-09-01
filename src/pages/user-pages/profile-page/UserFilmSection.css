@@ -1,0 +1,24 @@
+
+
+.user-film-section{
+    padding: 20px 0; 
+    border: 1px solid;
+    text-align: left;
+}
+
+.user-film-container{
+    min-height: 200px; 
+    border: 1px solid; 
+    position: relative; 
+}
+
+
+.user-film-container::before{
+    content:"NO FILMS YET"; 
+  
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+
+}
