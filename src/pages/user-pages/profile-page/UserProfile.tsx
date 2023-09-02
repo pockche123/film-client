@@ -15,14 +15,18 @@ import UserReviewsSection from "./UserReviewsSection";
 import UserWatchList from "./UserWatchList";
 import UserLikes from "./UserLikes";
 import UserNetwork from "./UserNetwork";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
 
 const UserProfile = () => {
   const params = useParams();
   const username = params.username as string;
   const [data, setData] = useState<IUser>();
   const [activeSection, setActiveSection] = useState('profile');
-  const loggedIn = true; 
+  const loggedIn = false; 
   const navigate = useNavigate();
+  const [followClicked, setFollowClicked] = useState(false);
+  const [follow, setFollow] = useState('FOLLOW'); 
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section)
@@ -45,6 +49,25 @@ const UserProfile = () => {
     navigate(Paths.settings, {state:{data}})
   }
 
+  const handleFollow = () => {
+    setFollowClicked(prev => !prev); 
+    console.log(followClicked);
+    follow === 'FOLLOW' ? setFollow('FOLLOWING') : setFollow('FOLLOW');
+  }
+
+
+  const handleMouseEnter = () => {
+  if (followClicked) {
+    setFollow('UNFOLLOW')
+  }
+}
+
+const handleMouseLeave = () => {
+  if (followClicked) {
+    setFollow('FOLLOWING')
+  }
+}
+
   return (
     <>
       <Header />
@@ -55,10 +78,22 @@ const UserProfile = () => {
             <ProfileImage user={data} />
             <div className="user-profile-label">
             <h5 id="user-profile-username">{data?.username}</h5>
-          {  loggedIn && (
-              <div onClick={handleEditProfile}>
-                <Button variant="secondary">Edit Profile</Button>
+          {  loggedIn ? (
+              <div  className="user-edit-profile" onClick={handleEditProfile}>
+                <Button variant="secondary">EDIT PROFILE</Button>
               </div>
+                ) : (
+                    <section className="user-follow-report">
+                    <div className={followClicked ? "user-profile-follow-clicked" : "user-profile-follow"}>
+                      <button className="btn btn-secondary" onClick={() => handleFollow()} onMouseEnter={() => handleMouseEnter()}
+                        onMouseLeave={() => handleMouseLeave()}>{follow} </button>
+                      </div>
+                      <div>
+                        <FontAwesomeIcon icon={faFlag}/>
+
+                      </div>
+
+                      </section>
               )}
               </div>
           </article>
@@ -134,11 +169,6 @@ const UserProfile = () => {
               <UserNetwork data={data}/>
             </section>}
           </div>
-
-
-       
-
-
         </section>
         </div>
       <Footer />
