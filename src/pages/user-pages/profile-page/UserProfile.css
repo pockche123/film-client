@@ -39,12 +39,7 @@
    padding-bottom: 0;
  }
 
- #user-profile-username{
-  
-  /* border: 1px solid black; */
-  margin-right: 30px;
 
- }
 
 
 
@@ -59,3 +54,42 @@
     width: 100%; 
     border: 1px solid black;
 }
+
+.user-profile-label{
+  position: relative; 
+  border: 1px solid; 
+}
+
+ #user-profile-username{
+  
+  margin-right: 30px;
+
+ }
+
+
+ .user-profile-follow, .user-profile-follow-clicked, .user-edit-profile{
+  position:absolute; 
+ 
+ }
+
+
+
+ .user-profile-follow button, .user-profile-follow-clicked button, .user-edit-profile button{
+  font-size: 12px; 
+  font-weight: 750; 
+ }
+
+ .user-profile-follow-clicked button{
+  /* background-color: rgb(255, 115, 0); */
+  background-color: lightseagreen;
+ }
+
+ .user-profile-follow-clicked button:hover{
+    background-color: rgb(255, 115, 0);
+ }
+
+ .user-follow-report{
+   display: flex; 
+   flex-direction: row; 
+ }
+
