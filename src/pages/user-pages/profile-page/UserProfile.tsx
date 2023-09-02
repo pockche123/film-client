@@ -88,7 +88,7 @@ const handleMouseLeave = () => {
                       <button className="btn btn-secondary" onClick={() => handleFollow()} onMouseEnter={() => handleMouseEnter()}
                         onMouseLeave={() => handleMouseLeave()}>{follow} </button>
                       </div>
-                      <div>
+                      <div className="user-flag">
                         <FontAwesomeIcon icon={faFlag}/>
 
                       </div>
