@@ -28,6 +28,8 @@ const UserProfile = () => {
   const [followClicked, setFollowClicked] = useState(false);
   const [follow, setFollow] = useState('FOLLOW'); 
 
+  const [flagClicked, setFlagClicked] = useState(false); 
+
   const handleSectionChange = (section: string) => {
     setActiveSection(section)
   }
@@ -66,7 +68,11 @@ const handleMouseLeave = () => {
   if (followClicked) {
     setFollow('FOLLOWING')
   }
-}
+  }
+  
+  const handleFlagClicked = () => {
+
+  }
 
   return (
     <>
@@ -89,9 +95,18 @@ const handleMouseLeave = () => {
                         onMouseLeave={() => handleMouseLeave()}>{follow} </button>
                       </div>
                       <div className="user-flag">
-                        <FontAwesomeIcon icon={faFlag}/>
-
+                        <FontAwesomeIcon icon={faFlag} onClick={() => setFlagClicked(prev => !prev)} />
+        
                       </div>
+                      <section className="user-flag-options">
+  {flagClicked && (
+    <div className='user-flag-clicked'>
+      <label>Block this member</label>
+      <label>Report this member</label>
+    </div>
+  )}
+</section>
+
 
                       </section>
               )}
