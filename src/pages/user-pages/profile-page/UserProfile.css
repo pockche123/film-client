@@ -99,10 +99,10 @@
 
  .user-flag:hover{
   cursor: pointer;
-  position: absolute; 
+  /* position: absolute;  */
  }
 
- .user-flag:hover::before{
+ .user-flag-icon:hover::before{
   content: "BLOCK OR REPORT"; 
   position: absolute; 
   background-color: grey;
@@ -116,7 +116,7 @@
   left: -40px;
 
  }
- .user-flag:hover::after{
+ .user-flag-icon:hover::after{
   content: ""; 
   position: absolute; 
 border: 6px solid; 
@@ -127,9 +127,9 @@ border: 6px solid;
  }
  
 
-.user-flag-options{
+/* .user-flag-options{
   position: relative; 
-}
+} */
  .user-flag-clicked {
   position: absolute; 
    list-style-type: none;
@@ -138,7 +138,7 @@ background-color: gray;
 color: white;
 font-size: 14px;
 border-radius: 4px;
-left: 130px; 
+left:35px; 
 top: -20px;
 display: flex; 
 flex-direction: column;
@@ -210,3 +210,14 @@ flex-direction: column;
 
 
 
+.block-report-question{
+  margin: 10px 0; 
+}
+
+.block-report-question textarea{
+  width: 100%; 
+  border-radius: 5px; 
+  border: none; 
+  outline: none;
+  height: 100px;
+}
