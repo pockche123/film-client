@@ -30,6 +30,7 @@ const UserProfile = () => {
   const [flagClicked, setFlagClicked] = useState(false)
   const [blocked, setBlocked] = useState(false)
   const [report, setReport] = useState(false)
+  const [message, setMessage] = useState("")
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section)
@@ -105,12 +106,15 @@ const UserProfile = () => {
                         {follow}{' '}
                       </button>
                     </div>
-                    <div className='user-flag'>
+                      <div className='user-flag'>
+                        <div className="user-flag-icon">
                       <FontAwesomeIcon
                         icon={faFlag}
-                        onClick={() => setFlagClicked(prev => !prev)}
-                      />
-                    </div>
+                          onClick={() => setFlagClicked(prev => !prev)}
+                          
+                          />
+                          </div>
+               
                     <section className='user-flag-options'>
                       {flagClicked && (
                         <div className='user-flag-clicked'>
@@ -122,7 +126,8 @@ const UserProfile = () => {
                           </label>
                         </div>
                       )}
-                    </section>
+                        </section>
+                        </div>
                     {blocked && (
                       <div className='block-report'>
                         <section className='block-report-container'>
@@ -145,10 +150,31 @@ const UserProfile = () => {
                     {report && (
                       <div className='block-report'>
                         <section className='block-report-container'>
-                          <h5>Report</h5>
-                          <button onClick={() => setReport(false)}>
-                            Cancel
-                          </button>
+                            <h6>REPORT THIS MEMBER</h6>
+                            <label>You may use this form to report community policy breaches. If the breach is in an individual review, list or comment, please report it directly using the flag icon. This helps our moderators handle your report in the shortest possible time. If you are receiving unwanted interactions from another member, there is an option to block them from their profile page, or from an individual comment.</label>
+                         <div className="block-report-question">
+                          <label>Why are you reporting this member?</label>
+
+
+                            </div>
+                            <div className="block-report-question">
+                              <label>Message (please include links to specific policy breaches if relevant)</label>
+                              <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
+
+                            </div>
+                         
+                          <div className='block-report-buttons'>
+  <button className='btn btn-light' onClick={() => setReport(false)}>
+    CANCEL
+  </button>
+  <button className='btn btn-light' onClick={() => setReport(false)}>
+    REPORT
+  </button>
+</div>
+  
+
+
+
                         </section>
                       </div>
                     )}
