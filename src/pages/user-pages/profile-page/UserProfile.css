@@ -201,6 +201,7 @@ flex-direction: column;
   display: flex; 
   flex-direction:  row;
   justify-content: center;
+  margin-top: 20px;
  }
 
  .block-report-buttons button{
@@ -220,4 +221,10 @@ flex-direction: column;
   border: none; 
   outline: none;
   height: 100px;
+}
+
+#selectOptions{
+  width: 100%; 
+    border: none; 
+  outline: none;
 }

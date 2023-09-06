@@ -17,6 +17,7 @@ import UserLikes from './UserLikes'
 import UserNetwork from './UserNetwork'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFlag } from '@fortawesome/free-solid-svg-icons'
+import ReportOptions from './ReportOptions'
 
 const UserProfile = () => {
   const params = useParams()
@@ -31,6 +32,10 @@ const UserProfile = () => {
   const [blocked, setBlocked] = useState(false)
   const [report, setReport] = useState(false)
   const [message, setMessage] = useState("")
+
+  let optionsArray = ReportOptions; 
+  const [selectedOption, setSelectedOption] = useState(optionsArray[0]); 
+
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section)
@@ -153,7 +158,16 @@ const UserProfile = () => {
                             <h6>REPORT THIS MEMBER</h6>
                             <label>You may use this form to report community policy breaches. If the breach is in an individual review, list or comment, please report it directly using the flag icon. This helps our moderators handle your report in the shortest possible time. If you are receiving unwanted interactions from another member, there is an option to block them from their profile page, or from an individual comment.</label>
                          <div className="block-report-question">
-                          <label>Why are you reporting this member?</label>
+                          <label htmlFor="selectOptions">Why are you reporting this member?</label> <br/>
+                          <select  id="selectOptions" value={selectedOption} onChange={(e) => {setSelectedOption(e.target.value)}}>
+                                {optionsArray.map((option, index) => (
+                                  <option key={index} value={option}>
+                                    {option}
+                                  </option>
+
+                               ))}
+
+                            </select>
 
 
                             </div>
