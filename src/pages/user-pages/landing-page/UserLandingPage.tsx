@@ -18,13 +18,48 @@ const UserLandingPage = () => {
 
   return (
     <>
-      <Header/>
-    <div className="user-landing-page">
+      <Header />
       
-      <h4> Welcome <a href={Paths.userProfile + user.username}>{user?.username}</a>. Here's what we've been watching...</h4>
-      <hr/>
+      <div className="whole-page">
+    <section className="user-landing-page">
+      
+        <article className="user-landing-title">
+          <h4> Welcome <a href={Paths.userProfile + user.username}>{user?.username}</a>. Here's what we've been watching...</h4>
+          </article>
+
+        
+      
+        <article className="popular-films">
+          <h5>POPULAR ON STUDIO</h5>
+            <hr />
+          <div className="popular-films-container">
+            {[0, 1, 2, 3, 4].map(index => (
+              <div className="poster-card">
+
+              </div>
+            ))
+              }
+            </div>
+          </article>
+          
+          <article className="popular-films">
+            <h5>POPULAR REVIEWS THIS WEEK</h5>
+            <hr />
+            <div className="popular-films-container">
+              {
+                [0, 1].map(index => (
+                  <div className="review-card">
+
+                    </div>
+                ))
+              }
+
+            </div>
+
+          </article>
     
-      </div>
+        </section>
+        </div>
       <Footer/>
       </>
   )

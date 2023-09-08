@@ -63,23 +63,6 @@ const SettingsPosters = () => {
   setFoundMatches(foundMatches)
 }
 
-// const handleDrag = (result: any) => {
-//   if (!result.destination) {
-//     return // Drop was not in a valid droppable area
-//   }
-
-//   const sourceIndex = result.source.index
-//   const destinationIndex = result.destination.index
-
-//   // Copy the posters array to avoid mutating the state directly
-//   const updatedPosters = [...posters]
-
-//   // Swap the posters at sourceIndex and destinationIndex
-//   const [movedPoster] = updatedPosters.splice(sourceIndex, 1)
-//   updatedPosters.splice(destinationIndex, 0, movedPoster)
-
-//   setPosters(updatedPosters)
-// }
 
   
   const handleDrag = (result: any) => {
