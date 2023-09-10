@@ -57,6 +57,18 @@ const UserLandingPage = () => {
             </div>
 
           </article>
+
+        <article className='popular-films'>
+  <h5>POPULAR DISUCSSIONS THIS WEEK</h5>
+  <hr />
+  <div className='popular-films-container'>
+    {[1].map(index => (
+      <div className='discussion-card'></div>
+
+    ))}
+  </div>
+</article>
+
     
         </section>
         </div>

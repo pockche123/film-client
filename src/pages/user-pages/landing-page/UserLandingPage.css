@@ -13,7 +13,7 @@
 
 .popular-films{
     text-align: left;
-    margin-bottom: 70px;
+    /* margin-bottom: 70px; */
     
     
 }
@@ -38,12 +38,16 @@ display: flex;
        border: 1px solid; 
     border-radius: 5px;
     height: 200px;
-    width: calc(50% - 30px); 
+    width: calc(50% - 10px); 
     justify-content: space-between;
 
 }
 
 .popular-films h5{
     margin: 20px; 
+    
+}
+
+.discussion-card{
     
 }
