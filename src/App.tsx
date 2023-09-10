@@ -17,8 +17,6 @@ import AccessNotAllowed from './pages/AccessNotAllowed'
 import RequireAuth from './components/auth/RequireAuth'
 import DemoPage from './pages/user-pages/DemoPage'
 import PersistLogin from './components/services/Utils/PersistLogin'
-import Footer from './components/footer/Footer'
-import React from 'react'
 import UserLandingPage from './pages/user-pages/landing-page/UserLandingPage'
 import FilmReviews from './pages/review-page/FilmReviews';
 import UserProfile from './pages/user-pages/profile-page/UserProfile'

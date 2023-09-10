@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import useRefreshToken from '../../../hooks/useRefreshToken'
 import useAuth from '../../../hooks/useAuth'
 import { Outlet } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilm, faUtensils } from '@fortawesome/free-solid-svg-icons'
+import './Loading.css'
 
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -23,7 +26,17 @@ const PersistLogin = () => {
   }, [])
 
   return (
-    <>{!persist ? <Outlet /> : isLoading ? <p>Loading...</p> : <Outlet />}</>
+    <>{!persist ? <Outlet /> : isLoading ? 
+    <section className='loading'>
+  <FontAwesomeIcon className="beating" icon={faFilm}/>
+  <h3>
+    Loading &nbsp;<span>.</span>&nbsp;<span>.</span>&nbsp;<span>.</span>
+  </h3>
+</section>
+
+    
+    
+    : <Outlet />}</>
   )
 }
 
