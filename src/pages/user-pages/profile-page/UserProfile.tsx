@@ -76,7 +76,7 @@ const UserProfile = () => {
           <div>
             {activeSection === 'profile' && (
               <section>
-                <UserProfileSection data={data} />
+                <UserProfileSection user={data} />
               </section>
             )}
           </div>

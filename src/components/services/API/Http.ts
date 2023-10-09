@@ -11,7 +11,8 @@ export const URI = {
   Discussion: site + "/discussion",
     comment: site + "/comment",
     Stream: site  + "/stream",
-    User: site + "/user"
+  User: site + "/user",
+    Favourite: site+"/favourites"
 }
 
 
