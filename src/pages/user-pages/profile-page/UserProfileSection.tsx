@@ -1,12 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IUser } from '../../../interfaces/IUser'
 import './UserProfileSection.css'
+import { getFavouritesByUsername } from '../../../components/services/API/Favourite';
 
 
-const UserProfileSection = ({ data }: { data: IUser | undefined }) => {
+
+const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
 
     const [posters, setPosters] = useState([]); 
+    const [favourites, setFavourites] = useState([]); 
+
+
+    const fetchUserFavourites = async() => {
+      
+        await getFavouritesByUsername(user?.name)
+            .then(res => setFavourites(res.data))
+        .catch(e => console.log(e))
+        
+    }
     
+
+    
+    useEffect(() => {
+
+        fetchUserFavourites();
+
+    }, [])
+
+
+
 
   return (
       <section className="user-profile-section">

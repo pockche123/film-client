@@ -74,7 +74,7 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
           <p>Drag posters to reorder</p>
         </div>
 
-        <SettingsPosters/>
+        <SettingsPosters user={user} />
   
       </section>
     </div>

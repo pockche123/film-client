@@ -7,6 +7,12 @@ export const get = async (URI: string, id: string) =>
   await axios.get(URI + '/' + id)
 
 
+
+export const getByUsername = async (URI: string, username: string| undefined) => 
+  await axios.get(URI + '/user/' + username)
+
+
+
 export const getTitle = async (URI: string, title: string) =>
   await axios.get(URI + '/title/' + title)
 
