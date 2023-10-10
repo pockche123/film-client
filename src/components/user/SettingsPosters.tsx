@@ -1,19 +1,52 @@
 import { faClose, faPlus, faX } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { getAllFilms } from '../services/API/Films'
 import { Film } from '../../interfaces/IFilm'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser';
 import { createFavourites } from '../services/API/Favourite'
+import { getFavouritesByUsername } from '../services/API/Favourite'
 
-const SettingsPosters = (user: {user:IUser}) => {
+
+const SettingsPosters = ({ user }: { user: IUser }) => {
   const [search, setSearch] = useState('')
   const [addPoster, setAddPoster] = useState(false)
   const [foundMatches, setFoundMatches] = useState(Array<Film>)
-  const [posters, setPosters] = useState<Array<string>>([])
+  const [posters, setPosters] = useState<Array<any>>([])
+
+  const[favFilms, setFavFilms] = useState<Array<Film>>()
+
+
+  const fetchFavouritesByUsername = () => {
+
+    getFavouritesByUsername(user?.username)
+      .then(res => {
+        
+        // res.data.map(fav => setFavFilms(fav.film))
+        setFavFilms(res.data.map((fav) => (fav as any).film))
+
+        
+      })
+        .catch(e => console.log(e))
+    
+  }
+
+  useEffect(() => {
+    fetchFavouritesByUsername()
+    
+
+  
+    // favFilms?.map(film => {
+    //   setPosters(prev => [prev, film.poster])
+    // })
+
+  }, [])
+
+
+
 
 
   //need to get username and film
@@ -50,16 +83,27 @@ const SettingsPosters = (user: {user:IUser}) => {
   //     .catch((e) => console.log(e));
 
 
-  const createFavourite = () => {
-    createFavourites()
-  }
+ 
+
+
 
   const handlePoster = (film: Film) => {
     // here is the next change to be made create
+
+ const favourite = {
+    username: user?.username,
+    filmTitle : film.title
+  }
+
+  createFavourites(favourite)
+  .then(res => console.log("FAVOURITE CREATED!!!"))
+  .catch(e => console.log(e))
+
+
     setAddPoster(false)
     setSearch('')
     setFoundMatches([])
-    setPosters(prevPosters => [...prevPosters, film.poster])
+   setPosters(prevPosters => [...prevPosters, film.poster])
   }
 
   const removePoster = (num: number) => {
