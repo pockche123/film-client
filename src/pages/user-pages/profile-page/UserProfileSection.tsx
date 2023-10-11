@@ -9,11 +9,11 @@ const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
 
     const [posters, setPosters] = useState([]); 
     const [favourites, setFavourites] = useState([]); 
-
+  const username = user?.username as string
 
     const fetchUserFavourites = async() => {
       
-        await getFavouritesByUsername(user?.name)
+        await getFavouritesByUsername(username)
             .then(res => setFavourites(res.data))
         .catch(e => console.log(e))
         
