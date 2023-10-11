@@ -56,3 +56,8 @@ export const refreshTheToken = async (URI: string, token: string) =>
 
 export const create = async (URI: string, newObject: any) =>
   await axios.post(URI, newObject)
+
+
+export const deleteObject = async (URI: string, id: string) => 
+    await axios.delete(URI + '/' + id)
+  

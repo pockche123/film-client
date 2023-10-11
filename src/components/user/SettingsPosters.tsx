@@ -7,8 +7,9 @@ import { Film } from '../../interfaces/IFilm'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser';
-import { createFavourites } from '../services/API/Favourite'
+import { createFavourites, deleteFavouriteObject } from '../services/API/Favourite'
 import { getFavouritesByUsername } from '../services/API/Favourite'
+import { IFavourite } from '../../interfaces/IFavourite';
 
 
 const SettingsPosters = ({ user }: { user: IUser }) => {
@@ -17,16 +18,18 @@ const SettingsPosters = ({ user }: { user: IUser }) => {
   const [foundMatches, setFoundMatches] = useState(Array<Film>)
   const [posters, setPosters] = useState<Array<any>>([])
 
-  const[favFilms, setFavFilms] = useState<Array<Film>>()
+  const username = user?.username as string 
+  const [favourites, setFavourites] = useState<Array<IFavourite>>()
 
+  const [favId, setFavId] = useState<string>('')
+  const[isDeleted, setDeleted] = useState<boolean>(false)
 
   const fetchFavouritesByUsername = () => {
 
-    getFavouritesByUsername(user?.username)
+    getFavouritesByUsername(username)
       .then(res => {
         
-        // res.data.map(fav => setFavFilms(fav.film))
-        setFavFilms(res.data.map((fav) => (fav as any).film))
+          setFavourites(res.data)
 
         
       })
@@ -36,12 +39,14 @@ const SettingsPosters = ({ user }: { user: IUser }) => {
 
   useEffect(() => {
     fetchFavouritesByUsername()
-    
 
-  
-    // favFilms?.map(film => {
-    //   setPosters(prev => [prev, film.poster])
-    // })
+    if (favourites) {
+    const filmPosters = favourites.map(fav => fav.film.poster)
+      setPosters(filmPosters);
+    } 
+    
+    console.log("favourites ", favourites)
+
 
   }, [])
 
@@ -67,24 +72,6 @@ const SettingsPosters = ({ user }: { user: IUser }) => {
   }
 
 
-  //eg use
-  // const question = {
-  //     question: questionText.current.value,
-  //     tags: tags,
-  //     answers: answers,
-  //     creator: name,
-  //   };
-
-  //   createQuestion(question)
-  //     .then((res) => {
-  //       //console.log(res)
-  //       navigate(Paths.adminQuestions);
-  //     })
-  //     .catch((e) => console.log(e));
-
-
- 
-
 
 
   const handlePoster = (film: Film) => {
@@ -106,10 +93,27 @@ const SettingsPosters = ({ user }: { user: IUser }) => {
    setPosters(prevPosters => [...prevPosters, film.poster])
   }
 
-  const removePoster = (num: number) => {
+  const removePoster = (num: number, poster: string) => {
     setPosters(
       posters.slice(0, num).concat(posters.slice(num + 1, posters.length))
     )
+
+    const matchingFav = favourites?.find(fav => fav.film.poster === poster);
+    console.log("matchingFav ", matchingFav)
+
+  if (matchingFav) {
+    deleteFavouriteObject(matchingFav.favouriteId)
+  .then(res => {
+    console.log(`Favourite with id ${matchingFav.favouriteId} deleted`)
+  })
+  .catch(e => console.log(e))
+
+
+    }
+
+   
+
+  
   }
 
   const findMatches = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -173,7 +177,7 @@ const SettingsPosters = ({ user }: { user: IUser }) => {
 
                           <p
                             className='x-icon'
-                            onClick={() => removePoster(index)}
+                            onClick={() => removePoster(index, posters[index])}
                           >
                             <FontAwesomeIcon icon={faX} />
                           </p>
