@@ -8,6 +8,11 @@ import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
 import ReviewContentCard from './ReviewContentCard'
 import './ReviewBlock.css'
+import { getAUser } from '../services/API/Users'
+import { getFavouritesByUsername } from '../services/API/Favourite'
+import { IFavourite } from '../../interfaces/IFavourite'
+
+
 
 const ReviewBlock = ({ film }: { film: Film }) => {
   const filmTitle = film.title
@@ -17,7 +22,7 @@ const ReviewBlock = ({ film }: { film: Film }) => {
   const rating = data?.rating ?? 0
   const navigate = useNavigate()
   const [totalReviews, setTotalReviews] = useState(0)
-  const username = data?.userEntity.username
+  const username = data?.userEntity.username as string
   const profilePic = data?.userEntity.profilePic
   const review = data?.review
   const reviewId = data?.reviewId
@@ -27,6 +32,7 @@ const ReviewBlock = ({ film }: { film: Film }) => {
     : ''
   
   const likes = data?.likes
+  const [favourites, setFavourites] = useState<Array<IFavourite>>([])
 
   useEffect(() => {
     getReviewsByFilmTitle(filmTitle).then(res => {
@@ -38,7 +44,35 @@ const ReviewBlock = ({ film }: { film: Film }) => {
 
     console.log('poster , ', poster)
     console.log('this be film', film)
+    fetchFavouritesByUsername()
   })
+
+
+//   const getTheUser = () => {
+//   getAUser(username)
+//     .then(res => {
+//       setData(res.data)
+//       console.log(res.data)
+//     })
+//     .catch(e => console.log(e))
+// }
+
+
+  
+  const fetchFavouritesByUsername = () => {
+  getFavouritesByUsername(username)
+    .then(res => {
+      setFavourites(res.data)
+    })
+    .catch(e => console.log(e))
+}
+
+
+
+
+
+
+
 
   const navToReviewPage = () => {
     navigate(Paths.reviews + filmTitle, {
@@ -53,7 +87,8 @@ const ReviewBlock = ({ film }: { film: Film }) => {
     date,
     review,
     reviewId,
-    likes
+    likes, 
+    favourites
 
   }
 

@@ -8,7 +8,7 @@ export const get = async (URI: string, id: string) =>
 
 
 
-export const getByUsername = async (URI: string, username: string| undefined) => 
+export const getByUsername = async (URI: string, username: string) => 
   await axios.get(URI + '/user/' + username)
 
 

@@ -12,7 +12,7 @@ const ReviewContentCard = ({ props }: { props: any }) => {
   const reviewTextRef = useRef<HTMLDivElement>(null)
   const [isOverflowed, setIsOverflowed] = useState(false)
   const stars = []
-  const { profilePic, username, rating, date, review, reviewId } = props
+  const { profilePic, username, rating, date, review, reviewId,} = props
   const fullStars = Math.floor(rating / 2)
   const hasHalfStar = rating % 2 !== 0
   const formattedDate = date

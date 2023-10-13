@@ -11,21 +11,21 @@ const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
     const [favourites, setFavourites] = useState([]); 
   const username = user?.username as string
 
-    const fetchUserFavourites = async() => {
+    // const fetchUserFavourites = async() => {
       
-        await getFavouritesByUsername(username)
-            .then(res => setFavourites(res.data))
-        .catch(e => console.log(e))
+    //     await getFavouritesByUsername(username)
+    //         .then(res => setFavourites(res.data))
+    //     .catch(e => console.log(e))
         
-    }
+    // }
     
 
     
-    useEffect(() => {
+    // useEffect(() => {
 
-        fetchUserFavourites();
+    //     fetchUserFavourites();
 
-    }, [])
+    // }, [])
 
 
 

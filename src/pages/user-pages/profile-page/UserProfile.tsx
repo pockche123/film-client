@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { getAUser } from '../../../components/services/API/Users'
 import { IUser } from '../../../interfaces/IUser'
 import Header from '../../../components/header/Header'
@@ -14,6 +14,9 @@ import UserWatchList from './UserWatchList'
 import UserLikes from './UserLikes'
 import UserNetwork from './UserNetwork'
 import UserProfileLabel from '../../../components/user/UserProfileLabel'
+import { getFavouritesByUsername } from '../../../components/services/API/Favourite'
+import { IFavourite } from '../../../interfaces/IFavourite'
+import axios from 'axios'
 
 const UserProfile = () => {
   const params = useParams()
@@ -21,6 +24,8 @@ const UserProfile = () => {
   const [data, setData] = useState<IUser>()
   const [activeSection, setActiveSection] = useState('profile')
   const loggedIn = true
+const [favourites, setFavourites] = useState<Array<IFavourite>>([])
+
 
 
   const handleSectionChange = (section: string) => {
@@ -31,14 +36,39 @@ const UserProfile = () => {
     getAUser(username)
       .then(res => {
         setData(res.data)
-        console.log(res.data)
       })
       .catch(e => console.log(e))
   }
 
+  const fetchFavouritesByUsername = () => {
+ 
+      // getFavouritesByUsername(username)
+      //   .then(res => {
+      //     setFavourites(res.data)
+      //   })
+      //   .catch(e => console.log(e))
+    
+}
+
+
   useEffect(() => {
     getTheUser()
+
+
+
+
+
+
+
+
+    // console.log("favourites ",  favourites)
   })
+
+
+
+
+
+
 
 
   return (
@@ -49,7 +79,7 @@ const UserProfile = () => {
           <div className='user-header'>
             <article className='user-header-article'>
               <ProfileImage user={data} />
-              <UserProfileLabel loggedIn={loggedIn} data={data}/>
+              <UserProfileLabel loggedIn={loggedIn} data={data} favourites={favourites} />
             </article>
 
             <article className='user-header-article'>
