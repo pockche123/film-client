@@ -40,28 +40,12 @@ const [favourites, setFavourites] = useState<Array<IFavourite>>([])
       .catch(e => console.log(e))
   }
 
-  const fetchFavouritesByUsername = () => {
- 
-      // getFavouritesByUsername(username)
-      //   .then(res => {
-      //     setFavourites(res.data)
-      //   })
-      //   .catch(e => console.log(e))
-    
-}
+
 
 
   useEffect(() => {
     getTheUser()
 
-
-
-
-
-
-
-
-    // console.log("favourites ",  favourites)
   })
 
 
@@ -79,7 +63,7 @@ const [favourites, setFavourites] = useState<Array<IFavourite>>([])
           <div className='user-header'>
             <article className='user-header-article'>
               <ProfileImage user={data} />
-              <UserProfileLabel loggedIn={loggedIn} data={data} favourites={favourites} />
+              <UserProfileLabel loggedIn={loggedIn} data={data} />
             </article>
 
             <article className='user-header-article'>
