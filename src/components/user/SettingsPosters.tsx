@@ -32,18 +32,10 @@ console.log('fav ', favourites)
       setPosters(filmPosters);
     } 
   
-  // console.log("posters", posters)
+
 
   }, [favourites])
 
-
-//   const fetchFavouritesByUsername = () => {
-//   getFavouritesByUsername(username)
-//     .then(res => {
-//       setFavourites(res.data)
-//     })
-//     .catch(e => console.log(e))
-// }
 
 
 

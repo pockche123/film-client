@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router'
 import { Paths } from '../services/Utils/Paths'
 import { IFavourite } from '../../interfaces/IFavourite'
 
-const UserProfileLabel = ({data, loggedIn, favourites}:{data:IUser|undefined, loggedIn:any, favourites:Array<IFavourite>}) => {
+const UserProfileLabel = ({data, loggedIn}:{data:IUser|undefined, loggedIn:any}) => {
 const [flagClicked, setFlagClicked] = useState(false)
 const [blocked, setBlocked] = useState(false)
 const [report, setReport] = useState(false)
@@ -37,7 +37,7 @@ const handleMouseLeave = () => {
   }
 }
 const handleEditProfile = () => {
-  navigate(Paths.settings, { state: { data, favourites} })
+  navigate(Paths.settings, { state: { data} })
 }
 
 
