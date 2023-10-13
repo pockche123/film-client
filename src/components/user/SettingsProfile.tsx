@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,11 +6,14 @@ import { faPen, faPlus, faClose, faX } from '@fortawesome/free-solid-svg-icons'
 import { getAllFilms } from '../services/API/Films'
 import { Film } from '../../interfaces/IFilm'
 import SettingsPosters from './SettingsPosters'
+import { IFavourite } from '../../interfaces/IFavourite'
+import { getFavouritesByUsername } from '../services/API/Favourite'
 
 const SettingsProfile = ({ user }: { user: IUser }) => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState(user.email)
   const [bio, setBio] = useState('')
+  const [favourites, setFavourites] = useState<Array<IFavourite>>([])
 
 
 
@@ -30,6 +33,21 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
   const handleSubmit = () => {
     //something to do here later
   }
+
+  useEffect(() => {
+  
+    fetchFavouritesByUsername()
+  console.log("favourites ", favourites)
+  })
+
+
+const fetchFavouritesByUsername = () => {
+  getFavouritesByUsername(user.username)
+    .then(res => {
+      setFavourites(res.data)
+    })
+    .catch(e => console.log(e))
+}
 
  
 
@@ -74,7 +92,7 @@ const SettingsProfile = ({ user }: { user: IUser }) => {
           <p>Drag posters to reorder</p>
         </div>
 
-        <SettingsPosters user={user} />
+        <SettingsPosters user={user} favourites={favourites} />
   
       </section>
     </div>

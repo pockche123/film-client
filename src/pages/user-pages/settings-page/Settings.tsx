@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Header from '../../../components/header/Header';
 import Footer from '../../../components/footer/Footer';
@@ -7,18 +7,22 @@ import SettingsNav from '../../../components/user/SettingsNav';
 import SettingsProfile from '../../../components/user/SettingsProfile';
 import SettingsAuth from '../../../components/user/SettingsAuth';
 import SettingsAvatar from '../../../components/user/SettingsAvatar';
+import { getFavouritesByUsername } from '../../../components/services/API/Favourite';
+import { IFavourite } from '../../../interfaces/IFavourite';
 
 const Settings = () => {
     const location = useLocation(); 
     const user = location.state && location.state.data; 
     const username = user.username; 
+     const favourites = location.state && location.state.favourites;
     const [activeSection, setActiveSection] = useState('profile');
-
+    
 
 
     const handleSectionChange = (section: string) => {
   setActiveSection(section)
 }
+
 
 
 
@@ -34,7 +38,7 @@ const Settings = () => {
                 </div>
                 <div>
                     {activeSection === 'profile' && (
-                        <SettingsProfile user={user} />
+                        <SettingsProfile user={user}  />
                     )}
                 </div>
                 <div>

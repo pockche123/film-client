@@ -12,43 +12,39 @@ import { getFavouritesByUsername } from '../services/API/Favourite'
 import { IFavourite } from '../../interfaces/IFavourite';
 
 
-const SettingsPosters = ({ user }: { user: IUser }) => {
+const SettingsPosters = ({ user, favourites}: { user: IUser, favourites:Array<IFavourite> }) => {
   const [search, setSearch] = useState('')
   const [addPoster, setAddPoster] = useState(false)
   const [foundMatches, setFoundMatches] = useState(Array<Film>)
   const [posters, setPosters] = useState<Array<any>>([])
+  // const [favourites, setFavourites] = useState<Array<IFavourite>>([])
 
-  const username = user?.username as string 
-  const [favourites, setFavourites] = useState<Array<IFavourite>>()
 
-  const [favId, setFavId] = useState<string>('')
-  const[isDeleted, setDeleted] = useState<boolean>(false)
-
-  const fetchFavouritesByUsername = () => {
-
-    getFavouritesByUsername(username)
-      .then(res => {
-        
-          setFavourites(res.data)
-
-        
-      })
-        .catch(e => console.log(e))
-    
-  }
+ 
 
   useEffect(() => {
-    fetchFavouritesByUsername()
+
+console.log('fav ', favourites)
+
 
     if (favourites) {
     const filmPosters = favourites.map(fav => fav.film.poster)
       setPosters(filmPosters);
     } 
-    
-    console.log("favourites ", favourites)
+  
+  // console.log("posters", posters)
+
+  }, [favourites])
 
 
-  }, [])
+//   const fetchFavouritesByUsername = () => {
+//   getFavouritesByUsername(username)
+//     .then(res => {
+//       setFavourites(res.data)
+//     })
+//     .catch(e => console.log(e))
+// }
+
 
 
 
@@ -83,7 +79,10 @@ const SettingsPosters = ({ user }: { user: IUser }) => {
   }
 
   createFavourites(favourite)
-  .then(res => console.log("FAVOURITE CREATED!!!"))
+    .then(res => {
+      
+      console.log("FAVOURITE CREATED!!!")
+    })
   .catch(e => console.log(e))
 
 
