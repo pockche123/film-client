@@ -52,7 +52,7 @@ const DiscussionPage = () => {
       .then(res => {
         setComments(res.data)
         setCommentsLength(res.data.length)
-        console.log("comments, ", res.data)
+        // console.log("comments, ", res.data)
       })
       .catch(e => console.log(e))
   }

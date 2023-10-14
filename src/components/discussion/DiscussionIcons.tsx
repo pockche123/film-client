@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
-import { getCommentsByDiscussion } from '../services/API/Comment'
+
 
 const DiscussionIcons = ({
   id,
@@ -19,7 +19,7 @@ const DiscussionIcons = ({
   id: string
   likes: number
     discussionBit: boolean
-  commentsLength: any
+  commentsLength: number
 }) => {
   const [isSmaller, setIsSmaller] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -51,6 +51,10 @@ const DiscussionIcons = ({
     const commentsSection = document.getElementById('comments')
     commentsSection?.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }
+
+  useEffect(() => {
+    console.log("comments ", commentsLength)
+  })
 
 
 

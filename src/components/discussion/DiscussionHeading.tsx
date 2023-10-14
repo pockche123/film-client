@@ -2,14 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../services/Utils/Paths'
 import { format } from 'date-fns'
-import up from '../assets/up.png'
-import {
-  faArrowUpFromBracket,
-  faCircleArrowDown,
-  faCircleArrowUp,
-  faCommentAlt
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './DiscussionHeading.css'
 import DiscussionIcons from './DiscussionIcons'
 
@@ -22,7 +14,7 @@ const DiscussionHeading = ({
   data: any
     comments: any
     handleComment: any
-    commentsLength: any
+    commentsLength: number
 }) => {
   const navigate = useNavigate()
   const film = data?.film
