@@ -2,30 +2,38 @@ import React, { useEffect, useState } from 'react'
 import { IUser } from '../../../interfaces/IUser'
 import './UserProfileSection.css'
 import { getFavouritesByUsername } from '../../../components/services/API/Favourite';
+import { IFavourite } from '../../../interfaces/IFavourite';
 
 
 
 const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
 
-    const [posters, setPosters] = useState([]); 
-    const [favourites, setFavourites] = useState([]); 
+    const [posters, setPosters] = useState<Array<string>>([]); 
+    const [favourites, setFavourites] = useState<Array<IFavourite>>([]); 
   const username = user?.username as string
 
-    // const fetchUserFavourites = async() => {
+    const fetchUserFavourites = async() => {
       
-    //     await getFavouritesByUsername(username)
-    //         .then(res => setFavourites(res.data))
-    //     .catch(e => console.log(e))
+        await getFavouritesByUsername(username)
+            .then(res => setFavourites(res.data))
+        .catch(e => console.log(e))
         
-    // }
+    }
     
 
     
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     fetchUserFavourites();
+      fetchUserFavourites();
+      console.log("fav ", favourites)
 
-    // }, [])
+
+       if (favourites) {
+    const filmPosters = favourites.map(fav => fav.film.poster)
+      setPosters(filmPosters);
+    } 
+
+    }, [favourites])
 
 
 
@@ -38,7 +46,7 @@ const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
            <div className="user-profile-poster-container">
               {[0, 1, 2, 3].map(index => (
                   <div key={index} className="user-profile-poster-card">
-                  
+                  <img src={posters[index]} alt="favourites"/>
                   </div>
               ))}
               </div>
