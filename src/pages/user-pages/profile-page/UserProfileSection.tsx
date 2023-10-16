@@ -6,15 +6,15 @@ import { IFavourite } from '../../../interfaces/IFavourite';
 
 
 
-const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
+const UserProfileSection = ({ user, posters }: { user: IUser|undefined, posters:string[] }) => {
 
-    const [posters, setPosters] = useState<Array<string>>([]); 
+    // const [posters, setPosters] = useState<Array<string>>([]); 
     const [favourites, setFavourites] = useState<Array<IFavourite>>([]); 
   const username = user?.username as string
 
-    const fetchUserFavourites = async() => {
+    const fetchUserFavourites = () => {
       
-        await getFavouritesByUsername(username)
+         getFavouritesByUsername(username)
             .then(res => setFavourites(res.data))
         .catch(e => console.log(e))
         
@@ -24,14 +24,16 @@ const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
     
     useEffect(() => {
 
-      fetchUserFavourites();
-      console.log("fav ", favourites)
+      // fetchUserFavourites();
+      // console.log("fav ", favourites)
+
+      console.log("posters ", posters)
 
 
-       if (favourites) {
-    const filmPosters = favourites.map(fav => fav.film.poster)
-      setPosters(filmPosters);
-    } 
+    //    if (favourites) {
+    // const filmPosters = favourites.map(fav => fav.film.poster)
+    //   setPosters(filmPosters);
+    // } 
 
     }, [favourites])
 
@@ -46,7 +48,7 @@ const UserProfileSection = ({ user }: { user: IUser|undefined }) => {
            <div className="user-profile-poster-container">
               {[0, 1, 2, 3].map(index => (
                   <div key={index} className="user-profile-poster-card">
-                  <img src={posters[index]} alt="favourites"/>
+                  <img src={posters[index]} alt=""/>
                   </div>
               ))}
               </div>

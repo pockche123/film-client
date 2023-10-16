@@ -25,6 +25,7 @@ const UserProfile = () => {
   const [activeSection, setActiveSection] = useState('profile')
   const loggedIn = true
 const [favourites, setFavourites] = useState<Array<IFavourite>>([])
+const [posters, setPosters] = useState<Array<string>>([])
 
 
 
@@ -46,7 +47,22 @@ const [favourites, setFavourites] = useState<Array<IFavourite>>([])
   useEffect(() => {
     getTheUser()
 
+    fetchUserFavourites()
+    if (favourites) {
+  const filmPosters = favourites.map(fav => fav.film.poster)
+  setPosters(filmPosters)
+}
+
+
   })
+
+
+
+  const fetchUserFavourites = () => {
+  getFavouritesByUsername(username)
+    .then(res => setFavourites(res.data))
+    .catch(e => console.log(e))
+}
 
 
 
@@ -63,7 +79,7 @@ const [favourites, setFavourites] = useState<Array<IFavourite>>([])
           <div className='user-header'>
             <article className='user-header-article'>
               <ProfileImage user={data} />
-              <UserProfileLabel loggedIn={loggedIn} data={data} />
+              <UserProfileLabel loggedIn={loggedIn} data={data}/>
             </article>
 
             <article className='user-header-article'>
@@ -90,7 +106,7 @@ const [favourites, setFavourites] = useState<Array<IFavourite>>([])
           <div>
             {activeSection === 'profile' && (
               <section>
-                <UserProfileSection user={data} />
+                <UserProfileSection user={data} posters={posters}/>
               </section>
             )}
           </div>

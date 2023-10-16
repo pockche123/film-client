@@ -18,6 +18,13 @@
     justify-content: space-between;
 }
 
+
+.user-profile-poster-container img{
+    height: 210px; 
+    width: 100%; 
+
+}
+
 .user-profile-poster-card{
        width: calc(25% - 10px);
    border:  1px solid darkgrey;
