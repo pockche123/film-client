@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { getAUser } from '../../../components/services/API/Users'
 import { IUser } from '../../../interfaces/IUser'
 import Header from '../../../components/header/Header'
@@ -16,7 +16,7 @@ import UserNetwork from './UserNetwork'
 import UserProfileLabel from '../../../components/user/UserProfileLabel'
 import { getFavouritesByUsername } from '../../../components/services/API/Favourite'
 import { IFavourite } from '../../../interfaces/IFavourite'
-import axios from 'axios'
+
 
 const UserProfile = () => {
   const params = useParams()
