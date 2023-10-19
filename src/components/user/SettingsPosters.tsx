@@ -8,7 +8,6 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import './SettingsProfile.css'
 import { IUser } from '../../interfaces/IUser';
 import { createFavourites, deleteFavouriteObject } from '../services/API/Favourite'
-import { getFavouritesByUsername } from '../services/API/Favourite'
 import { IFavourite } from '../../interfaces/IFavourite';
 
 
