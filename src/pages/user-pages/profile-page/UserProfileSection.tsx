@@ -6,11 +6,11 @@ import { IFavourite } from '../../../interfaces/IFavourite';
 
 
 
-const UserProfileSection = ({ user, posters }: { user: IUser|undefined, posters:string[] }) => {
+const UserProfileSection = ({ user, username }: { user: IUser|undefined, username: string }) => {
 
-    // const [posters, setPosters] = useState<Array<string>>([]); 
+    const [posters, setPosters] = useState<Array<string>>([]); 
     const [favourites, setFavourites] = useState<Array<IFavourite>>([]); 
-  const username = user?.username as string
+  // const username = user?.username as string
 
     const fetchUserFavourites = () => {
       
@@ -24,16 +24,12 @@ const UserProfileSection = ({ user, posters }: { user: IUser|undefined, posters:
     
     useEffect(() => {
 
-      // fetchUserFavourites();
-      // console.log("fav ", favourites)
+     fetchUserFavourites();
 
-      console.log("posters ", posters)
-
-
-    //    if (favourites) {
-    // const filmPosters = favourites.map(fav => fav.film.poster)
-    //   setPosters(filmPosters);
-    // } 
+       if (favourites) {
+    const filmPosters = favourites.map(fav => fav.film.poster)
+      setPosters(filmPosters);
+    } 
 
     }, [favourites])
 
