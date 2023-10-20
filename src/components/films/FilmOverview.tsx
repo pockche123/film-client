@@ -4,6 +4,7 @@ import AddToWatch from '../../components/icons/AddToWatch'
 import RateFilm from '../../components/icons/RateFilm'
 import TrailerButton from '../../components/icons/TrailerButton'
 import '../../pages/film-page/FilmPage.css'
+import Watched from '../icons/Watched'
 
 const FilmOverview = ({ film }: { film: any }) => {
   const overview = film.overview
@@ -64,6 +65,7 @@ const FilmOverview = ({ film }: { film: any }) => {
                 </b>
               </div>
               <span />
+              <Watched/>
               <LikeMovie />
               <AddToWatch />
               <RateFilm />
