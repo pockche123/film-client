@@ -16,6 +16,8 @@ const Watched = () => {
 
     if (userLoggedIn === true && watchedColour === 'white') {
       setWatchedColour("red")
+
+      
     } else {
       setWatchedColour("white")
 
