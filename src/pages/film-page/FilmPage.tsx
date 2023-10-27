@@ -14,6 +14,7 @@ import Stream from '../../components/streams/Stream'
 import ImageBlock from '../../components/images/ImageBlock'
 
 const FilmPage = () => {
+  //figure out how to get the logged in user 
   const [activeSection, setActiveSection] = useState('overview')
   const [socialActiveSection, setSocialActiveSection] = useState('reviews')
   const location = useLocation()

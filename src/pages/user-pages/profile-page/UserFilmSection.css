@@ -21,3 +21,16 @@
     transform: translate(-50%, -50%);
 
 }
+
+
+.watched-film{
+ 
+
+}
+
+.watched-film img{
+    max-height: 100px; 
+max-width: 50px;
+
+
+}
