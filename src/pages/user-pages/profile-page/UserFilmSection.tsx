@@ -26,18 +26,24 @@ const UserFilmSection = ({ data }: { data: IUser | undefined }) => {
     
   return (
       <section className="user-film-section">
-          <h6>WATCHED</h6>"
+          <h6>WATCHED</h6>
           <hr />
-      <div className="user-film-container">
-        {
-          watchedData.map( d => 
+
+      
+        <div className={watchedData.length > 0? "user-film-container"  : "no-user-film-container"}>
+          {
+            watchedData.map(d =>
               <div className="watched-film">
-              <img src={d?.film.poster}  alt="poster"/>
+                <img src={d?.film.poster} alt="poster" />
               </div>
             )
-        }
+          }
               
-          </div>
+        </div>
+      
+
+
+      
    </section>
   )
 }
