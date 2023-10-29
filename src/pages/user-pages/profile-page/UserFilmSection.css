@@ -9,11 +9,12 @@
 .user-film-container{
     min-height: 200px; 
     border: 1px solid; 
-    position: relative; 
+    display: flex; 
+    flex-wrap: wrap;
 }
 
 
-.user-film-container::before{
+.no-user-film-container::before{
     content:"NO FILMS YET"; 
     position: absolute;
     top: 50%; 
@@ -23,14 +24,19 @@
 }
 
 
-.watched-film{
- 
-
+.no-user-film-container{
+     min-height: 200px; 
+     position: relative;
 }
+
+
 
 .watched-film img{
     max-height: 100px; 
 max-width: 50px;
+margin-left: 10px; 
+margin-bottom: 10px;
+border-radius: 1px solid black;
 
 
 }
