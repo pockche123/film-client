@@ -8,6 +8,10 @@
 
 }
 
+.review-card{
+    width: 100%; 
+}
+
 .review-poster{
     width: 30%;
     position: sticky; 
