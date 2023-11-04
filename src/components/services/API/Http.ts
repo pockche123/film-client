@@ -13,7 +13,8 @@ export const URI = {
     Stream: site  + "/stream",
   User: site + "/user",
     Favourite: site+"/favourites", 
-    Watched: site+"/watched"
+    Watched: site+"/watched",
+    WatchList: site+"/watchList"
 }
 
 

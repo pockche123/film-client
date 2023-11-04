@@ -3,6 +3,9 @@ import { IUser } from '../../../interfaces/IUser'
 import './UserWatchList.css'
 
 const UserWatchList = ({ data }: { data: IUser | undefined }) => {
+
+
+  
     
 
   return (
