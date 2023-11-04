@@ -15,11 +15,15 @@
 }
 
 
-.user-watchlist-container::before{
+.noUser-watchlist-container::before{
     content:"NO WATCHLIST YET"; 
     position: absolute;
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%);
 
+}
+
+.watchList-card img{
+    height: 100px; 
 }
