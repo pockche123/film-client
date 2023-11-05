@@ -1,230 +1,204 @@
-
-.whole-page{
-  width: 100%; 
+.whole-page {
+  width: 100%;
   background-color: black;
 }
 
-.user-profile{
-    min-height: 100vh;
-    padding: 1%; 
-    border: 1px solid black;
-    width: 80%;
-    margin: 0 10%;
-    background-color: white;
-
+.user-profile {
+  min-height: 100vh;
+  padding: 1%;
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 10%;
+  background-color: white;
 }
 
-.user-header{
-  border: 1px solid; 
-  padding: 1%; 
+.user-header {
+  border: 1px solid;
+  padding: 1%;
   /* margin: 0 10%; */
- box-sizing: border-box;
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- }
-
-
-
- 
- .user-header article:nth-child(1){
-    flex: 1 1 auto;
-     border: 1px solid black;
-     display: flex;
- }
-
- .user-profile-label{
-   /* border: 1px solid black; */
-   padding: 30px;
-   padding-bottom: 0;
- }
-
-
-
-
-
-  .user-header article:nth-child(n+2){
-    margin-left: 4%;
-    margin-top: 2%;
-    flex: 0 0 auto; 
- }
-
-  
-.user-nav{
-    width: 100%; 
-    border: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.user-profile-label{
-  position: relative; 
-  border: 1px solid; 
+.user-header article:nth-child(1) {
+  flex: 1 1 auto;
+  border: 1px solid black;
+  display: flex;
 }
 
- #user-profile-username{
-  
+.user-profile-label {
+  /* border: 1px solid black; */
+  padding: 30px;
+  padding-bottom: 0;
+}
+
+.user-header article:nth-child(n + 2) {
+  margin-left: 4%;
+  margin-top: 2%;
+  flex: 0 0 auto;
+}
+
+.user-nav {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.user-profile-label {
+  position: relative;
+  border: 1px solid;
+}
+
+#user-profile-username {
   margin-right: 30px;
+}
 
- }
+.user-profile-follow,
+.user-profile-follow-clicked,
+.user-edit-profile {
+  position: absolute;
+}
 
+.user-profile-follow button,
+.user-profile-follow-clicked button,
+.user-edit-profile button {
+  font-size: 12px;
+  font-weight: 750;
+}
 
- .user-profile-follow, .user-profile-follow-clicked, .user-edit-profile{
-  position:absolute; 
- 
- }
-
-
-
- .user-profile-follow button, .user-profile-follow-clicked button, .user-edit-profile button{
-  font-size: 12px; 
-  font-weight: 750; 
- }
-
- .user-profile-follow-clicked button{
+.user-profile-follow-clicked button {
   /* background-color: rgb(255, 115, 0); */
   background-color: lightseagreen;
- }
+}
 
- .user-profile-follow-clicked button:hover{
-    background-color: rgb(255, 115, 0);
- }
+.user-profile-follow-clicked button:hover {
+  background-color: rgb(255, 115, 0);
+}
 
- .user-flag{
-  position: absolute; 
-  right: -10px; 
+.user-flag {
+  position: absolute;
+  right: -10px;
   bottom: 8px;
   border: 1px solid;
   padding: 3px;
+}
 
- }
-
- .user-flag:hover{
+.user-flag:hover {
   cursor: pointer;
   /* position: absolute;  */
- }
+}
 
- .user-flag-icon:hover::before{
-  content: "BLOCK OR REPORT"; 
-  position: absolute; 
+.user-flag-icon:hover::before {
+  content: "BLOCK OR REPORT";
+  position: absolute;
   background-color: grey;
   width: 100px;
-  font-size: 10px; 
+  font-size: 10px;
   font-weight: 600;
-  color:white;
-  padding:5px 5px; 
+  color: white;
+  padding: 5px 5px;
   border-radius: 5px;
   top: -25px;
   left: -40px;
-
- }
- .user-flag-icon:hover::after{
-  content: ""; 
-  position: absolute; 
-border: 6px solid; 
+}
+.user-flag-icon:hover::after {
+  content: "";
+  position: absolute;
+  border: 6px solid;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-color: gray transparent transparent;  
- }
- 
+  border-color: gray transparent transparent;
+}
 
 /* .user-flag-options{
   position: relative; 
 } */
- .user-flag-clicked {
-  position: absolute; 
-   list-style-type: none;
-   white-space: nowrap;
-background-color: gray;
-color: white;
-font-size: 14px;
-border-radius: 4px;
-left:35px; 
-top: -20px;
-display: flex; 
-flex-direction: column;
- }
+.user-flag-clicked {
+  position: absolute;
+  list-style-type: none;
+  white-space: nowrap;
+  background-color: gray;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  left: 35px;
+  top: -20px;
+  display: flex;
+  flex-direction: column;
+}
 
-
-
- .user-flag-clicked label{
+.user-flag-clicked label {
   padding: 10px;
+}
 
- }
-
- .user-flag-clicked label:nth-child(1){
+.user-flag-clicked label:nth-child(1) {
   border-bottom: 1px solid white;
- }
+}
 
-.user-flag-clicked label:hover{
-   cursor: pointer;
-   background-color: #5a5858;
-   color: gainsboro;
-   border-radius: 5px;
- }
+.user-flag-clicked label:hover {
+  cursor: pointer;
+  background-color: #5a5858;
+  color: gainsboro;
+  border-radius: 5px;
+}
 
-
- .user-flag-clicked::after{
-  content:""; 
-  position: absolute; 
-  border: 10px solid; 
+.user-flag-clicked::after {
+  content: "";
+  position: absolute;
+  border: 10px solid;
   left: -14%;
   top: 27%;
   border-color: transparent gray transparent transparent;
- }
-
-
- .block-report{
-  position: fixed; 
-  z-index: 1000; 
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-      top:0; 
-    left: 0; 
-    bottom: 0; 
-    right: 0; 
-    background-color: rgba(0,0,0,0.6);
-
- }
-
- .block-report-container{
-
-  background-color: gainsboro;
- padding: 20px; 
- border-radius: 5px;
- width: 50vw;
- text-align: left;
- }
-
-
- .block-report-buttons{
-  display: flex; 
-  flex-direction:  row;
-  justify-content: center;
-  margin-top: 20px;
- }
-
- .block-report-buttons button{
-  margin-left: 20px;
- }
-
-
-
-
-.block-report-question{
-  margin: 10px 0; 
 }
 
-.block-report-question textarea{
-  width: 100%; 
-  border-radius: 5px; 
-  border: none; 
+.block-report {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.block-report-container {
+  background-color: gainsboro;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50vw;
+  text-align: left;
+}
+
+.block-report-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.block-report-buttons button {
+  margin-left: 20px;
+}
+
+.block-report-question {
+  margin: 10px 0;
+}
+
+.block-report-question textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
   outline: none;
   height: 100px;
 }
 
-#selectOptions{
-  width: 100%; 
-    border: none; 
+#selectOptions {
+  width: 100%;
+  border: none;
   outline: none;
 }
