@@ -1,29 +1,32 @@
-
-
-
-
-.user-watchlist-section{
-    margin: 20px 0; 
-    border: 1px solid;
-    text-align: left;
+.user-watchlist-section {
+  margin: 20px 0;
+  border: 1px solid;
+  text-align: left;
 }
 
-.user-watchlist-container{
-    min-height: 200px; 
-    border: 1px solid; 
-    position: relative; 
+.user-watchlist-container {
+  min-height: 200px;
+  border: 1px solid;
+  position: relative;
 }
 
+.user-watchlist-container::before {
+  content: "NO WATCHLIST YET";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-.noUser-watchlist-container::before{
-    content:"NO WATCHLIST YET"; 
-    position: absolute;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
+.watchlist-container{
+  display: flex; 
 
 }
 
-.watchList-card img{
-    height: 100px; 
+.watchList-card{
+  margin-right: 10px;
+  
+}
+.watchList-card img {
+  height: 200px;
 }
